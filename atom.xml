@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Jeff]]></title>
+  <subtitle><![CDATA[Insist on!]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://www.caijinfeng.com/"/>
+  <updated>2015-01-26T04:37:16.121Z</updated>
+  <id>http://www.caijinfeng.com/</id>
+  
+  <author>
+    <name><![CDATA[jeff]]></name>
+    <email><![CDATA[369756941@qq.com]]></email>
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[exit]]></title>
+    <link href="http://www.caijinfeng.com/2015/01/15/exit/"/>
+    <id>http://www.caijinfeng.com/2015/01/15/exit/</id>
+    <published>2015-01-15T09:31:10.000Z</published>
+    <updated>2015-01-23T05:27:38.000Z</updated>
+    <content type="html"><![CDATA[<p>走了！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>走了！</p>
+]]>
+    </summary>
+    
+      <category term="情感" scheme="http://www.caijinfeng.com/tags/%E6%83%85%E6%84%9F/"/>
+    
+      <category term="人生" scheme="http://www.caijinfeng.com/tags/%E4%BA%BA%E7%94%9F/"/>
+    
+      <category term="生活与感悟" scheme="http://www.caijinfeng.com/categories/%E7%94%9F%E6%B4%BB%E4%B8%8E%E6%84%9F%E6%82%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[my new post]]></title>
+    <link href="http://www.caijinfeng.com/2015/01/13/my-new-post/"/>
+    <id>http://www.caijinfeng.com/2015/01/13/my-new-post/</id>
+    <published>2015-01-13T11:46:01.000Z</published>
+    <updated>2015-01-14T05:12:57.000Z</updated>
+    <content type="html"><![CDATA[<p>正文正文正文正文正文</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>正文正文正文正文正文</p>
+]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <link href="http://www.caijinfeng.com/2015/01/13/hello-world/"/>
+    <id>http://www.caijinfeng.com/2015/01/13/hello-world/</id>
+    <published>2015-01-13T07:30:15.000Z</published>
+    <updated>2015-01-14T07:09:53.000Z</updated>
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2>
+<h3 id="Create_a_new_post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a><br><a id="more"></a></p>
+<h3 id="Run_server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2>
+<h3 id="Create_a_new_post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a><br>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[readme]]></title>
+    <link href="http://www.caijinfeng.com/2013/05/29/readme/"/>
+    <id>http://www.caijinfeng.com/2013/05/29/readme/</id>
+    <published>2013-05-28T23:56:29.000Z</published>
+    <updated>2015-01-20T09:17:57.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="Light">Light</h1>
+<p>Default theme for <a href="http://zespia.tw/hexo/" target="_blank" rel="external">Hexo</a>.</p>
+<h2 id="Install">Install</h2>
+<p>Execute the following command and modify <code>theme</code> in <code>_config.yml</code> to <code>light</code>.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/hexojs/hexo-theme-light.git themes/light</div></pre></td></tr></table></figure>
+
+<p><a id="more"></a></p>
+<h2 id="Update">Update</h2>
+<p>Execute the following command to update Light.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> themes/light</div><div class="line">git pull</div></pre></td></tr></table></figure>
+
+<h2 id="Config">Config</h2>
+<p>Default config:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line">  Home: /</div><div class="line">  Archives: /archives</div><div class="line"></div><div class="line">widgets:</div><div class="line">-<span class="ruby"> search</span></div><div class="line">-<span class="ruby"> category</span></div><div class="line">-<span class="ruby"> tag</span></div><div class="line">-<span class="ruby"> twitter</span></div><div class="line"></div><div class="line">excerpt_link: Read More</div><div class="line"></div><div class="line">twitter:</div><div class="line">  username:</div><div class="line">  show_replies: false</div><div class="line">  tweet_count: 5</div><div class="line"></div><div class="line">addthis:</div><div class="line">  enable: true</div><div class="line">  pubid:</div><div class="line">  facebook: true</div><div class="line">  twitter: true</div><div class="line">  google: true</div><div class="line">  pinterest: true</div><div class="line"></div><div class="line">fancybox: true</div><div class="line"></div><div class="line">google_analytics:</div><div class="line">rss:</div></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>menu</strong> - Main navigation menu</li>
+<li><strong>widget</strong> - Widgets displaying in sidebar</li>
+<li><strong>excerpt_link</strong> - “Read More” link text at the bottom of excerpted articles</li>
+<li><strong>twitter</strong> - Twitter widget config<ul>
+<li><strong>username</strong> - Twitter username</li>
+<li><strong>show_replies</strong> - Enable displaying replies</li>
+<li><strong>tweet_count</strong> - Tweets display in widget</li>
+</ul>
+</li>
+<li><strong>addthis</strong> - Share buttons at the buttom of articles (Powered by <a href="https://www.addthis.com" target="_blank" rel="external">AddThis</a>)<ul>
+<li><strong>enable</strong> - Enable share buttons</li>
+<li><strong>pubid</strong> - Profile ID of <a href="https://www.addthis.com" target="_blank" rel="external">AddThis</a></li>
+<li><strong>facebook</strong> - Enable Facebook button</li>
+<li><strong>twitter</strong> - Enable Twitter button</li>
+<li><strong>google</strong> - Enable Google+ button</li>
+<li><strong>pinterest</strong> - Enable Pinterest button</li>
+</ul>
+</li>
+<li><strong>fancybox</strong> - Enable <a href="http://fancyapps.com/fancybox/" target="_blank" rel="external">Fancybox</a></li>
+<li><strong>google_analytics</strong> - Google Analytics ID</li>
+<li><strong>rss</strong> - RSS subscription link (change if using Feedburner)</li>
+</ul>
+<h2 id="Features">Features</h2>
+<h3 id="Gallery_Post">Gallery Post</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">---</span></div><div class="line">layout: photo</div><div class="line">title: Gallery Post</div><div class="line">photos:</div><div class="line"><span class="bullet">- </span>http://i.minus.com/ibobbTlfxZgITW.jpg</div><div class="line"><span class="header">- http://i.minus.com/iedpg90Y0exFS.jpg</span></div><div class="line">---</div></pre></td></tr></table></figure>
+
+<h3 id="Link_Post">Link Post</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">---</span></div><div class="line">layout: link</div><div class="line">title: Link Post</div><div class="line"><span class="header">link: http://www.google.com/</span></div><div class="line">---</div></pre></td></tr></table></figure>
+
+<h3 id="Tweet_Widget">Tweet Widget</h3>
+<h3 id="Fancybox">Fancybox</h3>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Light">Light</h1>
+<p>Default theme for <a href="http://zespia.tw/hexo/" target="_blank" rel="external">Hexo</a>.</p>
+<h2 id="Install">Install</h2>
+<p>Execute the following command and modify <code>theme</code> in <code>_config.yml</code> to <code>light</code>.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/hexojs/hexo-theme-light.git themes/light</div></pre></td></tr></table></figure>
+
+<p>]]>
+    
+    </summary>
+    
+      <category term="博客" scheme="http://www.caijinfeng.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="文章" scheme="http://www.caijinfeng.com/tags/%E6%96%87%E7%AB%A0/"/>
+    
+      <category term="blog" scheme="http://www.caijinfeng.com/categories/blog/"/>
+    
+  </entry>
+  
+</feed>
