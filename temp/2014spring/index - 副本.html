@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>春节接力</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1.0, minimal-ui" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no, email=no" />
+	<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+	<div class="page-spring-fest">
+		<div class="slide-wrap" id="slide">
+			<div class="list">
+				<img src="images/f1.png" class="font-img bounceInDown">
+			</div>
+			<div class="list">
+				<img src="images/f2-1.png" class="font-img">
+				<img src="images/f2-2.png" class="font-img">
+			</div>
+			<div class="list">
+				<div class="item-1"></div>
+				<div class="item-2"></div>
+				<img src="images/f3-1.png" class="font-img">
+				<img src="images/f3-2.png" class="font-img">
+			</div>
+			<div class="list">
+				<div class="item-1"></div>
+				<div class="item-2"></div>
+				<img src="images/f4-1.png" class="font-img">
+				<img src="images/f4-2.png" class="font-img">
+			</div>
+			<div class="list">
+				<img src="images/f5.png" class="font-img">
+				<img src="images/f5-handprint.png" class="handprint">
+				<img src="images/logo-white.png" class="logo-white">
+			</div>
+			<div class="list">
+				<p class="count">您是第00001256位参与者</p>
+				<a href="javascript:;" class="btn-markedness">一起传递爱</a>
+				<div class="lucky-prize">
+					<p>第<span>2,015</span>位接力者获得<span>20元礼品卡；</span></p>
+					<p>第<span>2,0150</span>位接力者获得<span>201元礼品卡；</span></p>
+					<p>第<span>2,01500</span>位接力者获得<span>2015元礼品卡；</span></p>
+					<p>第<span>2,015000</span>位接力者获得<span>20150元礼品卡；</span></p>
+					<p class="last"><a href="javascript:;">活动规则&gt;</a></p>
+				</div>
+				<img src="images/logo-white.png" class="logo-white">
+			</div>
+		</div>
+	</div>
+	<!-- <script src="js/slider-1.0.js"></script> -->
+	<!-- <script src="js/zepto.js"></script> -->
+	<!-- <script src="js/swipe.js"></script> -->
+	<script src="js/jquery-1.10.1.min.js"></script>
+	<script src="js/idangerous.swiper.js"></script>
+	<script>
+	(function(window){
+
+		function rem(){
+			document.documentElement.style.fontSize = (document.documentElement.clientWidth > 512 ? 512 : document.documentElement.clientWidth) + "px";
+		}
+		rem();
+		window.addEventListener("resize",function(event){
+			rem();
+		},false);
+
+		// Slider( {
+		// 	el: dom(".slide-wrap"),
+		// 	direction: "v",
+		// 	infinite: false,
+		// 	percent: 1/4
+		// } );
+
+		// dom(".btn-markedness").addEventListener("touchstart",function(event){
+
+		// 	event.preventDefault();
+		// 	alert(1);
+
+		// },false);
+
+	})(window);
+
+	(function($){
+
+		  var mySwiper = new Swiper('.page-spring-fest',{
+		    pagination: '.pagination',
+		    paginationClickable: true,
+		    mode: 'vertical'
+		  })
+
+	})(jQuery);
+	</script>
+</body>
+</html>

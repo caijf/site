@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0; minimal-ui " />
+	<meta name="format-detection" content="telephone=no,email=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+	<title>Jeff's Blog</title>
+	<style>
+	body,div,h1,h2,ul,ol,p{ margin: 0; padding: 0;}
+	html,body{ height: 100%;}
+	ul,ol{ list-style: none;}
+
+	body{ color: #444; font-size: 100%; font-family: Hiragino Sans GB,Microsoft YaHei,tahoma,arial,simsun; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
+	a{ text-decoration: none; color: #000;}
+	a:hover{ color: #06c;}
+
+	/**
+	 * common
+	 * by cjf 20150123
+	 */
+	.fn-clearfix{ *zoom:1;}
+	.fn-clearfix:before,.fn-clearfix:after{ display: table; content: "";}
+	.fn-clearfix:after{ clear: both;}
+	.fn-vm{ position: relative; display: table; width: 100%; height: 100%;}
+	.fn-vm-inner{ display: table-cell; vertical-align: middle; text-align: center;}
+
+	/* fonts */
+	@font-face{font-family:'jeff';src:url('fonts/jeff.eot?ezbtzx');src:url('fonts/jeff.eot?#iefixezbtzx') format('embedded-opentype'),url('fonts/jeff.woff?ezbtzx') format('woff'),url('fonts/jeff.ttf?ezbtzx') format('truetype'),url('fonts/jeff.svg?ezbtzx#jeff') format('svg');font-weight:normal;font-style:normal;}
+[class^="icon-"],[class*=" icon-"]{font-family:'jeff';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;}
+	.icon-github:before{content:"\e600";}
+	.icon-vcard:before{content:"\e601";}
+	.icon-newspaper:before{content:"\e602";}
+	.icon-sina-weibo:before{content:"\e604";}
+
+
+	/**
+	 * page
+	 * by cjf 20150123
+	 */
+	.main{ position: relative; width: 100%; height: 100%; min-height:500px; overflow: hidden; background:#000 url(images/bg1.jpg) no-repeat; background-size: cover; background-attachment: fixed;}
+	.main header{ width: 100%; height: 100%; color: #fff; background: rgba(0,0,0,.6);}
+	.main .fn-vm{ opacity: 1; width: 70%; margin: 0 auto;}
+	.main h1{ padding: 20px 0; font: 50px/1.2 Latha,tahoma;}
+	.main p{ font: 18px/30px Latha,tahoma;}
+	/* nav */
+	.nav{ margin-top: 20px;}
+	.nav a{ margin: 0 15px; color: #999;}
+	.nav a:hover{ color: #fff;}
+	.nav span[class^="icon-"]{ font-size: 30px;}
+
+	/* subscription */
+	.subscription{ padding-bottom: 50px;}
+	.subscription .title{ padding: 50px 0;/* background: #f7f7f7;*/}
+	.subscription .title h2{ line-height: 56px; font-size:46px; font-weight: normal;}
+	.subscription .title .sub{ padding-top: 30px; line-height: 2; font-size: 18px;}
+
+	.subscription .con{ width: 980px; margin: 0 auto;}
+	.subscription .group{ float: left; width: 40%; padding: 0 5%;}
+	.subscription .group li{ position: relative; white-space: nowrap; overflow: hidden;}
+	.subscription .group li a{ display: block; margin-right: 120px; overflow: hidden; text-overflow:ellipsis;}
+	.subscription .group li span{ position: absolute; right: 0; top: 0; color: #999;}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<header>
+			<div class="fn-vm">
+				<div class="fn-vm-inner">
+					<h1>Jeff's Blog</h1>
+					<p>人恒过，然后能改；困于心，衡于虑，而后作；征于色，发于声，而后喻。</p>
+					<div class="nav">
+						<a href="https://github.com/caijf" target="_blank" title="Github"><span class="icon-github"></span></a>
+						<a href="javascript:;" target="_blank" title="博客"><span class="icon-newspaper"></span></a>
+						<a href="http://weibo.com/caijeff" target="_blank" title="新浪微博"><span class="icon-sina-weibo"></span></a>
+						<a href="javascript:;" target="_blank" title="关于我"><span class="icon-vcard"></span></a>
+					</div>
+				</div>
+			</div>
+		</header>
+	</div>
+	<div class="subscription">
+		<div class="title">
+			<div class="fn-vm">
+				<div class="fn-vm-inner">
+					<h2>我的订阅</h2>
+					<p class="sub">多读书多看报少玩游戏多睡觉</p>
+				</div>
+			</div>
+		</div>
+		<div class="con fn-clearfix">
+			<div class="group">
+				<h3>张鑫旭-鑫空间-鑫生活</h3>
+				<ul>
+					<li>
+						<a href="http://www.zhangxinxu.com/wordpress/2015/01/css-page-scrollbar-toggle-center-no-jumping/" target='_blank'>小tip:纯CSS让overflow:auto页面滚动条出现时不跳动</a>
+						<span>2015-01-25</span>
+					</li>
+
+					<li>
+						<a href="http://www.zhangxinxu.com/wordpress/2015/01/content-loading-height-change-css3-transition-better-experience/" target='_blank'>内容loading加载后高度变化CSS3 transition体验优化</a>
+						<span>2015-01-22</span>
+					</li>
+
+					<li>
+						<a href="http://www.zhangxinxu.com/wordpress/2015/01/chrome-absolute-display-visibility-render-bug/" target='_blank'>Chrome absolute绝对定位display/visibility渲染bug</a>
+						<span>2015-01-09</span>
+					</li>
+
+					<li>
+						<a href="http://www.zhangxinxu.com/wordpress/2014/12/css3-animation-dotting-loading/" target='_blank'>再说CSS3 animation实现点点点loading动画</a>
+						<span>2014-12-28</span>
+					</li>
+
+					<li>
+						<a href="http://www.zhangxinxu.com/wordpress/2014/12/css3-cursor-zoom-in-zoom-out-grab-grabbing/" target='_blank'>CSS3 cursor属性值zoom-in/zoom-out,grab/grabbing实例</a>
+						<span>2014-12-22</span>
+					</li>
+				</ul>
+			</div>
+			<div class="group">
+				<h3>FEX 百度 Web 前端研发部</h3>
+				<ul>
+					<li>
+						<a href="http://fex.baidu.com/blog/2015/01/chrome-stalled-problem-resolving-process/" target='_blank'>关于请求被挂起页面加载缓慢问题的追查</a>
+						<span>2015-01-14</span>
+					</li>
+
+					<li>
+						<a href="http://fex.baidu.com/blog/2015/01/fis-muffin/" target='_blank'>Muffin=FIS+Browserify</a>
+						<span>2015-01-05</span>
+					</li>
+
+					<li>
+						<a href="http://fex.baidu.com/blog/2014/11/another-fis-solusition-jello/" target='_blank'>又一个强大的 FIS 解决方案 jello</a>
+						<span>2014-11-24</span>
+					</li>
+
+					<li>
+						<a href="http://fex.baidu.com/blog/2014/11/when-amd-meet-fis/" target='_blank'>当 AMD 遇上 FIS</a>
+						<span>2014-11-20</span>
+					</li>
+
+					<li>
+						<a href="http://fex.baidu.com/blog/2014/10/jdists/" target='_blank'>jdists 前端代码块预处理工具</a>
+						<span>2014-10-28</span>
+					</li>
+				</ul>
+			</div>
+			<div class="group">
+				<h3>阮一峰的网络日志</h3>
+				<ul>
+					<li>
+						<a href="http://www.ruanyifeng.com/blog/2015/01/border-of-copyright.html" target='_blank'>版权的边界</a>
+						<span>2015-01-06</span>
+					</li>
+
+					<li>
+						<a href="http://www.ruanyifeng.com/blog/2014/12/my-blog-book.html" target='_blank'>《如何变得有思想》出版了！</a>
+						<span>2014-12-19</span>
+					</li>
+
+					<li>
+						<a href="http://www.ruanyifeng.com/blog/2014/12/unicode.html" target='_blank'>Unicode与JavaScript详解</a>
+						<span>2014-12-11</span>
+					</li>
+
+					<li>
+						<a href="http://www.ruanyifeng.com/blog/2014/11/basic-charts.html" target='_blank'>数据可视化：基本图表</a>
+						<span>2014-11-29</span>
+					</li>
+
+					<li>
+						<a href="http://www.ruanyifeng.com/blog/2014/11/compiler.html" target='_blank'>编译器的工作过程</a>
+						<span>2014-11-11</span>
+					</li>
+				</ul>
+			</div>
+			<div class="group">
+				<h3>腾讯CDC</h3>
+				<ul>
+					<li>
+						<a href="http://cdc.tencent.com/?p=8344" target='_blank'>好的设计，是一种尊重–Design is respect. InteriorDesign中文版10周年系列展览观感</a>
+						<span>2014-12-17</span>
+					</li>
+
+					<li>
+						<a href="http://cdc.tencent.com/?p=8337" target='_blank'>【赶花人的蜜】礼品背后的故事</a>
+						<span>2014-12-03</span>
+					</li>
+
+					<li>
+						<a href="http://cdc.tencent.com/?p=8311" target='_blank'>服务设计 @ CDC</a>
+						<span>2014-12-01</span>
+					</li>
+
+					<li>
+						<a href="http://cdc.tencent.com/?p=8285" target='_blank'>2014“UXDC年度峰会”暨“香港设计营商周”高峰论坛报名中</a>
+						<span>2014-11-25</span>
+					</li>
+
+					<li>
+						<a href="http://cdc.tencent.com/?p=8239" target='_blank'>【设计经验传承】图标设计初阶要先型</a>
+						<span>2014-10-21</span>
+					</li>
+				</ul>
+			</div>
+			<div class="group">
+				<h3>博客 - 伯乐在线</h3>
+				<ul>
+					<li>
+						<a href="http://blog.jobbole.com/83610/" target='_blank'>10个重要的Linux ps命令实战</a>
+						<span>2015-01-26</span>
+					</li>
+
+					<li>
+						<a href="http://blog.jobbole.com/83597/" target='_blank'>SQL Server调优系列玩转篇二（如何利用汇聚联合提示（Hint）引导语句运行）</a>
+						<span>2015-01-26</span>
+					</li>
+
+					<li>
+						<a href="http://blog.jobbole.com/83495/" target='_blank'>如何知道什么时候该辞职了？</a>
+						<span>2015-01-25</span>
+					</li>
+
+					<li>
+						<a href="http://blog.jobbole.com/83496/" target='_blank'>Proxygen：Facebook开源的 C++ HTTP 框架</a>
+						<span>2015-01-25</span>
+					</li>
+
+					<li>
+						<a href="http://blog.jobbole.com/83544/" target='_blank'>国外程序员访谈：学无止境</a>
+						<span>2015-01-25</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

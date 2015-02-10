@@ -4,7 +4,11 @@
   <subtitle><![CDATA[Insist on!]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.caijinfeng.com/"/>
+<<<<<<< HEAD
   <updated>2015-01-14T10:27:14.091Z</updated>
+=======
+  <updated>2015-01-26T04:37:16.121Z</updated>
+>>>>>>> 9d6ced9ae334cdf97a40d7bd8ba473b4338bd89e
   <id>http://www.caijinfeng.com/</id>
   
   <author>
@@ -15,6 +19,30 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
+<<<<<<< HEAD
+=======
+    <title><![CDATA[exit]]></title>
+    <link href="http://www.caijinfeng.com/2015/01/15/exit/"/>
+    <id>http://www.caijinfeng.com/2015/01/15/exit/</id>
+    <published>2015-01-15T09:31:10.000Z</published>
+    <updated>2015-01-23T05:27:38.000Z</updated>
+    <content type="html"><![CDATA[<p>走了！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>走了！</p>
+]]>
+    </summary>
+    
+      <category term="情感" scheme="http://www.caijinfeng.com/tags/%E6%83%85%E6%84%9F/"/>
+    
+      <category term="人生" scheme="http://www.caijinfeng.com/tags/%E4%BA%BA%E7%94%9F/"/>
+    
+      <category term="生活与感悟" scheme="http://www.caijinfeng.com/categories/%E7%94%9F%E6%B4%BB%E4%B8%8E%E6%84%9F%E6%82%9F/"/>
+    
+  </entry>
+  
+  <entry>
+>>>>>>> 9d6ced9ae334cdf97a40d7bd8ba473b4338bd89e
     <title><![CDATA[my new post]]></title>
     <link href="http://www.caijinfeng.com/2015/01/13/my-new-post/"/>
     <id>http://www.caijinfeng.com/2015/01/13/my-new-post/</id>
@@ -71,7 +99,11 @@
     <link href="http://www.caijinfeng.com/2013/05/29/readme/"/>
     <id>http://www.caijinfeng.com/2013/05/29/readme/</id>
     <published>2013-05-28T23:56:29.000Z</published>
+<<<<<<< HEAD
     <updated>2015-01-14T07:09:17.000Z</updated>
+=======
+    <updated>2015-01-20T09:17:57.000Z</updated>
+>>>>>>> 9d6ced9ae334cdf97a40d7bd8ba473b4338bd89e
     <content type="html"><![CDATA[<h1 id="Light">Light</h1>
 <p>Default theme for <a href="http://zespia.tw/hexo/" target="_blank" rel="external">Hexo</a>.</p>
 <h2 id="Install">Install</h2>
@@ -131,7 +163,13 @@
     
     </summary>
     
+<<<<<<< HEAD
       <category term="博客，文章" scheme="http://www.caijinfeng.com/tags/%E5%8D%9A%E5%AE%A2%EF%BC%8C%E6%96%87%E7%AB%A0/"/>
+=======
+      <category term="博客" scheme="http://www.caijinfeng.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="文章" scheme="http://www.caijinfeng.com/tags/%E6%96%87%E7%AB%A0/"/>
+>>>>>>> 9d6ced9ae334cdf97a40d7bd8ba473b4338bd89e
     
       <category term="blog" scheme="http://www.caijinfeng.com/categories/blog/"/>
     

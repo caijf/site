@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+// normalize
+//----------
+
+*{ margin: 0; padding: 0;}
+*,:before,:after{ box-sizing:border-box;}
+ul,ol{ list-style:none;}
+img{ width: 100%; vertical-align: top;}
