@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>神武手游问答</title>
+	<style>
+	body,div,h1,h2{ margin: 0; padding: 0;}
+	table{ border-collapse: collapse;}
+
+	body{ font:14px/1.5 microsoft yahei,tahoma; color: #333;}
+
+	#header{ padding: 50px 0 80px; background-color: #1abc9c; color: #fff; text-align: center;}
+	#header h1{ margin: 10px 0 20px; font-weight: normal;}
+	#header blockquote{ display: block; max-width: 600px; padding: 30px 0; margin: 0 auto;}
+	#header .search { width: 60%; max-width: 600px; margin: 0 auto;}
+
+	.search input{ width: 100%; padding: 10px; border:5px solid #16a085; box-sizing:border-box; text-align: center;}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<h1>神武手游 · 科举问答</h1>
+		<blockquote>我们的目标是提供这样一个神武手游科举问答库</blockquote>
+		<div class="search">
+			<input type="text" id="searchInput" placeholder="请输入搜索关键词" />
+		</div>
+	</div>
+
+	<div id="faqList"></div>
+
+	<script src="jquery.min.js"></script>
+	<script src="underscore-min.js"></script>
+	<script src="data.js"></script>
+	<script>
+		//test
+		// for(var i = 0; i < data.length;i++){
+		// 	console.log(data[i].id+" "+data[i].question)
+		// }
+	</script>
+
+    <script id="t2" type="text/template">
+    	<table>
+        <%_.each(data, function(item) {%>
+        	<tbody data-id="<%=item.id%>">
+	            <tr>
+	                <th>
+	                    <%=item.id%>
+	                </th>
+	                <td>
+	                    <%=item.question%>
+	                </td>
+	            </tr>
+	            <tr>
+	            	<th></th>
+	                <td>
+	                    <%=item.result%>
+	                </td>
+	            </tr>
+	    	</tbody>
+        <%});%></table>
+    </script>
+    <script>
+    	var $faqList = $("#faqList");
+        $faqList.html( _.template($("#t2").html(), data));
+
+        //搜索
+        var listArr = $faqList.find("tbody"),
+        	listKeyword = [];
+        listArr.each(function(i){
+        	listKeyword.push($.trim($(this).find("td:eq(0)").html()).slice(2));
+        })
+
+        var timeoutSearch = null;
+        $("#searchInput").on("keydown",function(){
+        	clearTimeout(timeoutSearch);
+        }).on("keyup",function(){
+        	var $this = $(this),
+        		value = $.trim($this.val());
+        	timeoutSearch = setTimeout(function(){
+        		listArr.each(function(i,ele){
+        			if($.trim($(this).find("td:eq(0)").html()).slice(2).indexOf(value) > -1){
+        				listArr.eq(i).show();
+        			}else{
+        				listArr.eq(i).hide();
+        			}
+        		})
+        	},300);
+        })
+    </script>
+</body>
+</html>
