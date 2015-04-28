@@ -1,0 +1,127 @@
+/* reset 样式重置 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {margin:0;padding:0;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+audio,canvas,video {display: inline-block;*display: inline;*zoom: 1;}
+body,button,input,select,textarea{font:12px/1.5 tahoma,arial,\5b8b\4f53;}
+input,select,textarea{font-size:100%;}
+table{border-collapse:collapse;border-spacing:0;}
+th{text-align:inherit;}
+fieldset,img{border:0;}
+iframe{display:block;}
+abbr,acronym{border:0;font-variant:normal;}
+del {text-decoration:line-through;}
+address,caption,cite,code,dfn,em,th,var {font-style:normal;font-weight:500;}
+ol,ul {list-style:none;}
+caption,th {text-align:left;}
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+a:hover {text-decoration:underline;}
+ins,a {text-decoration:none;}
+
+body{ font: 12px/1.5 tahoma,Arial, Helvetica, sans-serif; background: #fff;}
+a{ color: #39c;}
+select{ padding: 3px;}
+button{ cursor: pointer;}
+input,select,textarea{ outline: none;}
+.clearfix{ *zoom:1;}
+.clearfix:before,.clearfix:after{ display: table; content:"";}
+.clearfix:after{ clear:both;}
+
+	/* 纯CSS按钮 */
+.btns{ display: inline-block; padding:4px 12px; font:14px/20px Simsun,tahoma; border:1px solid #ccc; background: #f5f5f5; color: #666; vertical-align: middle; 
+	border-radius: 4px; box-shadow:0 1px 1px rgba(0,0,0,0.3);}
+.btns:hover{ text-decoration: none; background: #f0f0f0; cursor: pointer;}
+.btns:focus,.btns:active{ outline:0;}
+.btns.disabled{ opacity: 0.65; filter:alpha(opacity=65);}
+.btns.disabled:hover{ cursor: default;}
+.btns-large{ padding: 11px 19px; font-size: 18px;}
+.btns-small{ padding: 2px 10px; font-size: 12px;}
+.btns-mini{ padding: 0 6px; font-size: 10px;}
+
+.btns-primary{ color: #fff; border-color: #4897ce; background: #39c;
+ background-image: -moz-linear-gradient(top,#2a9ed6,#2696cd);
+ background-image: -webkit-gradient(linear,0 0,0 100%,from(#2a9ed6),to(#2696cd));
+ background-image: -o-linear-gradient(top,#2a9ed6,#2696cd);
+ background-image: linear-gradient(top,#2a9ed6,#2696cd);}
+.btns-primary:hover{ text-decoration: none; background: #39c; border-color:#4c9fd9;
+ background-image: -moz-linear-gradient(top,#2fa9e4,#2ca0d9);
+ background-image: -webkit-gradient(linear,0 0,0 100%,from(#2fa9e4),to(#2ca0d9));
+ background-image: -o-linear-gradient(top,#2fa9e4,#2ca0d9);
+ background-image: linear-gradient(top,#2fa9e4,#2ca0d9);}
+.btns-primary:active{ text-decoration: none; background: #39c; border-color:#4c9fd9;
+ background-image: -moz-linear-gradient(top,#39c,#069);
+ background-image: -webkit-gradient(linear,0 0,0 100%,from(#39c),to(#069));
+ background-image: -o-linear-gradient(top,#39c,#069);
+ background-image: linear-gradient(top,#39c,#069);}
+
+/* table 表格 */
+.table{ width: 100%; border-collapse:collapse; border-spacing: 0; font-size: 12px; text-align: left; border: 1px solid #eee; color: #808080;}
+.table tr{ line-height: 20px;}
+.table th,.table td{ padding: 6px 9px; border-bottom: 1px solid #eee;}
+.table th{ font-weight: bold; background-color: #eee;}
+.table tr.even{ background: #f4f9fe;}
+.table tr.hover{ background: #9ff;}
+
+	/* table-noborder 无边框 */
+.table-noborder{ border: 0 none;}
+.table-noborder th,.table-noborder td{ border:0 none;}
+
+/* txt */
+.txt{ padding: 3px; border:1px solid #ccc; font: 12px/14px Simsun; color: #666;}
+.txt-url{ width: 80%;}
+.txt-error{ border-color:#d80000; background-color: #fff3f3;}
+.txt-focus{ border-color:#06c; background-color: #fff3f3;}
+
+/* tiptext 提示文字 */
+.tiptext{ color: #666;}
+
+/* pop 弹窗 */
+.pop{ z-index: 1001; position: fixed; width: 680px; left: 50%; top: 50%; margin-left: -340px; margin-top: -250px; border:5px solid #999; border-color: rgba(0,0,0,0.5);}
+.pop-close{ z-index: 3; position: absolute; right: 15px; top: 10px; width: 24px; height: 24px; overflow: hidden; font: 32px/20px tahoma; color: #999;}
+.pop-close:hover{ text-decoration: none; color: #555;}
+.pop-con{ z-index: 2; position: relative; padding:20px; background: #fff; *zoom:1;}
+.pop-con textarea{ width: 96%; padding: 2%; margin-top: 20px;}
+.pop-con .btn-outer{ margin-top: 10px;}
+.pop-con .btn-outer .tiptext{ margin-left: 20px; vertical-align: middle;}
+.pop-con .btn-outer .tiptext-success{ color: green;}
+.pop-con .btn-outer .tiptext-warn{ color: yellow;}
+.pop-con .btn-outer .tiptext-error{ color: red;}
+#mask,#mask iframe{ z-index: 999; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);}
+
+
+
+/* 页面布局 */
+.top{ position: fixed; top:0; left: 0; width: 100%; height: 50px; background-color: #f4f4f4;}
+.top button{ position: absolute; top: 15px; right: 10px;}
+.top h1{ padding:0 10px; line-height: 50px;}
+
+.container{ margin-top: 50px;}
+.container .table{ table-layout: fixed; word-wrap:break-word; word-break:break-all;}
+
+.box-checkbox{}
+.box-checkbox input{ vertical-align: middle; margin: 0 3px 0 0;}
+
+.box-filter{ border:1px solid #e8e8e8;}
+.box-filter .item{ padding: 8px; padding-left: 100px; border-bottom:1px dashed #dedede; line-height: 20px; background-color: #f8f8f8;}
+.box-filter .item-last{ border-bottom: 0 none;}
+.box-filter .item .tiptext{ margin: 10px 0;}
+.box-filter .title{ float: left; display:inline; width: 90px; margin-left: -90px; margin-top: 11px; color: #999;}
+.box-filter ul{}
+.box-filter ul li{ float: left; max-width: 90px; margin:10px 20px 10px 0; overflow: hidden; border-radius:10px;}
+.box-filter ul li a{ display: block; padding: 0 8px; overflow: hidden; white-space: nowrap; text-overflow:ellipsis; color: #666;}
+.box-filter ul li a:hover{ color: #06c; text-decoration: none;}
+.box-filter ul li a.current,.box-filter ul li a.current:hover{ background-color: #06c; color: #fff; cursor: default; }
+.box-filter ul li a.disabled,.box-filter ul li a.disabled:hover{ color: #ccc; cursor: default; }
+
+.box-filter .box-checkbox label{ margin-right: 20px; color: #666;}
+.box-filter .box-search{ margin: 10px 0;}
+.box-filter .box-search .box-checkbox{ margin-left: 20px;}
+
+
+.box-search{}
+.box-search button{ padding: 0 10px;}
+
+.box-result{}
+.box-result .table{ table-layout: fixed;}
+.box-result .tiptext{ padding: 50px 0; font:16px/1.5 Microsoft YaHei; color: #999; text-align:center;}
