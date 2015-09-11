@@ -1,0 +1,9 @@
+{
+  "name": "H5cPublic",
+  "version": "1.0.0",
+  "main": "",
+  "dependencies": {
+    "zepto": "~1.1.6",
+    "require": "*"
+  }
+}

@@ -1,0 +1,18 @@
+.gitignore 
+.idea
+node_modules
+bower_components
+_old
+_new
+
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.log
+*.orig
+*.rej
+*.swo
+*.swp
+*.vi
+*.zip
+*~
