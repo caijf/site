@@ -11,13 +11,38 @@ module.exports = function(grunt) {
             js: {
                 options: {
                     banner: '/* <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-                    dir: 'js/'
+                    dir: 'js/',
+                    separator: ';'
                 },
                 src: [
                     '<%= concat.js.options.dir %>*.js'
                 ],
 
                 dest: 'dist/js/<%= fileName %>.js'
+            },
+            css: {
+                src: ['css/*.css'],
+                dest: 'dist/css/<%= fileName %>.css'
+            }
+        },
+
+        less: { 
+            main: {
+                expand: true,
+                cwd: './less/',
+                src: ['**/*.less'],
+                dest: './css/',
+                ext: '.css' 
+            } 
+        },
+
+        cssmin: {
+            options: {
+                banner: '/* <%= pkg.name %><%= grunt.template.today("yyyy-mm-dd") %> */\n'
+            },
+            build: {
+                src: 'dist/css/<%= fileName %>.css',
+                dest: 'dist/css/<%= fileName %>.min.css'
             }
         },
 
@@ -31,10 +56,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // qunit: {
-        //     files: ['test/*.html']
-        // },
-
         jshint: {
             // files: ['gruntfile.js', 'js/bar.js', 'dist/*.js'],
             files: ['js/bar.js'],
@@ -46,10 +67,16 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            files: ['js/*.js', 'css/*.css'],
-            tasks: ['concat', 'uglify', 'jshint'],
-            options: {
-                debounceDelay: 250
+            js: {
+                files: ['js/*.js'],
+                tasks: ['concat:js', 'uglify', 'jshint']
+            },
+            css: {
+                options: {
+                    livereload: true
+                },
+                files: ['less/*.less', 'css/*.css'],
+                tasks: ['less', 'concat:css', 'cssmin']
             }
         }
     });
@@ -57,19 +84,22 @@ module.exports = function(grunt) {
     // 负责合并
     grunt.loadNpmTasks( 'grunt-contrib-concat' );
 
+    // 负责编译less
+    grunt.loadNpmTasks( 'grunt-contrib-less' );
+
+    // 负责压缩css
+    grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
+
     // 负责压缩js
     grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 
-    // 负责单元测试
-    // grunt.loadNpmTasks( 'grunt-contrib-qunit' );
-
-    // 负责代码验证
+    // 负责js代码验证
     grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 
     // 负责监听文件变化
     grunt.loadNpmTasks( 'grunt-contrib-watch' );
 
     // Default task(s).
-    grunt.registerTask( 'default', ['concat', 'uglify', 'jshint'] );
-    grunt.registerTask( 'watch', ['concat', 'uglify', 'jshint'] );
+    grunt.registerTask( 'default', ['less', 'concat', 'cssmin', 'uglify', 'jshint'] );
+    grunt.registerTask( 'w', 'watch' );
 };
