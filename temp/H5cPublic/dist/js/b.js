@@ -1,0 +1,1 @@
+!function(a,b){"function"==typeof define&&define.amd&&define("b",[],b),cPublic.base.__CheckNamespace(a,b())}(this,function(){function a(){}return a.prototype.run=function(){$("body").append("<div>pull</div>")},{pull:a}});

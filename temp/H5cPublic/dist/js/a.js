@@ -1,0 +1,1 @@
+define(["base"],function(a){return"This is a && require "});

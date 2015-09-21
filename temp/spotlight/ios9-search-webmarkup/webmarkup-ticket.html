@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>景点门票,景区门票查询预订【携程旅行】</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <meta property="og:type" content="product" />
+    <meta property="og:title" content="门票" />
+    <meta property="og:url" content="http://m.ctrip.com/webapp/ticket/index" />
+    <meta property="og:image" content="http://dimg04.c-ctrip.com/images/fd/activity/g2/M06/2B/E4/Cghzf1SBxgyAanNEAALPqpX3Gew530_C_280_158_Q60.jpg" />
+    <meta property="og:description" content="携程旅行门票频道提供知名景点门票在线预订服务，在这里寻找您所在城市周边景区打折门票价格和优惠报价,文体娱乐演出门票应有尽有，手机查旅游门票、门票价格，预订、团购门票尽在携程旅行门票频道。" />
+    <meta property="og:site_name" content="携程" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="http://dimg04.c-ctrip.com/images/fd/activity/g2/M06/2B/E4/Cghzf1SBxgyAanNEAALPqpX3Gew530_C_280_158_Q60.jpg" />
+    <meta name="twitter:title" content="门票，来自 携程" />
+    <meta name="twitter:description" content="携程旅行门票频道提供知名景点门票在线预订服务，在这里寻找您所在城市周边景区打折门票价格和优惠报价,文体娱乐演出门票应有尽有，手机查旅游门票、门票价格，预订、团购门票尽在携程旅行门票频道。"/>
+    <meta name="description" content="携程旅行门票频道提供知名景点门票在线预订服务，在这里寻找您所在城市周边景区打折门票价格和优惠报价,文体娱乐演出门票应有尽有，手机查旅游门票、门票价格，预订、团购门票尽在携程旅行门票频道。" />
+
+    <link rel="canonical" href="http://m.ctrip.com/webapp/ticket/index" />
+    <link rel="image_src" href="http://dimg04.c-ctrip.com/images/fd/activity/g2/M06/2B/E4/Cghzf1SBxgyAanNEAALPqpX3Gew530_C_280_158_Q60.jpg" />
+
+    <style>
+    *{ margin: 0; padding: 0;}
+    ul{ list-style: none;}
+    h1,h2,h3{font-family:Arial,"Lucida Grande",Verdana,"Microsoft YaHei",hei!important; font-weight: normal;}
+    i,em,dfn{ font-style: normal;}
+    dfn{ font-family: Arial;}
+    a { color: #333; text-decoration: none;}
+
+    body{ font-family: Arial,"Lucida Grande",Verdana,"Microsoft YaHei",hei; background: #efefef;}
+
+    .ellips_line2{display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;-webkit-line-clamp: 2;}
+
+    .icon-res,.icon-dollar,.icon-hot{position:absolute;top:-5px;left:-5px;z-index:2;width:52px;padding-left:2px;height:18px;line-height:18px;font-size:12px;text-align:center;color:#fff}
+    .icon-res{background:rgba(114,196,16,.98)}
+    .icon-dollar{background:rgba(255,90,0,.98)}
+    .icon-hot{top:0;left:0;width:auto;padding:0 2px;background-color:#ffa200}
+    .icon-res:before,.icon-dollar:before,.icon-hot:before{content:"";position:absolute}
+    .icon-res:before{right:-10px;z-index:-1;width:0;height:0;border-left:5px solid rgba(114,196,16,.98);border-top:9px solid rgba(114,196,16,.98);border-right:5px solid transparent;border-bottom:9px solid transparent}
+    .icon-dollar:before{right:-10px;z-index:-1;width:0;height:0;border-left:5px solid rgba(255,90,0,.98);border-top:9px solid rgba(255,90,0,.98);border-right:5px solid transparent;border-bottom:9px solid transparent}
+    .icon-hot:before{right:-10px;z-index:-1;width:0;height:0;border-left:5px solid #ffa200;border-top:9px solid #ffa200;border-right:5px solid transparent;border-bottom:9px solid transparent}
+
+    .ticket_tag_price{font-size:12px;color:#ff7d13}
+    .ticket_tag_price dfn{font-size:15px}
+    .ticket_tag_price i{margin-right:1px;font-size:20px;line-height:21px}
+
+    .ticket_hot_list img,.ticket_overseas_list img,.ticket_things_list img,.ticket_nearby_list img,.ticket_activity_list img,.wifi_box img,.ticket_hotel_box img{width:100%;position:static}
+    .ticket_hot_list .img-box,.ticket_overseas_list .img-box,.ticket_activity_list .img-box,.wifi_box .img-box,.ticket_hotel_box .img-box{position:relative}
+    .ticket_hot_box h2,.ticket_overseas_box h2{margin:15px 0 10px;line-height:16px;text-align:center}
+    .ticket_overseas_box h2{background-position:center -26px}
+    .ticket_hot_list{background:#fff}
+    .ticket_hot_list li{position:relative;float:left;padding:2% 2% 1.5%;width:50%;line-height:0;border-top:1px solid #eee; background: #fff;box-sizing:border-box}
+    .ticket_hot_list li:nth-child(2n){border-left:1px solid #eee;}
+    .ticket_hot_list li:nth-child(even):before{left:0;top:0;bottom:0;width:1px;border-left-width:1px}
+    .ticket_hot_list li:nth-last-child(1),.ticket_hot_list li:nth-last-child(2){padding-bottom:3%}
+    .ticket_hot_list .icon-res,.ticket_hot_list .icon-dollar{top:0;left:0}
+    .ticket_hot_img{position:relative;height:0;padding-bottom:56.45%}
+    .ticket_hot_text{padding:6px 0 0;background:#fff}
+    .ticket_hot_text h3{font-size:13px;line-height:16px;color:#000;margin-bottom:5px}
+    .ticket_hot_text .ellips{height:16px}
+    .ticket_hot_text .ellips_line2{height:32px}
+    .ticket_hot_text p{line-height:16px;height:21px}
+    .ticket_hot_text .ticket_tag_price{float:right}
+    .ticket_hot_text .ticket_tag_price dfn{font-size:18px}
+    .ticket_hot_text .old_price{display:inline-block;padding-top:5px;font-size:12px;color:#797979}
+    .ticket_hot_text .old_price dfn{margin-right:2px}
+    .ticket_hot_text .old_price span{position:relative;padding:0 1px}
+    .ticket_hot_text .old_price span:before{position:absolute;content:"";top:6px;left:0;width:100%;height:1px;background:rgba(121,121,121,.4)}
+    </style>
+</head>
+<body>
+    <ul class="ticket_hot_list overflow" id="c-ticket-index-cp-container">
+        <li data-id="2322003" data-name="【纯玩】上海“东方明珠”+“船游浦江”+“城隍庙”+“外滩”+“南京路”精品巴士一日游（上海成团）" data-ttd="1">
+            <a href="http://m.ctrip.com/webapp/activity/dest/t2322003.html?ctm_ref=tkt_hp_sp_dl_7&amp;from=http%3A%2F%2Fm.ctrip.com%2Fwebapp%2Fticket%2Findex" lizard-catch="off">
+                <div class="ticket_hot_img">
+                    <span class="f-logo"></span>
+                    <div class="img-box">
+                        <img src="http://dimg04.c-ctrip.com/images/fd/activity/g2/M06/2B/E4/Cghzf1SBxgyAanNEAALPqpX3Gew530_C_280_158_Q60.jpg" class="fade-in" itemprop="image"></div>
+                </div>
+                <div class="ticket_hot_text">
+                    <h3 class="ellips_line2">【纯玩】上海“东方明珠”+“船游浦江”+“城隍庙”+“外滩”+“南京路”精品巴士一日游（上海成团）</h3>
+                    <p>
+                        <span class="ticket_tag_price" itemscope="itemscope" itemprop="offers" itemtype="http://schema.org/Offer">
+                            <meta itemprop="priceCurrency" content="CNY" />
+                            <dfn>¥</dfn>
+                            <i itemprop="price">158</i>
+                            <span class="u-start">起</span>
+                        </span>
+                    </p>
+                </div>
+            </a>
+        </li>
+        <li data-id="1947788" data-name="【纯玩 精品游】生活着的千年古镇“西塘”休闲巴士一日游（含游船 上海出发）" data-ttd="1">
+            <a href="http://m.ctrip.com/webapp/activity/dest/t1947788.html?ctm_ref=tkt_hp_sp_dl_8&amp;from=http%3A%2F%2Fm.ctrip.com%2Fwebapp%2Fticket%2Findex" lizard-catch="off">
+                <div class="ticket_hot_img">
+                    <span class="f-logo"></span>
+                    <div class="img-box">
+                        <img src="http://dimg04.c-ctrip.com/images/t1/activity/506/856/680/4009518ec39a4c6a9e80fd9b42d34d5e_C_280_158_Q60.jpg" class="fade-in" itemprop="image"></div>
+                </div>
+                <div class="ticket_hot_text">
+                    <h3 class="ellips_line2">【纯玩 精品游】生活着的千年古镇“西塘”休闲巴士一日游（含游船 上海出发）</h3>
+                    <p>
+                        <span class="ticket_tag_price" itemscope="itemscope" itemprop="offers" itemtype="http://schema.org/Offer">
+                            <meta itemprop="priceCurrency" content="CNY" />
+                            <dfn>¥</dfn>
+                            <i itemprop="price">138</i>
+                            <span class="u-start">起</span>
+                        </span>
+                    </p>
+                </div>
+            </a>
+        </li>
+        <li data-id="2319856" data-name="【纯玩】上海“东方明珠”+“船游浦江”+“外滩观光”+“南京路步行街”夜景巴士一日游（14：30 上海出发）" data-ttd="1">
+            <a href="http://m.ctrip.com/webapp/activity/dest/t2319856.html?ctm_ref=tkt_hp_sp_dl_9&amp;from=http%3A%2F%2Fm.ctrip.com%2Fwebapp%2Fticket%2Findex" lizard-catch="off">
+                <div class="ticket_hot_img">
+                    <span class="icon-hot">经典必玩</span>
+                    <span class="f-logo"></span>
+                    <div class="img-box">
+                        <img src="http://dimg04.c-ctrip.com/images/fd/activity/g1/M05/2C/0D/CghzfFSBxl6AeI1wABXtF1KV1eE798_C_280_158_Q60.jpg" class="fade-in" itemprop="image"></div>
+                </div>
+                <div class="ticket_hot_text">
+                    <h3 class="ellips_line2">【纯玩】上海“东方明珠”+“船游浦江”+“外滩观光”+“南京路步行街”夜景巴士一日游（14：30 上海出发）</h3>
+                    <p>
+                        <span class="ticket_tag_price" itemscope="itemscope" itemprop="offers" itemtype="http://schema.org/Offer">
+                            <meta itemprop="priceCurrency" content="CNY" />
+                            <dfn>¥</dfn>
+                            <i itemprop="price">158</i>
+                            <span class="u-start">起</span>
+                        </span>
+                    </p>
+                </div>
+            </a>
+        </li>
+        <li data-id="66253" data-name="多媒体梦幻剧《ERA—时空之旅》演出票（绝美艺术，不俗体验）" data-ttd="1">
+            <a href="http://m.ctrip.com/webapp/activity/dest/t66253.html?ctm_ref=tkt_hp_sp_dl_10&amp;from=http%3A%2F%2Fm.ctrip.com%2Fwebapp%2Fticket%2Findex" lizard-catch="off">
+                <div class="ticket_hot_img">
+                    <span class="icon-hot">当季热销</span>
+                    <span class="f-logo"></span>
+                    <div class="img-box">
+                        <img src="http://dimg04.c-ctrip.com/images/t1/activity/486/438/750/2d71fedf3bac4c23873265d121b70552_C_280_158_Q60.jpg" class="fade-in" itemprop="image"></div>
+                </div>
+                <div class="ticket_hot_text">
+                    <h3 class="ellips_line2">多媒体梦幻剧《ERA—时空之旅》演出票（绝美艺术，不俗体验）</h3>
+                    <p>
+                        <span class="ticket_tag_price" itemscope="itemscope" itemprop="offers" itemtype="http://schema.org/Offer">
+                            <meta itemprop="priceCurrency" content="CNY" />
+                            <dfn>¥</dfn>
+                            <i itemprop="price">114</i>
+                            <span class="u-start">起</span>
+                        </span>
+                        <span class="old_price">
+                            <dfn>¥</dfn>
+                            <span>120</span>
+                        </span>
+                    </p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</body>
+</html>

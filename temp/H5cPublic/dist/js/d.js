@@ -1,0 +1,1 @@
+define(function(){return"TEST C is require a & b"});

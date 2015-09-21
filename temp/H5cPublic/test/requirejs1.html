@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>test require</title>
+	<script src="../libs/zepto.js"></script>
+	<script src="../libs/require.js"></script>
+	<script src="../dist/js/main.js"></script>
+</head>
+<body>
+	
+	
+	<script>
+	require(['b'], function(c){
+		var o = new c.pull()
+		o.run()
+	})
+	
+	var o = new cPublic.pull();
+	o.run()
+	
+	cPublic.base.__CheckNamespace()
+	
+	</script>
+</body>
+</html>

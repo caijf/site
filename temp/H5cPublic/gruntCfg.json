@@ -1,0 +1,24 @@
+{
+  "requirejs": {
+    "options": {
+      "baseUrl": "./",
+      "paths": {
+	    "base" : "base/base",
+        "aaa": "js/a",
+        "bbb": "js/b",
+        "ccc": "js/c",
+        "ddd": "js/d",
+        "text": "libs/text"
+      },
+      "include": [
+	    "base",
+        "aaa",
+        "bbb",
+        "ccc",
+        "ddd",
+        "text!template/collect.html"
+      ],
+      "out": "dist/js/main.js"
+    }
+  }
+}

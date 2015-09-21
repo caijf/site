@@ -2,104 +2,109 @@ module.exports = function(grunt) {
 
     'use strict';
 
+    // 读取requirejs配置信息
+    var gruntCfg = grunt.file.readJSON('gruntCfg.json');
+    var requirejsCfg = gruntCfg.requirejs;
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        fileName: "main",
+        mainDir: 'dist/',
+        allMergeName: 'main',
 
+        // 删除 dist 文件
+        clean:["dist/*"],
+
+        // 合并 css
         concat: {
-            js: {
-                options: {
-                    banner: '/* <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-                    dir: 'js/',
-                    separator: ';'
-                },
-                src: [
-                    '<%= concat.js.options.dir %>*.js'
-                ],
-
-                dest: 'dist/js/<%= fileName %>.js'
-            },
             css: {
                 src: ['css/*.css'],
-                dest: 'dist/css/<%= fileName %>.css'
+                dest: '<%= mainDir %>css/<%= allMergeName %>.css'
             }
         },
 
-        less: { 
-            main: {
-                expand: true,
-                cwd: './less/',
-                src: ['**/*.less'],
-                dest: './css/',
-                ext: '.css' 
-            } 
+        // requirejs amd 模块合并
+        requirejs: {
+            compile: requirejsCfg
         },
 
         cssmin: {
             options: {
-                banner: '/* <%= pkg.name %><%= grunt.template.today("yyyy-mm-dd") %> */\n'
+                //banner: '/* <%= pkg.name %><%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: 'dist/css/<%= fileName %>.css',
-                dest: 'dist/css/<%= fileName %>.min.css'
+                src: ['<%= mainDir %>css/<%= allMergeName %>.css'],
+                dest: '<%= mainDir %>css/<%= allMergeName %>.min.css'
             }
         },
 
+        // 将js下的js文件压缩到dist/js下
         uglify: {
             options: {
-                banner: '/* <%= pkg.name %><%= grunt.template.today("yyyy-mm-dd") %> */\n'
+                //banner: '/* <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: 'dist/js/<%= fileName %>.js',
-                dest: 'dist/js/<%= fileName %>.min.js'
+                expand: true,
+                cwd: 'js',
+                src: ['**/*.js'],
+                dest: '<%= mainDir %>js/'
+            },
+            dist: {
+                src: ['<%= mainDir %>js/<%= allMergeName %>.js'],
+                dest: '<%= mainDir %>js/<%= allMergeName %>.min.js'
             }
         },
 
-        jshint: {
-            // files: ['gruntfile.js', 'js/bar.js', 'dist/*.js'],
-            files: ['js/bar.js'],
-            options: {
-                globals: {
-                    exports: true
-                }
-            }
-        },
+        // js语法检测
+        // jshint: {
+        //     // files: ['gruntfile.js', 'js/bar.js', '<%= mainDir %>*.js'],
+        //     files: ['js/a.js'],
+        //     options: {
+        //         globals: {
+        //             exports: true
+        //         }
+        //     }
+        // },
 
+        // 实时监听
         watch: {
             js: {
                 files: ['js/*.js'],
-                tasks: ['concat:js', 'uglify', 'jshint']
+                tasks: ['requirejs', 'uglify']
             },
             css: {
                 options: {
                     livereload: true
                 },
-                files: ['less/*.less', 'css/*.css'],
-                tasks: ['less', 'concat:css', 'cssmin']
+                files: ['css/*.css'],
+                tasks: [ 'concat:css', 'cssmin']
             }
         }
     });
 
-    // 负责合并
+    // 合并文件
     grunt.loadNpmTasks( 'grunt-contrib-concat' );
 
-    // 负责编译less
-    grunt.loadNpmTasks( 'grunt-contrib-less' );
+    // 合并 amd js模块
+    grunt.loadNpmTasks( 'grunt-contrib-requirejs' );
 
-    // 负责压缩css
+    // 压缩css
     grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 
     // 负责压缩js
     grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 
     // 负责js代码验证
-    grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+    // grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+
+    // 负责删除文件
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
     // 负责监听文件变化
     grunt.loadNpmTasks( 'grunt-contrib-watch' );
 
     // Default task(s).
-    grunt.registerTask( 'default', ['less', 'concat', 'cssmin', 'uglify', 'jshint'] );
+    // grunt.registerTask( 'default', ['clean', 'requirejs' , 'concat', 'cssmin', 'uglify', 'jshint'] );
+    grunt.registerTask( 'default', ['clean', 'requirejs' , 'concat', 'cssmin', 'uglify'] );
     grunt.registerTask( 'w', 'watch' );
 };
