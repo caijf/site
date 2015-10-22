@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>slide幻灯片</title>
+	<style type="text/css">
+	*{ margin:0; padding:0;}
+	ul{ list-style: none;}
+
+		/* ico */
+	.ico-main{ display: inline-block; vertical-align: middle; overflow: hidden; background: url(images/ico.png) 0 0 no-repeat;}
+	.i-main-wx,.i-main-qq,.i-main-sina{ width: 21px; height: 17px;}
+	.i-main-wx{ background-position: 0 0;}
+	.i-main-qq{ background-position: -24px 0;}
+	.i-main-sina{ background-position: -48px 0;}
+
+	.i-main-wx:hover, a:hover .i-main-wx{ background-position: 0 -24px; cursor:pointer;}
+	.i-main-qq:hover, a:hover .i-main-qq{ background-position: -24px -24px; cursor:pointer;}
+	.i-main-sina:hover, a:hover .i-main-sina{ background-position: -48px -24px; cursor:pointer;}
+
+	.i-main-user{ width: 18px; height: 18px; background-position: -48px -48px;}
+	.i-main-search{ width: 22px; height: 22px; background-position: 0 -48px;}
+	.i-main-cart{ width: 22px; height: 20px; background-position: -24px -48px;}
+	.i-main-edit{ width:20px; height:20px; background-position: -72px -48px;;}
+
+	.i-main-truck,.i-main-cycle,.i-main-authentic,.i-main-open,.i-main-phone{ width: 32px; height: 32px;}
+	.i-main-truck{ background-position: 0 -96px;}
+	.i-main-cycle{ background-position: -36px -96px;}
+	.i-main-authentic{ background-position: -72px -96px;}
+	.i-main-open{ background-position: -108px -96px;}
+	.i-main-phone{ background-position: -144px -96px;}
+
+	.i-main-about,.i-main-custom,.i-main-box,.i-main-heart,.i-main-member{ width: 18px; height: 18px;}
+	.i-main-about{ background-position: 0 -72px;}
+	.i-main-custom{ background-position: -24px -72px;}
+	.i-main-box{ background-position: -48px -72px;}
+	.i-main-heart{ background-position: -72px -72px;}
+	.i-main-member{ background-position: -96px -72px;}
+
+	.i-main-prev, .i-main-next{ width: 14px; height: 32px;}
+	.i-main-prev{ background-position: 0 -132px;}
+	.i-main-next{ background-position: -36px -132px;}
+
+	.slider{ position: relative; z-index: 9; height: 580px; width:100%; min-width:1000px; max-width: 1400px; _width:1000px; margin:0 auto; overflow: hidden;}
+	.slider-main{ position: relative; height:580px;}
+	.slider-main li{ position: absolute; left: 0; top: 0;
+		height: 100%; width:100%;}
+	.slider-main li a{ display: block; height: 100%; width:100%;}
+	.slider-extra{ position: absolute; left: 50%; bottom: 20px; width: 1000px; height: 127px; margin-left: -500px; overflow: hidden; background: url(images/bg-banner-breviary.png) 0 0 no-repeat;}
+	.slider-nav{ position: absolute; left: 38px; top: 14px; width: 925px; height: 100px; overflow: hidden;}
+	.slider-nav ul{ position: absolute; left: 0; top: 0; margin-left: -30px; height: 100px;}
+	.slider-nav li{ float: left; margin-left: 30px; border: 3px solid #fff; *display: inline;
+		-webkit-transition: all ease-in-out .3s;
+		-o-transition: all ease-in-out .3s;
+		transition: all ease-in-out .3s;}
+	.slider-nav li.current,.slider-nav li:hover{ border-color:#ebd800;}
+	.slider-nav li img{ width: 155px; height: 95px; vertical-align: top;}
+	.slider-prev, .slider-next{ position: absolute; top: 0; height: 100%; width: 30px;}
+	.slider-prev:active, .slider-next:active{ outline:none;}
+	.slider-prev{ left: 0;}
+	.slider-next{ right: 0;}
+	.slider-prev i, .slider-next i{ position: absolute; left: 50%; top: 50%; margin:-16px 0 0 -7px;}
+	</style>
+</head>
+<body>
+	<div id="slider" class="slider"><ul class="slider-main"><li><a href="javascript:;" style=" background:url(images/banner-b-1.jpg) center top no-repeat;"></a></li><li><a href="javascript:;" style=" background:url(images/banner-b-2.jpg) center top no-repeat;"></a></li><li><a href="javascript:;" style=" background:url(images/banner-b-3.jpg) center top no-repeat;"></a></li><li><a href="javascript:;" style=" background:url(images/banner-b-4.jpg) center top no-repeat;"></a></li><li><a href="javascript:;" style=" background:url(images/banner-b-5.jpg) center top no-repeat;"></a></li><li><a href="javascript:;" style=" background:url(images/banner-b-6.jpg) center top no-repeat;"></a></li></ul><div class="slider-extra"><div class="slider-nav"><ul><li class="current"><img src="images/banner-s-1.jpg"></li><li><img src="images/banner-s-2.jpg"></li><li><img src="images/banner-s-3.jpg"></li><li><img src="images/banner-s-4.jpg"></li><li><img src="images/banner-s-5.jpg"></li><li><img src="images/banner-s-6.jpg"></li></ul></div><a href="javascript:;" class="slider-prev"><i class="ico-main i-main-prev"></i></a><a href="javascript:;" class="slider-next"><i class="ico-main i-main-next"></i></a></div></div>
+
+	<script type="text/javascript" src='jquery-1.10.1.min.js'></script>
+	<script type="text/javascript" src='slider.js'></script>
+	<script type="text/javascript">
+	$("#slider").slider({
+		marginValue: 30
+	})
+	</script>
+</body>
+</html>
