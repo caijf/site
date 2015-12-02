@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>grid-flex</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/grid-flex.css">
+	<style>
+	/* page */
+	h1{ text-align: center;}
+	.demo{ width: 80%; margin:0 auto;}
+	.col-demo{ width: 100%; padding: 5px; border:1px solid #ccc; text-align: center; background: #ccc;}
+	</style>
+</head>
+<body>
+	<h1>Flex</h1>
+	<div class="demo">
+		<div class="grid">
+			<div class="row">
+				<div class="col"><div class="col-demo">1/2</div></div>
+				<div class="col"><div class="col-demo">1/2</div></div>
+			</div>
+			<div class="row">
+				<div class="col"><div class="col-demo">1/3</div></div>
+				<div class="col"><div class="col-demo">1/3</div></div>
+				<div class="col"><div class="col-demo">1/3</div></div>
+			</div>
+			<div class="row">
+				<div class="col"><div class="col-demo">1/4</div></div>
+				<div class="col"><div class="col-demo">1/4</div></div>
+				<div class="col"><div class="col-demo">1/4</div></div>
+				<div class="col"><div class="col-demo">1/4</div></div>
+			</div>
+			<div class="row">
+				<div class="col col-top"><div class="col-demo">col-top</div></div>
+				<div class="col"><div class="col-demo">1 <br>2 <br>3</div></div>
+			</div>
+			<div class="row">
+				<div class="col col-center"><div class="col-demo">col-center</div></div>
+				<div class="col"><div class="col-demo">1 <br>2 <br>3</div></div>
+			</div>
+			<div class="row">
+				<div class="col col-bottom"><div class="col-demo">col-bottom</div></div>
+				<div class="col"><div class="col-demo">1 <br>2 <br>3</div></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

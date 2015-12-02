@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>携程首页</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/grid-flex.css">
+	<style>
+	/* page */
+	body{ width: 100%; margin: 0 auto;}
+	.col{ border: 1px solid #333;}
+
+	/* test rem */
+	html{ font-size: 16px;}
+
+	.topbar .col:first-child{ font-size: 2rem;}
+
+	.test{ width: 3rem; height:1.5rem; background: red;}
+
+	@media screen and (max-width: 500px){
+		html{ font-size: 32px;}
+	}
+	</style>
+</head>
+<body>
+	<div class="topbar">
+		<div class="grid">
+			<div class="col col-80">搜索 <div class="test">1</div></div>
+			<div class="col col-20">我的</div>
+		</div>
+	</div>
+	<div class="banner">
+		<div class="grid">
+			<div class="col">banner</div>
+		</div>
+	</div>
+	<div class="nav">
+		<div class="grid">
+			<div class="row">
+				<div class="col">酒店</div>
+				<div class="col">
+					<div class="row">1</div>
+					<div class="row">2</div>
+				</div>
+				<div class="col">
+					<div class="row">1</div>
+					<div class="row">2</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">酒店</div>
+				<div class="col">
+					<div class="row">1</div>
+					<div class="row">2</div>
+				</div>
+				<div class="col">
+					<div class="row">1</div>
+					<div class="row">2</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">酒店</div>
+				<div class="col">
+					<div class="row">1</div>
+					<div class="row">2</div>
+				</div>
+				<div class="col">
+					<div class="row">1</div>
+					<div class="row">2</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">酒店</div>
+				<div class="col">
+					<div class="row">1</div>
+					<div class="row">2</div>
+				</div>
+				<div class="col">
+					<div class="row">1</div>
+					<div class="row">2</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

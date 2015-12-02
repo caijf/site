@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>等高布局</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/grid-flex.css">
+	<style>
+	
+	/* grid extend */
+	.col-4{ flex:4;}
+	.col-3{ flex:3;}
+	.col-2{ flex:2;}
+	.col-1{ flex:1;}
+	
+
+	/* page */
+	h1{ text-align: center;}
+
+	.demo{ color:white; text-align: center;}
+	.demo .col{ margin: 0; display: flex; justify-content:center;}
+	.demo .col:nth-child(1){ background: red;}
+	.demo .col:nth-child(2){ background: blue;}
+	.demo .col:nth-child(3){ background: black;}
+	.demo .col:nth-child(4){ background: green;}
+	</style>
+</head>
+<body>
+	<h1>等高布局</h1>
+	<div class="demo">
+		<div class="grid">
+			<div class="row">
+				<div class="col col-4"><div class="col-demo col-top" contentEditable="true">居中对齐<br>4</div></div>
+				<div class="col col-3"><div class="col-demo col-center" contentEditable="true">居上对齐<br>3</div></div>
+				<div class="col col-2"><div class="col-demo col-bottom" contentEditable="true">居下对齐<br>2</div></div>
+				<div class="col col-1" contentEditable="true">可输入文本 <br> 1</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

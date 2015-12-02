@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>九宫格</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/grid-flex.css">
+	<style>
+	h1{ text-align: center;}
+	.demo{ width: 50%; margin:0 auto; border:1px solid #ccc;}
+	.demo .col{ margin: 0; text-align: center;}
+	.demo .row:nth-child(2n+1) .col:nth-child(2n+1){ background: #eee;}
+	.demo .row:nth-child(2n) .col:nth-child(2n){ background: #eee;}
+	</style>
+</head>
+<body>
+	<h1>九宫格</h1>
+	<div class="demo">
+		<div class="grid">
+			<div class="row">
+				<div class="col">1</div>
+				<div class="col">2</div>
+				<div class="col">3</div>
+			</div>
+			<div class="row">
+				<div class="col">4</div>
+				<div class="col">5</div>
+				<div class="col">6</div>
+			</div>
+			<div class="row">
+				<div class="col">7</div>
+				<div class="col">8</div>
+				<div class="col">9</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1.0" />
+	<title>flex语法</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/grid-flex.css">
+	<style type="text/css">
+	body{ font-size: 14px;}
+	
+	.gray{ font-size: 12px; color: gray;}
+	button{ padding: 5px;}
+
+	h1{ text-align: center;}
+	h3{ margin: 20px 0 10px;}
+	.demo-view .col{ min-width: 25%;}
+	.demo-view .col-demo{ width: 100%; padding: 5px; background: #ccc; text-align: center;}
+
+	.demo-operation{}
+	.demo-attr{ margin-bottom: 10px;}
+	.demo-attr label{ margin-right: 10px;}
+	.demo-attr input[type="radio"]{ margin-right: 3px; vertical-align: 1px;}
+	.demo-css, .demo-view{ width: 80%; margin: 0 auto;}
+	.demo-viewbox{ min-height: 300px;}
+	.demo-css textarea, .demo-viewbox{ width: 100%; padding: 5px; border:1px solid #ccc;}
+
+	/* 设置grid、col宽高 */
+	.demo-grid{ height: 300px;}
+	.demo-grid .col{ flex:0 0 auto; width: 40px; height: 40px; min-width: auto;}
+
+
+	</style>
+</head>
+<body>
+	<h1>Flex 属性演示</h1>
+	<div class="grid">
+		<div class="col">
+			<div class="demo-view">
+				<h3>VIEW</h3>
+				<div class="demo-viewbox">
+					<div id="box" class="grid">
+						<div class="col"><div class="col-demo" contentEditable="true">1</div></div>
+					</div>
+				</div>
+			</div>
+			<div class="demo-css">
+				<h3>CSS</h3>
+				<textarea id="textCss" rows="15"></textarea>
+			</div>
+		</div>
+		<div class="col">
+			<div class='demo-operation'>
+				<h3>DOM操作</h3>
+				<button id="add">添加col</button>
+				<button id="delete">删除col</button>
+				<button id="toggle">切换成有宽高的grid、col</button>
+
+				<h3>容器样式：</h3>
+				<div class="gray">//主轴方向</div>
+				<div class="demo-attr" data-attr="flex-direction" data-operation="box">
+					flex-direction:
+					<label><input type="radio" name="radioFlexDirection" value="row" checked="checked">row</label>
+					<label><input type="radio" name="radioFlexDirection" value="row-reverse">row-reverse</label>
+					<label><input type="radio" name="radioFlexDirection" value="column">column</label>
+					<label><input type="radio" name="radioFlexDirection" value="column-reverse">column-reverse</label>
+				</div>
+				<div class="gray">//换行方式，默认nowrap</div>
+				<div class="demo-attr" data-attr="flex-wrap" data-operation="box">
+					flex-wrap:
+					<label><input type="radio" name="radioFlexwrap" value="nowrap">nowrap</label>
+					<label><input type="radio" name="radioFlexwrap" value="wrap" checked="checked">wrap</label>
+					<label><input type="radio" name="radioFlexwrap" value="wrap-reverse">wrap-reverse</label>
+				</div>
+				<div class="gray">// flex-direction & flex-wrap 的缩写</div>
+				<div class="demo-attr" data-attr="flex-flow" data-operation="box">
+					flex-flow:无
+				</div>
+				<div class="gray">//水平对齐方式</div>
+				<div class="demo-attr" data-attr="justify-content" data-operation="box">
+					justify-content:
+					<label><input type="radio" name="radioJustifyContent" value="flex-start" checked="checked">flex-start</label>
+					<label><input type="radio" name="radioJustifyContent" value="center">center</label>
+					<label><input type="radio" name="radioJustifyContent" value="flex-end">flex-end</label>
+					<label><input type="radio" name="radioJustifyContent" value="space-between">space-between</label>
+					<label><input type="radio" name="radioJustifyContent" value="space-around">space-around</label>
+				</div>
+				<div class="gray">//垂直对齐方式</div>
+				<div class="demo-attr" data-attr="align-items" data-operation="box">
+					align-items:
+					<label><input type="radio" name="radioAlignItems" value="flex-start">flex-start</label>
+					<label><input type="radio" name="radioAlignItems" value="center">center</label>
+					<label><input type="radio" name="radioAlignItems" value="flex-end">flex-end</label>
+					<label><input type="radio" name="radioAlignItems" value="baseline">baseline</label>
+					<label><input type="radio" name="radioAlignItems" value="stretch" checked="checked">stretch</label>
+
+				</div>
+				<div class="gray">//定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用</div>
+				<div class="demo-attr" data-attr="align-content" data-operation="box">
+					align-content:
+					<label><input type="radio" name="radioAlignContent" value="flex-start">flex-start</label>
+					<label><input type="radio" name="radioAlignContent" value="center">center</label>
+					<label><input type="radio" name="radioAlignContent" value="flex-end">flex-end</label>
+					<label><input type="radio" name="radioAlignContent" value="space-between">space-between</label>
+					<label><input type="radio" name="radioAlignContent" value="space-around">space-around</label>
+					<label><input type="radio" name="radioAlignContent" value="stretch" checked="checked">stretch</label>
+				</div>
+
+				<h3>项目属性：(这里演示只对第一个配置)</h3>
+				<div class="gray">//定义项目的排列顺序。数值越小，排列越靠前，默认为0</div>
+				<div class="demo-attr" data-attr="order">
+					order:
+					<label><input type="number" value="" default-value="0" placeholder="0"></label>
+				</div>
+				<div class="gray">//定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大</div>
+				<div class="demo-attr" data-attr="flex-grow">
+					flex-grow:
+					<label><input type="number" value="" default-value="0" placeholder="0"></label>
+				</div>
+				<div class="gray">//定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</div>
+				<div class="demo-attr" data-attr="flex-shrink">
+					flex-shrink:
+					<label><input type="number" value="" default-value="1" placeholder="1"></label>
+				</div>
+				<div class="gray">//定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</div>
+				<div class="demo-attr" data-attr="flex-basis">
+					flex-basis:
+					<label><input type="text" value="" default-value="auto" placeholder="auto"></label>
+				</div>
+				<div class="gray">//flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</div>
+				<div class="demo-attr" data-attr="flex">
+					flex:无
+				</div>
+				<div class="gray">//允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</div>
+				<div class="demo-attr" data-attr="align-self">
+					align-self:
+					<label><input type="radio" name="radioAlignSelf" value="flex-start">flex-start</label>
+					<label><input type="radio" name="radioAlignSelf" value="center">center</label>
+					<label><input type="radio" name="radioAlignSelf" value="flex-end">flex-end</label>
+					<label><input type="radio" name="radioAlignSelf" value="baseline">baseline</label>
+					<label><input type="radio" name="radioAlignSelf" value="stretch">stretch</label>
+					<label><input type="radio" name="radioAlignSelf" value="auto" checked="checked">auto</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src='bower_components/jquery/dist/jquery.min.js'></script>
+	<script>
+	(function($){
+
+		var $box = $('#box'),
+			$addCOl = $('#add'),
+			$deleteCol = $('#delete'),
+			$toggleCol = $('#toggle');
+
+		// 添加col元素
+		function addCol(){
+			var len = $box.children().length + 1;
+
+			var random = Math.floor(Math.random()*len+1);;
+			var html = '';
+
+			for(var i = 0; i < random; i++){
+				html += len + '<br>';
+			}
+
+			var div = $('<div class="col"><div class="col-demo" contentEditable="true">' + html + '</div></div>');
+			
+			$box.append(div);
+			
+			return div;
+		}
+
+		// 删除col元素
+		function deleteCol(){
+			var len = $box.children().length;
+			if(len > 1){
+				$box.children().last().remove();
+			}
+		}
+
+		// 切换grid、col的宽高设置
+		function toggleCol(){
+			$box.toggleClass('demo-grid')
+		}
+
+		// 添加、删除 事件注册
+		$addCOl.on('click', function(){
+			addCol();
+		});
+		$deleteCol.on('click', function(){
+			deleteCol();
+		});
+		$toggleCol.on('click', function(){
+			toggleCol();
+		})
+
+
+		// css操作
+		var $boxOperation = $('.demo-operation'),
+			$textCss = $('#textCss');
+
+			// 默认样式
+		var outerStyle = {
+			'flex-direction': 'row', 
+			'flex-wrap':'nowrap', 
+			'justify-content':'flex-start', 
+			'align-items':'stretch', 
+			'align-content':'stretch'
+		};
+		var childStyle = {
+			'order':'0', 
+			'flex-grow':'0', 
+			'flex-shrink':'1', 
+			'flex-basis':'auto', 
+			'align-self':'stretch'
+		};
+
+		// 事件绑定  修改dom样式
+		$boxOperation.on('change', 'input', function(){
+			setStyle($(this));
+		});
+		$textCss.val(cssToText());
+
+		// 设置样式
+		function setStyle($this){
+			var $parent = $this.parents('.demo-attr');
+			var $boxCol = $box.find('.col').eq(0);
+			if($parent.length <= 0){
+				return;
+			}
+
+			var $dom = $parent.data('operation') === 'box' ? $box : $boxCol;
+			var attr = $parent.data('attr'),
+				value = $this.val() || $this.data('default-value');
+
+			// if(attr === 'order'){
+			// 	$dom = $dom.eq(0);
+			// }
+
+			$dom.css(attr, value);
+			$textCss.val(cssToText());
+
+		}
+
+		// css转text
+		function cssToText(){
+			var text = '';
+			var $boxCol = $box.find('.col').eq(0);
+
+			text += '.grid{ ' + 
+				'\n    display: -webkit-flex;' + 
+				'\n    display: flex;';
+
+			for(var prop in outerStyle){
+				if($box.css(prop) !== outerStyle[prop].toString()){
+					text += '\n    -webkit-' + prop + ': ' + $box.css(prop) + ';';
+					text += '\n    ' + prop + ': ' + $box.css(prop) + ';';
+				}
+			}
+
+			text += '\n}\n';
+
+			text += '.col{' + 
+				'\n    -webkit-flex-grow: 1' +
+				'\n    flex-grow: 1' +
+				'\n    -webkit-flex-basis: 0%' +
+				'\n    flex-basis: 0%' + 
+				'\n}\n';
+
+				// 第一个元素的css
+			var textFirst = '.col:first-child{';
+			var textFirstCss = '';
+
+			for(var prop in childStyle){
+
+				if(prop === 'flex-grow'){
+					if(String($boxCol.css('flex-grow')) !== '1'){
+						textFirstCss += '\n   -webkit-' + prop + ': ' + $boxCol.css(prop) + ';';
+						textFirstCss += '\n   ' + prop + ': ' + $boxCol.css(prop) + ';';
+					}
+				}else if(prop === 'flex-basis'){
+					if($boxCol.css('flex-basis').toString() !== '0%'){
+						textFirstCss += '\n   -webkit-' + prop + ': ' + $boxCol.css(prop) + ';';
+						textFirstCss += '\n   ' + prop + ': ' + $boxCol.css(prop) + ';';
+					}
+				}else if($boxCol.css(prop) !== String(childStyle[prop])){
+					textFirstCss += '\n   -webkit-' + prop + ': ' + $boxCol.css(prop) + ';';
+					textFirstCss += '\n   ' + prop + ': ' + $boxCol.css(prop) + ';';
+				}
+			}
+
+			if(textFirstCss === ''){
+				textFirst = '';
+			}else{
+				textFirst += textFirstCss;
+				textFirst += '\n}';
+			}
+
+			text += textFirst;
+
+			return text;
+		}
+
+
+	})(jQuery);
+	</script>
+</body>
+</html>
