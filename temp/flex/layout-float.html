@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>layout-float</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/grid-float.css">
+	<style>
+	/* page */
+	h1{ text-align: center;}
+	.demo{ width: 80%; margin:0 auto;}	
+	.col-demo{ width: 100%; padding: 5px; border:1px solid #ccc; text-align: center; background: #ccc;}
+	</style>
+</head>
+<body>
+	<h1>Float</h1>
+	<div class="demo">
+		<div class="grid">
+			<div class="row">
+				<div class="col-6"><div class="col-demo">1/2</div></div>
+				<div class="col-6"><div class="col-demo">1/2</div></div>
+			</div>
+			<div class="row">
+				<div class="col-4"><div class="col-demo">1/3</div></div>
+				<div class="col-4"><div class="col-demo">1/3</div></div>
+				<div class="col-4"><div class="col-demo">1/3</div></div>
+			</div>
+			<div class="row">
+				<div class="col-3"><div class="col-demo">1/4</div></div>
+				<div class="col-3"><div class="col-demo">1/4</div></div>
+				<div class="col-3"><div class="col-demo">1/4</div></div>
+				<div class="col-3"><div class="col-demo">1/4</div></div>
+			</div>
+			<div class="row">
+				<div class="col-6"><div class="col-demo">col-top</div></div>
+				<div class="col-6"><div class="col-demo">1 <br>2 <br>3</div></div>
+			</div>
+			<div class="row">
+				<div class="col-6 col-center"><div class="col-demo">col-center</div></div>
+				<div class="col-6"><div class="col-demo">1 <br>2 <br>3</div></div>
+			</div>
+			<div class="row">
+				<div class="col-6 col-bottom"><div class="col-demo">col-bottom</div></div>
+				<div class="col-6"><div class="col-demo">1 <br>2 <br>3</div></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

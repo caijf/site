@@ -2,9 +2,6 @@
 .grid:before,.grid:after,.row:before,.row:after{display:table;content:" "}
 .grid:after,.row:after{clear:both}
 
-.grid{width: 80%; margin:0 auto;}
-.row{}
-
 [class^="col-"]{ float: left; min-height:1px; padding: 5px;}
 .col-12{width:100%}
 .col-11{width:91.66667%}
