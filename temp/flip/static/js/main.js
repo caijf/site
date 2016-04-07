@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: '../static',
+    baseUrl: '../temp/flip/static',
     shim:{
         zepto: {
             exports: '$'
