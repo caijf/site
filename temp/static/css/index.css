@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  border-color: #ddd;
+  background-color: #fff;
+  color: #444;
+  position: relative;
+  z-index: 2;
+  display: block;
+  padding: 16px;
+  border-top-width: 1px;
+  border-style: solid;
+  font-size: 16px;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImQ6L1VzZXJzL2NhaWpmL0Rlc2t0b3AvdGVzdC90ZXN0cy9mbGlwL2xlc3MvaW5kZXgubGVzcyIsIjxpbnB1dCBjc3MgMT4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBRyxXQUFBO0VBQVcsWUFBQTtFQUFZLHdCQUFBO0VDSXpCO0FERkQ7RUFDSSxvQkFBQTtFQUNBLHdCQUFBO0VBQ0EsYUFBQTtFQUNBLG9CQUFBO0VBQ0EsWUFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtFQUNBLHVCQUFBO0VBQ0EscUJBQUE7RUFDQSxpQkFBQTtFQ0lIIiwiZmlsZSI6InRvLmNzcyJ9 */

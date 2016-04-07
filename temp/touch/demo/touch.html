@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <title>Document</title>
+    <style>
+    *{ margin: 0; padding: 0;}
+    html,body{ width: 100%; height: 100%;}
+    .box{ position: relative; width: 100px; height: 100px;}
+    #box1{ background: red;}
+    #box2{ background: green;}
+    #box3{ background: yellow;}
+    </style>
+</head>
+<body>
+    <h1>拖动色块</h1>
+    <p>direction: <span id="direction"></span></p>
+    <p>pageX: <span id="pageX"></span></p>
+    <div id="box1" class="box"></div>
+    <div id="box2" class="box"></div>
+    <div id="box3" class="box"></div>
+    <script src='../js/lib/require.js'></script>
+    <script>
+        require.config({
+            baseUrl:'../',
+            paths:{
+                'touch': 'js/widget/touch'
+            }
+        });
+
+        require(['touch'], function(touch){
+
+            // var body = document.body;
+
+            // body.addEventListener('touchstart', start, false);
+            // body.addEventListener('touchmove', move, false);
+            // body.addEventListener('touchend', end, false);
+
+            // var startPoint = {
+            //     x:0,
+            //     y:0
+            // }
+
+            // var movePoint = {
+            //     x:0,
+            //     y:0
+            // }
+
+            // var currentNode = null;
+
+            // function start(e){
+
+            //     var touch = e.touches[0];
+
+            //     startPoint.x = touch.pageX;
+            //     startPoint.y = touch.pageY;
+            //     movePoint.x = 0;
+            //     movePoint.y = 0;
+
+            //     if(e.target.id.indexOf('box') > -1){
+            //         currentNode = e.target;
+            //     }
+            // }
+
+            // function move(e){
+
+            //     if(!currentNode){
+            //         return;
+            //     }
+
+            //     var touch = e.touches[0];
+
+            //     movePoint.x = touch.pageX - startPoint.x;
+            //     movePoint.y = touch.pageY - startPoint.y;
+
+            //     var transformx = movePoint.x + (currentNode.getAttribute('data-transformx') ? parseInt(currentNode.getAttribute('data-transformx'), 10) : 0);
+            //     var transformy = movePoint.y + (currentNode.getAttribute('data-transformy') ? parseInt(currentNode.getAttribute('data-transformy'), 10) : 0);
+
+            //     currentNode.style.transform = 'translate3D('+ transformx +'px, '+ transformy +'px, 0)';
+
+            // }
+
+            // function end(e){
+
+            //     if(!currentNode){
+            //         return;
+            //     }
+
+            //     var transformx = movePoint.x + (currentNode.getAttribute('data-transformx') ? parseInt(currentNode.getAttribute('data-transformx'), 10) : 0);
+            //     var transformy = movePoint.y + (currentNode.getAttribute('data-transformy') ? parseInt(currentNode.getAttribute('data-transformy'), 10) : 0);
+
+            //     currentNode.setAttribute('data-transformx', transformx);
+            //     currentNode.setAttribute('data-transformy', transformy);
+
+            //     currentNode = null;
+            // }
+
+
+            var body = document.body;
+            var bodyTouch = touch(body);
+
+            var currentNode = null;
+            var mZindex = 2;
+
+            bodyTouch.on('touchStart', start).on('touchMove', move).on('touchEnd', end);
+
+            function start(){
+
+                var e = bodyTouch.event;
+
+                if(e.target.id.indexOf('box') > -1){
+                    currentNode = e.target;
+                    mZindex++;
+                    currentNode.style.zIndex = mZindex;
+                }
+                console.log(bodyTouch);
+            }
+
+            function move(){
+
+                if(!currentNode){
+                    return;
+                }
+
+                var transformx = bodyTouch.distX + (currentNode.getAttribute('data-transformx') ? parseInt(currentNode.getAttribute('data-transformx'), 10) : 0);
+                var transformy = bodyTouch.distY + (currentNode.getAttribute('data-transformy') ? parseInt(currentNode.getAttribute('data-transformy'), 10) : 0);
+
+                currentNode.style.webkitTransform = 'translate3D('+ transformx +'px, '+ transformy +'px, 0)';
+                currentNode.style.transform = 'translate3D('+ transformx +'px, '+ transformy +'px, 0)';
+
+            }
+
+            function end(e){
+
+                if(!currentNode){
+                    return;
+                }
+
+                var transformx = bodyTouch.distX + (currentNode.getAttribute('data-transformx') ? parseInt(currentNode.getAttribute('data-transformx'), 10) : 0);
+                var transformy = bodyTouch.distY + (currentNode.getAttribute('data-transformy') ? parseInt(currentNode.getAttribute('data-transformy'), 10) : 0);
+
+                currentNode.setAttribute('data-transformx', transformx);
+                currentNode.setAttribute('data-transformy', transformy);
+
+                currentNode = null;
+            }
+
+
+
+        })
+
+    </script>
+</body>
+</html>

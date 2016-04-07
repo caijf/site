@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+        <title>toucher</title>
+        <style type="text/css">
+			
+            body,html {
+				height:100%;
+                background:#fff;
+				font-family:"华文细黑"
+            }
+			p { font-size:18px; background:#ffcc00; padding:5px; width:90%;}
+			.main { width:100%; height:100%;}
+            .wrapper {
+                
+                width: 100px;
+                height: 100px;
+                background: #ff0000;
+                color: #fff;
+                font-family: Georgia;
+                font-weight: bold;
+                text-align: center;
+                text-transform: uppercase;
+                -webkit-transition-property: -webkit-transform, background-color, color;
+                -webkit-transition-duration: 0.5s;
+                -webkit-transform-origin: 50% 50%;
+            }
+			
+			li { list-style:none; width:100%; margin-bottom:5px; height:20px; background:#ff0000; height:50px;}
+			span { display:block; padding-bottom:10px;}
+        </style>
+
+
+    </head>
+
+    <body>
+		<div id="nav">当前环境：</div>
+		<b>target:</b>
+		<p></p>
+		<span>pageX:<br>pageY:</span>
+		<div class="wrapper"></div>
+		<script type="text/javascript" src="../js/lib/jquery.js"></script>
+		<script type="text/javascript" src="../js/widget/toucher.js"></script>
+        <script type="text/javascript">
+			/*require(['toucher'], function(toucher){
+				var ele = document.getElementById("wrapper");
+				$(ele, {  preventDefault: true }).longtap(function(){
+					alert('longtap')
+				})
+			})*/
+			
+            
+			var ele = $("body");
+			var span = $('span');
+			$('#nav').html('<strong>当前环境：</strong><br>' + window.navigator.userAgent + '<br><br>')
+			
+            var swipeHandler = function(e,direction) {
+               /*var matrix = new WebKitCSSMatrix(this.style.webkitTransform);
+				
+                if(direction === "right")
+                    matrix.e += 50;
+                else if(direction === "left")
+                    matrix.e -= 50;
+                if(direction === "up")
+                    matrix.f -= 50;
+                else if(direction === "down")
+                    matrix.f += 50;
+                this.style.webkitTransform = "translate3d(" + matrix.e + "px, " + matrix.f + "px, 0)";*/
+				
+				$('p').text("单指滑动：swipe " + direction)
+				
+				$('b').text("target: " + e.target)
+            };
+            var tapHandler = function(e) {
+				$('p').text("单指点击：tap!");
+				//$(e.target).css('backgroundColor',"#" + (Math.round(0xffffff * Math.random()).toString(16)))
+                //this.style.backgroundColor = "#" + (Math.round(0xffffff * Math.random()).toString(16));
+				$('b').text("target: " + e.target)
+            };
+
+
+            var DoubleTapHandler = function(e) {
+               $('p').text("单指双击：Double tap!");
+			   $('b').text("target: " + e.target)
+            };
+            var startTouch = function(e, event) {
+                
+            };
+            var duringTouch = function(e) {
+               span.html("pageX: " + e.pageX() + '<br>' + "pageY: " + e.pageY())
+            };
+            var endTouch = function(e, event) {
+                
+            };
+			var longTapHandler = function(e){
+				$('p').text('单指长按：longtap!')
+				$('b').text("target: " + e.target)
+			}
+			
+			var pinchendHandler = function(e,Direction){
+				
+			}
+			
+			var twoFingersTapH = function(e){
+				$('p').text('两指单击：two fingers Tap!');
+				$('b').text("target: " + e.target)
+			}
+			
+			var twoFingersDoubletapH = function(e){
+				$('p').text('两指双击：two fingers Doubletap!');
+				$('b').text("target: " + e.target)
+			}
+			
+			var twofingersLongtapH = function(e){
+				$('p').text('两指长按：two fingers Longtap!');
+				$('b').text("target: " + e.target)
+			}
+			
+			
+            T( ele, {preventDefault:true,longTapTime:500})
+				.tap(tapHandler)
+                .swipe(swipeHandler)
+				.twofingersTap(twoFingersTapH)
+				.twofingersDoubletap(twoFingersDoubletapH)
+				.twofingersLongtap(twofingersLongtapH)
+                .doubletap(DoubleTapHandler)
+				.longtap(longTapHandler)
+                .start(startTouch)
+                .moving(duringTouch)
+                .end(endTouch)
+				
+        </script>
+    </body>
+</html>
