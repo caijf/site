@@ -292,6 +292,7 @@
          * @param  {Object} e 事件对象
          */
         function start(e) {
+            console.log('touchstart start');
             if (opt.disabledHandle && typeof opt.disabledHandle === 'function' && opt.disabledHandle()) {
                 return;
             }
@@ -339,6 +340,7 @@
 
             $dom.on(EVENT.MOVE, move);
             $dom.on(EVENT.END, end);
+            console.log('touchstart end');
         }
 
         /**
@@ -346,6 +348,7 @@
          * @param  {Object} e 事件对象
          */
         function move(e) {
+            console.log('touchmove start');
             if (!currentTarget || !transElement) return;
 
             var evt = getStandEvent(e),
@@ -391,6 +394,7 @@
 
                 end(e);
             }
+            console.log('touchmove end');
         }
 
         /**
@@ -398,6 +402,7 @@
          * @param  {Object} e 事件对象
          */
         function end(e) {
+            console.log('touchmove start');
             if (!currentTarget || !transElement) return;
 
             var evt = getStandEvent(e),
@@ -426,6 +431,7 @@
 
             $(document).off(EVENT.MOVE, move);
             $(document).off(EVENT.END, end);
+            console.log('touchmove end');
         }
 
         /**
