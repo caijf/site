@@ -1,15 +1,15 @@
 /*
- * Flip å·¦æ»‘æ•ˆæœ
+ * Flip ×ó»¬Ğ§¹û
  * By caijf
- * æ”¯æŒamdï¼Œå¦‚ä¸ä½¿ç”¨amdï¼Œå¯ä»¥ä½¿ç”¨å…¨å±€å˜é‡Flip
+ * Ö§³Öamd£¬Èç²»Ê¹ÓÃamd£¬¿ÉÒÔÊ¹ÓÃÈ«¾Ö±äÁ¿Flip
  *
  * Date: 2016/4/07
  */
 (function(){
 
     /**
-     * æ ‡å‡†åŒ–ä½ç½®ä¿¡æ¯
-     * @param e äº‹ä»¶å¯¹è±¡
+     * ±ê×¼»¯Î»ÖÃĞÅÏ¢
+     * @param e ÊÂ¼ş¶ÔÏó
      * @returns {Object}
      */
     function getStandEvent(e){
@@ -28,7 +28,7 @@
         },e);
     }
 
-    //å¤„ç†äº‹ä»¶å…¼å®¹é—®é¢˜
+    //´¦ÀíÊÂ¼ş¼æÈİÎÊÌâ
      var EVENT;
      if ('ontouchstart' in window) {
          EVENT = {
@@ -44,33 +44,31 @@
          };
      }
 
-    var vendorPrefix = fxPrefix(), // CSS3 å±æ€§å‰ç¼€
-        transitionEnd = fxTransitionEnd(); // transitionEndäº‹ä»¶å…¼å®¹
+    var vendorPrefix = fxPrefix(), // CSS3 ÊôĞÔÇ°×º
+        transitionEnd = fxTransitionEnd(); // transitionEndÊÂ¼ş¼æÈİ
 
     /**
-     * css å±æ€§å‰ç¼€å…¼å®¹
+     * css ÊôĞÔÇ°×º¼æÈİ
      * @return {String}
      */
     function fxPrefix(){
         var body = document.body || document.documentElement,
             style=body.style,
-            vendor = ['', 'Moz', 'Webkit', 'Khtml', 'O', 'ms'],
+            vendor = ['Moz', 'Webkit', 'Khtml', 'O', 'ms'],
             i = 0,
-            len = vendor.length,
-            result = '';
+            len = vendor.length;
 
         while(i < len){
             if(typeof style[vendor[i] + 'transition'] === 'string'){
-                result = vendor[i];
-                break;
+                return vendor[i];
             }
             i++;
         }
-        return result;
+        return '';
     }
 
     /**
-     * transitionEndäº‹ä»¶å…¼å®¹
+     * transitionEndÊÂ¼ş¼æÈİ
      * @return {[type]} [description]
      */
     function fxTransitionEnd(){
@@ -86,17 +84,16 @@
 
         for(var name in transEndEventNames){
             if(typeof style[name] === "string"){
-                result = transEndEventNames[name];
-                break;
+                return transEndEventNames[name];
             }
         }
 
-        return result;
+        return 'transitionend';
     };
 
      /**
-      * é˜»æ­¢ç‚¹å‡»äº‹ä»¶æ‰§è¡Œã€å†’æ³¡
-      * @param  {Object} $el Zeptoæˆ–jQuery domå¯¹è±¡
+      * ×èÖ¹µã»÷ÊÂ¼şÖ´ĞĞ¡¢Ã°Åİ
+      * @param  {Object} $el Zepto»òjQuery dom¶ÔÏó
       */
      function preventClickFn($el){
         $el && $el.on && $el.on('click', function click(e){
@@ -107,32 +104,32 @@
      }
 
      /**
-      * @description å·¦æ»‘åˆ é™¤
+      * @description ×ó»¬É¾³ı
       * @param {Object} options
-      * @param {String | Object} options.wrapper äº‹ä»¶å§”æ‰˜çˆ¶çº§ï¼Œæ”¯æŒcssé€‰æ‹©å™¨ æˆ– Zepto domå¯¹è±¡ã€‚é»˜è®¤ 'body'
-      * @param {String} options.itemSelector æ“ä½œå…ƒç´ ï¼Œç›®å‰ä»…æ”¯æŒcssé€‰æ‹©å™¨ã€‚é»˜è®¤ 'li'
-      * @param {String} options.transClass æ‰§è¡ŒåŠ¨ç”»çš„å…ƒç´ çš„classNameï¼Œä¾‹å¦‚ï¼Œæˆ‘ä»¬ä½œç”¨å…ƒç´ æ˜¯liï¼Œå®é™…åŠ¨ç”»æ˜¯åœ¨ li>.li-innerã€‚é»˜è®¤ 'li-inner'
-      * @param {String} options.actionClass å³ä¾§æ“ä½œå…ƒç´ çš„classNameï¼Œä¾‹å¦‚ï¼Œå³ä¾§æˆ‘ä»¬æ”¾ç½®äº†æ“ä½œå…ƒç´  li>.li-actionã€‚é»˜è®¤ 'li-action'
-      * @param {Boolean} options.dynamicLimit åŠ¨æ€è·å–æ“ä½œåŒºåŸŸçš„å®½åº¦ï¼Œè®¾ç½®ä¹‹åoptions.maxLimitæ”¹ä¸ºåŠ¨æ€è·å–ï¼Œä¸å½±å“options.toggleLimitã€options.overstepLimitè®¾ç½®ã€‚é»˜è®¤ false
-      * @param {Number} options.maxLimit å·¦æ»‘è·ç¦»ï¼Œæ­£å¸¸è®¾ç½®ä¸ºå³ä¾§å¯æ“ä½œå…ƒç´ çš„å®½åº¦ã€‚é»˜è®¤ -80
-      * @param {Number} options.toggleLimit æ»‘å‡ºè·ç¦»å¤šå°‘ä¸ºæ»‘å‡ºçŠ¶æ€ã€‚é»˜è®¤ options.maxLimit / 2
-      * @param {Number} options.overstepLimit å¯è¶…å‡ºè·ç¦»ã€‚é»˜è®¤ options.maxLimit / 2
-      * @param {Boolean} options.preventClick é˜»æ­¢ç‚¹å‡»å†’æ³¡ã€‚é»˜è®¤ true
-      * @param {Number} options.animateTime æ»‘åŠ¨æ—¶é—´ï¼Œå•ä½msã€‚é»˜è®¤ 300
-      * @param {Boolean} options.animateDecrease åŠ¨æ€è®¡ç®—åŠ¨ç”»æ‰§è¡Œæ—¶é—´ã€‚å¦‚ç§»åŠ¨80pxéœ€è¦200msï¼Œé‚£ä¹ˆç§»åŠ¨40pxå°±åªè¦100ms
-      * @param {Function} options.disabledHandle ç¦ç”¨æ¡ä»¶å‡½æ•°ã€‚
+      * @param {String | Object} options.wrapper ÊÂ¼şÎ¯ÍĞ¸¸¼¶£¬Ö§³ÖcssÑ¡ÔñÆ÷ »ò Zepto dom¶ÔÏó¡£Ä¬ÈÏ 'body'
+      * @param {String} options.itemSelector ²Ù×÷ÔªËØ£¬Ä¿Ç°½öÖ§³ÖcssÑ¡ÔñÆ÷¡£Ä¬ÈÏ 'li'
+      * @param {String} options.transClass Ö´ĞĞ¶¯»­µÄÔªËØµÄclassName£¬ÀıÈç£¬ÎÒÃÇ×÷ÓÃÔªËØÊÇli£¬Êµ¼Ê¶¯»­ÊÇÔÚ li>.li-inner¡£Ä¬ÈÏ 'li-inner'
+      * @param {String} options.actionClass ÓÒ²à²Ù×÷ÔªËØµÄclassName£¬ÀıÈç£¬ÓÒ²àÎÒÃÇ·ÅÖÃÁË²Ù×÷ÔªËØ li>.li-action¡£Ä¬ÈÏ 'li-action'
+      * @param {Boolean} options.dynamicLimit ¶¯Ì¬»ñÈ¡²Ù×÷ÇøÓòµÄ¿í¶È£¬ÉèÖÃÖ®ºóoptions.maxLimit¸ÄÎª¶¯Ì¬»ñÈ¡£¬²»Ó°Ïìoptions.toggleLimit¡¢options.overstepLimitÉèÖÃ¡£Ä¬ÈÏ false
+      * @param {Number} options.maxLimit ×ó»¬¾àÀë£¬Õı³£ÉèÖÃÎªÓÒ²à¿É²Ù×÷ÔªËØµÄ¿í¶È¡£Ä¬ÈÏ -80
+      * @param {Number} options.toggleLimit »¬³ö¾àÀë¶àÉÙÎª»¬³ö×´Ì¬¡£Ä¬ÈÏ options.maxLimit / 2
+      * @param {Number} options.overstepLimit ¿É³¬³ö¾àÀë¡£Ä¬ÈÏ options.maxLimit / 2
+      * @param {Boolean} options.preventClick ×èÖ¹µã»÷Ã°Åİ¡£Ä¬ÈÏ true
+      * @param {Number} options.animateTime »¬¶¯Ê±¼ä£¬µ¥Î»ms¡£Ä¬ÈÏ 300
+      * @param {Boolean} options.animateDecrease ¶¯Ì¬¼ÆËã¶¯»­Ö´ĞĞÊ±¼ä¡£ÈçÒÆ¶¯80pxĞèÒª200ms£¬ÄÇÃ´ÒÆ¶¯40px¾ÍÖ»Òª100ms
+      * @param {Function} options.disabledHandle ½ûÓÃÌõ¼şº¯Êı¡£
       * @example
       *     var messageFlip = new Flip();
       *     
       */
     function Flip(options){
 
-        //å»é™¤newå­—ç¬¦ä¸²
+        //È¥³ınew×Ö·û´®
         if (!(this instanceof Flip)) return new Flip(options);
 
         var self = this;
 
-        // å‚æ•°è¦†ç›–
+        // ²ÎÊı¸²¸Ç
         var opt = $.extend({
             wrapper: 'body',
             itemSelector: 'li',
@@ -146,56 +143,56 @@
             disabledHandle: null
         }, options);
 
-        // ç¼“å­˜dom
+        // »º´ædom
         var $dom = $(document),
             $wrapper = $(opt.wrapper);
 
-        // æ˜¯å¦åŠ¨æ€è·å–ç•Œé™å€¼ï¼ˆæ“ä½œåŒºåŸŸçš„å®½åº¦ï¼‰
+        // ÊÇ·ñ¶¯Ì¬»ñÈ¡½çÏŞÖµ£¨²Ù×÷ÇøÓòµÄ¿í¶È£©
         if(!options.dynamicLimit){
-            // åç§»ç•Œé™å€¼
+            // Æ«ÒÆ½çÏŞÖµ
             opt.maxLimit = (opt.maxLimit && typeof opt.maxLimit === 'number') ?  (opt.maxLimit > 0 ? -opt.maxLimit : opt.maxLimit) : -$wrapper.find(opt.itemSelector).eq(0).find('.' + opt.actionClass).width();
             opt.toggleLimit = (opt.toggleLimit && typeof opt.toggleLimit === 'number') ?  (opt.toggleLimit > 0 ? -opt.toggleLimit : opt.toggleLimit) : opt.maxLimit / 2;
         }
 
-        // åç§»å¯ä»¥è¶…å‡ºèŒƒå›´
+        // Æ«ÒÆ¿ÉÒÔ³¬³ö·¶Î§
         opt.overstepLimit = (opt.overstepLimit && typeof opt.overstepLimit === 'number') ?  (opt.overstepLimit > 0 ? -opt.overstepLimit : opt.overstepLimit) : 0;
 
-        // ç§»åŠ¨1pxéœ€è¦çš„æ¯«ç§’æ•°
+        // ÒÆ¶¯1pxĞèÒªµÄºÁÃëÊı
         var MOVETIME_ONEPIXEL = Math.floor(Math.abs(opt.animateTime / opt.maxLimit));
 
-        var currentTarget = null, // å½“å‰æ“ä½œçš„domå¯¹è±¡
-            transElement = null, // currentTargetå†…éƒ¨æ»‘å‡ºåŠ¨ç”»çš„å…ƒç´ 
+        var currentTarget = null, // µ±Ç°²Ù×÷µÄdom¶ÔÏó
+            transElement = null, // currentTargetÄÚ²¿»¬³ö¶¯»­µÄÔªËØ
             origin = {
-                x: 0, // å¼€å§‹xè½´åæ ‡
-                y: 0 // å¼€å§‹yè½´åæ ‡
+                x: 0, // ¿ªÊ¼xÖá×ø±ê
+                y: 0 // ¿ªÊ¼yÖá×ø±ê
             },
-            dir = '', // åˆ¤æ–­touchæ–¹å‘ï¼Œvä¸ºå‚ç›´ï¼Œhä¸ºæ°´å¹³
-            startTime; // å¼€å§‹è§¦å‘æ—¶é—´
+            dir = '', // ÅĞ¶Ïtouch·½Ïò£¬vÎª´¹Ö±£¬hÎªË®Æ½
+            startTime; // ¿ªÊ¼´¥·¢Ê±¼ä
 
 
-        var isHideAnimate = false, // æ ‡è¯†éšè—è¿‡æ¸¡åŠ¨ç”»è¿›è¡Œä¸­ï¼Œéšè—åŠ¨ç”»ä¸èƒ½æ‰“æ–­
-            isRoll = false; // æ ‡è¯†æ˜¯å¦å­˜åœ¨æ»‘å‡ºçŠ¶æ€
+        var isHideAnimate = false, // ±êÊ¶Òş²Ø¹ı¶É¶¯»­½øĞĞÖĞ£¬Òş²Ø¶¯»­²»ÄÜ´ò¶Ï
+            isRoll = false; // ±êÊ¶ÊÇ·ñ´æÔÚ»¬³ö×´Ì¬
 
-        // ç»‘å®šäº‹ä»¶
+        // °ó¶¨ÊÂ¼ş
         $wrapper.on(EVENT.START, start);
 
-        // éšè—æ»‘å‡ºdom
+        // Òş²Ø»¬³ödom
         function hideSlide(){
 
-            // é˜²æ­¢é‡å¤éšè—åŠ¨ç”»
+            // ·ÀÖ¹ÖØ¸´Òş²Ø¶¯»­
             if(isHideAnimate) return;
 
-            // æ ‡è¯†éšè—è¿‡æ¸¡åŠ¨ç”»è¿›è¡Œä¸­
+            // ±êÊ¶Òş²Ø¹ı¶É¶¯»­½øĞĞÖĞ
             isHideAnimate = true;
 
             var animateTime = opt.animateTime;
 
-            // åŠ¨ç”»æ—¶é—´æ ¹æ®è·ç¦»è®¡ç®—
+            // ¶¯»­Ê±¼ä¸ù¾İ¾àÀë¼ÆËã
             if(opt.animateDecrease){
                 animateTime = Math.floor(MOVETIME_ONEPIXEL * Math.abs(__moveX - offsetObj.x) * 2)
             }
 
-            // æ‰§è¡Œéšè—åŠ¨ç”»
+            // Ö´ĞĞÒş²Ø¶¯»­
             slide(transElement, animateTime, {x: 0, y: 0}, function(){
                 currentTarget = null;
                 isRoll = false;
@@ -203,23 +200,23 @@
             });
         }
 
-        // æ˜¾ç¤ºæ»‘å‡ºdom
+        // ÏÔÊ¾»¬³ödom
         function showSlide(){
 
-            // é˜²æ­¢é‡å¤éšè—åŠ¨ç”»
+            // ·ÀÖ¹ÖØ¸´Òş²Ø¶¯»­
             if(isHideAnimate) return;
 
-            // æ‰§è¡Œæ»‘å‡ºåŠ¨ç”»
+            // Ö´ĞĞ»¬³ö¶¯»­
             slide(transElement, opt.animateTime, {x: opt.maxLimit, y: 0}, function(){
-                // æ ‡è¯†å­˜åœ¨æ»‘å‡ºçŠ¶æ€
+                // ±êÊ¶´æÔÚ»¬³ö×´Ì¬
                 isRoll = true;
             });
         }
 
         /**
-         * @description å…ƒç´ transformåç§»
-         * @param  {Object} $el       Zeptoæˆ–jQuery domå¯¹è±¡
-         * @param  {Object} offsetObj åç§»å€¼ï¼Œxè½´å’Œyè½´ï¼Œä¾‹å¦‚ {x: 0, y: 0}
+         * @description ÔªËØtransformÆ«ÒÆ
+         * @param  {Object} $el       Zepto»òjQuery dom¶ÔÏó
+         * @param  {Object} offsetObj Æ«ÒÆÖµ£¬xÖáºÍyÖá£¬ÀıÈç {x: 0, y: 0}
          */
         function transform($el, offsetObj){
             $el.css(vendorPrefix + 'transform', 'translate3D('+ offsetObj.x +'px,' + offsetObj.y + 'px, 0)')
@@ -227,17 +224,17 @@
         }
 
         /**
-         * transitionåŠ¨ç”»
-         * @param  {Object} $el           Zeptoæˆ–jQuery domå¯¹è±¡
-         * @param  {Number}   animateTime åŠ¨ç”»æ‰§è¡Œæ—¶é—´
-         * @param  {Object}   offsetObj   åç§»å€¼ï¼Œxè½´å’Œyè½´ï¼Œä¾‹å¦‚ {x: 0, y: 0}
-         * @param  {Function} callback    åŠ¨ç”»æ‰§è¡Œå®Œå›è°ƒå‡½æ•°
+         * transition¶¯»­
+         * @param  {Object} $el           Zepto»òjQuery dom¶ÔÏó
+         * @param  {Number}   animateTime ¶¯»­Ö´ĞĞÊ±¼ä
+         * @param  {Object}   offsetObj   Æ«ÒÆÖµ£¬xÖáºÍyÖá£¬ÀıÈç {x: 0, y: 0}
+         * @param  {Function} callback    ¶¯»­Ö´ĞĞÍê»Øµ÷º¯Êı
          */
         function slide($el, animateTime, offsetObj, callback){
 
-            var __moveX = $el.attr('data-movex') ? parseInt($el.attr('data-movex'), 10) : 0; // ç§»åŠ¨è·ç¦»
+            var __moveX = $el.attr('data-movex') ? parseInt($el.attr('data-movex'), 10) : 0; // ÒÆ¶¯¾àÀë
 
-            var __animateTime = Math.floor(MOVETIME_ONEPIXEL * Math.abs(__moveX - offsetObj.x) * 2); // ç§»åŠ¨æ—¶é—´
+            var __animateTime = Math.floor(MOVETIME_ONEPIXEL * Math.abs(__moveX - offsetObj.x) * 2); // ÒÆ¶¯Ê±¼ä
 
             if(__moveX == offsetObj.x){
                 callback && (typeof callback === 'function') && callback();
@@ -257,8 +254,8 @@
         }
 
         /**
-         * å¼€å§‹ç§»åŠ¨æ—¶è§¦å‘
-         * @param  {Object} e äº‹ä»¶å¯¹è±¡
+         * ¿ªÊ¼ÒÆ¶¯Ê±´¥·¢
+         * @param  {Object} e ÊÂ¼ş¶ÔÏó
          */
         function start(e){
             if(opt.disabledHandle && typeof opt.disabledHandle === 'function' && opt.disabledHandle()){
@@ -273,21 +270,21 @@
 
             var $target = $(e.target).parents(opt.itemSelector);
 
-            // åˆå§‹åŒ–
+            // ³õÊ¼»¯
             dir = '';
 
-            // å­˜åœ¨æ»‘å‡ºçŠ¶æ€
+            // ´æÔÚ»¬³ö×´Ì¬
             if(currentTarget && currentTarget.length > 0){
-                // å¦‚æœè§¦æ‘¸çš„ä¸æ˜¯åˆ é™¤ï¼Œç§»é™¤å½“å‰çŠ¶æ€
+                // Èç¹û´¥ÃşµÄ²»ÊÇÉ¾³ı£¬ÒÆ³ıµ±Ç°×´Ì¬
                 if($(e.target).hasClass(opt.actionClass) || $(e.target).parents('.' + opt.actionClass).length > 0){
                     preventClickFn($target);
                 }else{
                     preventClickFn($target);
 
-                    // é˜»æ­¢é»˜è®¤è¡Œä¸ºï¼ˆæ»šåŠ¨ï¼‰
+                    // ×èÖ¹Ä¬ÈÏĞĞÎª£¨¹ö¶¯£©
                     e.preventDefault();
 
-                    // éšè—æ»‘å‡ºå…ƒç´ 
+                    // Òş²Ø»¬³öÔªËØ
                     hideSlide();
 
                     return;
@@ -299,9 +296,9 @@
             currentTarget = $target;
             transElement = currentTarget.find('.' + opt.transClass);
 
-            // æ˜¯å¦åŠ¨æ€è·å–ç•Œé™å€¼ï¼ˆæ“ä½œåŒºåŸŸçš„å®½åº¦ï¼‰
+            // ÊÇ·ñ¶¯Ì¬»ñÈ¡½çÏŞÖµ£¨²Ù×÷ÇøÓòµÄ¿í¶È£©
             if(options.dynamicLimit){
-                // åç§»ç•Œé™å€¼
+                // Æ«ÒÆ½çÏŞÖµ
                 opt.maxLimit = -currentTarget.find('.' + opt.actionClass).width();
                 opt.toggleLimit = opt.maxLimit / 2;
             }
@@ -311,8 +308,8 @@
         }
 
         /**
-         * æ­£åœ¨ç§»åŠ¨æ—¶è§¦å‘
-         * @param  {Object} e äº‹ä»¶å¯¹è±¡
+         * ÕıÔÚÒÆ¶¯Ê±´¥·¢
+         * @param  {Object} e ÊÂ¼ş¶ÔÏó
          */
         function move(e){
             if (!currentTarget || !transElement) return;
@@ -324,7 +321,7 @@
                 absDistX = Math.abs(moveX),
                 absDistY = Math.abs(moveY);
 
-            // å–ç‚¹åˆ¤æ–­æ–¹å‘
+            // È¡µãÅĞ¶Ï·½Ïò
             if(!dir){
                 if(absDistX >= absDistY){
                     dir = 'h';
@@ -333,14 +330,14 @@
                 }
             }
 
-            // æ°´å¹³æ»‘åŠ¨å¤„ç†
+            // Ë®Æ½»¬¶¯´¦Àí
             if(dir === 'h'){
 
-                // è·Ÿéšç§»åŠ¨
+                // ¸úËæÒÆ¶¯
                 tranX = parseInt(transElement.attr('data-translatex'), 10) || 0;
                 tranX += moveX;
 
-                // è¾¹ç•Œå€¼é™å®š
+                // ±ß½çÖµÏŞ¶¨
                 if(tranX < (opt.maxLimit + opt.overstepLimit)){
                     tranX = opt.maxLimit + opt.overstepLimit;
                 }else if(tranX > -opt.overstepLimit){
@@ -349,7 +346,7 @@
 
                 transform(transElement, {x: tranX, y: 0});
 
-                // é˜»æ­¢é»˜è®¤äº‹ä»¶
+                // ×èÖ¹Ä¬ÈÏÊÂ¼ş
                 e.preventDefault();
             }else{
                 $dom.off(EVENT.MOVE, move);
@@ -360,8 +357,8 @@
         }
 
         /**
-         * ç§»åŠ¨ç»“æŸæ—¶è§¦å‘
-         * @param  {Object} e äº‹ä»¶å¯¹è±¡
+         * ÒÆ¶¯½áÊøÊ±´¥·¢
+         * @param  {Object} e ÊÂ¼ş¶ÔÏó
          */
         function end(e){
             if (!currentTarget || !transElement) return;
@@ -374,20 +371,20 @@
             tranX = parseInt(transElement.attr('data-translatex'), 10) || 0;
             tranX += moveX;
 
-            // æ»‘åŠ¨
+            // »¬¶¯
             if(tranX < opt.toggleLimit){
                 showSlide();
             }else{
                 hideSlide();
             }
 
-            //é¼ æ ‡æŒ‰ä¸‹äº‹ä»¶ï¼ˆå¤„ç†PCç«¯ä¸­ï¼‰
+            //Êó±ê°´ÏÂÊÂ¼ş£¨´¦ÀíPC¶ËÖĞ£©
             if(opt.preventClick && EVENT.START === 'mousedown' && ((startTime && endTime - startTime > 300) || (dir ==='h' && Math.abs(moveX) > 3))) {
                 preventClickFn(currentTarget);
                 startTime = null;
             }
 
-            // é˜»æ­¢é»˜è®¤è¡Œä¸º
+            // ×èÖ¹Ä¬ÈÏĞĞÎª
             // e.preventDefault();
 
             $(document).off(EVENT.MOVE, move);
@@ -395,7 +392,7 @@
         }
 
         /**
-         * @method destroy é”€æ¯å‡½æ•°
+         * @method destroy Ïú»Ùº¯Êı
          */
         this.destroy = function(){
             $wrapper.off(EVENT.START);
@@ -403,7 +400,7 @@
         }
 
         /**
-         * @method reset é‡ç½®æ»‘å‡ºçŠ¶æ€
+         * @method reset ÖØÖÃ»¬³ö×´Ì¬
          */
         this.reset = function(){
             if(currentTarget){
@@ -412,7 +409,7 @@
         }
 
         /**
-         * @method hasRollState æ˜¯å¦æœ‰æ»‘å‡ºçŠ¶æ€
+         * @method hasRollState ÊÇ·ñÓĞ»¬³ö×´Ì¬
          */
         this.hasRollState = function(){
             return isRoll;

@@ -15,7 +15,7 @@ require.config({
 require(['zepto', 'flip'], function($, Flip){
 
     // 测试 左滑删除1
-    window.test_flip_1 = new Flip({
+    var test_flip_1 = new Flip({
         wrapper: '#test-flip1',
         itemSelector: 'li',
         transClass: 'li-inner',
@@ -25,7 +25,7 @@ require(['zepto', 'flip'], function($, Flip){
     });
 
     // 测试 左滑删除 2
-    window.test_flip_2 = new Flip({
+    var test_flip_2 = new Flip({
         wrapper: '#test-flip2',
         itemSelector: 'li',
         transClass: 'li-inner',
@@ -35,7 +35,7 @@ require(['zepto', 'flip'], function($, Flip){
     });
 
     // 测试 左滑删除 3
-    window.test_flip_3 = new Flip({
+    var test_flip_3 = new Flip({
         wrapper: '#test-flip3',
         itemSelector: 'li',
         transClass: 'li-inner',
@@ -63,21 +63,22 @@ require(['zepto', 'flip'], function($, Flip){
 
 
     $('.attention').on('click', function(e){
-        console.log('click attention');
+        alert('click attention');
     });
 
     $('.delete').on('click', function(e){
-        console.log('click delete');
+        alert('click delete');
     });
 
     $('body').on('click', 'li', function(e){
-        console.log('click li');
+        alert('click li');
     })
 
     $(window).on('resize', function(e){
         if($(document).width() > 768){
             test_flip_1.reset();
             test_flip_2.reset();
+            test_flip_3.reset();
         }
     });
 
