@@ -63,15 +63,18 @@ require(['zepto', 'flip'], function($, Flip){
 
 
     $('.attention').on('click', function(e){
-        alert('click attention');
+        // alert('click attention');
+        console.log('click attention');
     });
 
     $('.delete').on('click', function(e){
-        alert('click delete');
+        // alert('click delete');
+        console.log('click delete');
     });
 
     $('body').on('click', 'li', function(e){
-        alert('click li');
+        // alert('click li');
+        console.log('click li');
     })
 
     $(window).on('resize', function(e){
