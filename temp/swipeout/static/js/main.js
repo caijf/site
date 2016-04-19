@@ -60,8 +60,9 @@ require(['zepto', 'swipeout'], function($, Swipeout){
 
     $(window).on('resize', function(e){
         if($(document).width() > 768){
-            testSwipeout_1.reset();
-            testSwipeout_2.reset();
+            testSwipeout_1.close();
+            testSwipeout_2.close();
+            testSwipeout_3.close();
         }
     });
 

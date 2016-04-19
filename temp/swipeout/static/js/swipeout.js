@@ -294,9 +294,16 @@
             isMove = false;
             var timeDiff = (new Date()).getTime() - touchesStartTime;
 
+            // 处理点击
+            if (timeDiff < 300 && touchesDiff === 0) {
+                return;
+            }
+
+            // 处理开启或关闭
             if (
                 timeDiff < 300 && touchesDiff < -10 ||
-                timeDiff >= 300 && Math.abs(translate) > swipeoutActionWidth / 2
+                (swipeoutOpenedEl && timeDiff < 300 && touchesDiff < 10) ||
+                timeDiff >= 300 && Math.abs(translate) > swipeoutActionWidth / 2 
             ) {
                 swipeoutOpen();
             }else{
