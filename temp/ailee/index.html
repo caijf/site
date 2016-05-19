@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Ailee成诗打分系统</title>
+	<link rel="stylesheet" href="./dist/css/index.css">
+	<style>
+
+	.header{ z-index: 99; }
+
+    .toast{
+      width         : 220px;
+      line-height   : 24px;
+      border-radius : 5px;
+      background    : rgba(0, 0, 0, .7);
+      padding       : 10px 15px;
+      color         : #fff;
+      font-weight   : 700;
+      text-align    : center;
+      word-break    : break-all;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      margin-left: -125px;
+      margin-top:-12px;
+      z-index: 999;
+    }
+
+    body {
+    	-webkit-user-select: auto;
+    }
+
+    .s-layout .key-word-text{ text-align: center; }
+
+    .longClickView {
+    	display: none;
+    	position: absolute;
+    	left: 0px;
+    	top: 0px;
+    	background-color: transparent;
+    }
+
+    .content .score-bar-outer{
+	    position: relative;
+	    height: 3px;
+	    margin: 0 12%;
+	    border-radius: 10px;
+    }
+	.score-bar-outer .left, .score-bar-outer .right{
+	  position: absolute;
+	  left: -8%;
+	  top: -9px;
+	  color: #6a6969;
+	}
+	.score-bar-outer .right{
+	  left: auto;
+	  right: -11%;
+	}
+	.score-bar-outer .value{
+		position: absolute;
+	    top: -28px;
+	    left: 96%;
+	    width: 22px;
+	    height: 15px;
+	    line-height: 15px;
+	    color: #FFF;
+	    font-size: .13rem;
+	    text-align: center;
+	    background-color: #e15b47;
+	    transform: scale(.8);
+	    z-index: 15;
+	    /*visibility: hidden; safari 导致定位各种问题*/
+	}
+	.score-bar-outer .value:after{
+		content: "";
+	    position: absolute;
+	    bottom: -3px;
+	    left: 50%;
+	    margin-left: -3px;
+	    width: 0;
+	    height: 0;
+	    border-left: 3px solid transparent;
+	    border-right: 3px solid transparent;
+	    border-top: 4px solid #e15b47;
+	}
+
+	.content .score-bar{
+		margin: 0;
+	}
+	.score-bar-fill{
+	    position: relative;
+	    float: left;
+	    height: 3px;
+	    border-radius: 10px;
+	    background-color: #e15b47;
+	    z-index: 14;
+	}
+	.score-bar-handle{
+  		position: absolute;
+  		z-index: 15;
+  		top: -10px;
+	    width: 20px;
+	    height: 20px;
+	    background-color: #cfa77d;
+	    border-radius: 50%;
+	    box-shadow: 0 5px 10px #eadfd0;
+	    cursor: pointer;
+	}
+
+	[contenteditable="true"]{
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+
+	.foot{
+		position: fixed;
+		left:0;
+		bottom:0;
+		width: 100%;
+		height:200px;
+		z-index: 6;
+		-webkit-transition:height .2s ease-in 0s;
+		transition:height .2s ease-in 0s;
+	}
+
+	.footer-box.open-footer-top{
+		z-index: 9;
+	}
+
+	.footer-box.no-info-tips{
+		overflow: hidden;
+	}
+
+	.Long-press-choice:after {
+	  display: none;
+	}
+
+	.Long-press-choice-arrow{
+	    position: absolute;
+	    left: 50%;
+	    bottom: -9px;
+	    width: 0;
+	    height: 0;
+	    margin-left: -4px;
+	    border-left: 7px solid transparent;
+	    border-right: 7px solid transparent;
+	    border-top: 8px solid rgba(47, 47, 46, .9);
+	}
+  
+	</style>
+</head>
+<body>
+	<!-- 首页 -->
+	<div id="home" class="page out">
+		<div class="wrapper">
+			<div class="i-header">
+			    <h2>
+					<a href="#" class="logo">
+						<span class="undis">诗</span>
+					</a>
+			    </h2>
+		    	<p class="i-text">AI Lee智能再学习系统</p>
+			</div>
+			<div class="i-body">
+			    <textarea name="" placeholder="请输入一个景点名称" id="inputWord"></textarea>
+			</div>
+			<div class="i-confirm text-center">
+			    <button type="button" id="createPoem">生成诗</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 生成诗 -->
+	<div id="create" class="page out">
+		<header class="header">
+			  <h2 class="title">生成诗</h2>
+			  <a class="fl" href="#home" data-rel="back">返回</a>
+		</header>
+		<section class="body-box">
+			<div class="s-layout">
+				<h2>关键字</h2>
+				<p class="key-word-text ellips"></p>
+				<div class="s-verse">
+					<!-- <ul>
+					    <li>岱宗夫如何？</li>
+					    <li>齐鲁青未了。</li>
+					    <li>造化钟神秀，</li>
+					    <li>阴阳割昏晓。</li>
+					    <li>荡胸生层云，</li>
+					    <li>决眦入归鸟。</li>
+					    <li>会当凌绝顶，</li>
+					    <li>一览众山小。</li>
+					</ul> -->
+				</div>
+				<div class="i-confirm text-center">
+				    <button type="button">开始评分</button>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<!-- 评论 平仄 -->
+	<div id="pingze" class="page out">
+		<header class="header">
+		    <h2 class="title">评论&bull;平仄</h2>
+		    <a class="fl" href="#create" data-rel="back">返回</a>
+		    <a class="fr" href="#yayun">下一步</a>
+		  </header>
+		  <section class="body-box" id="wrap">
+		    <div class="p-layout">
+		      <div class="p-keyword ellips">
+		      	<span>关键字：</span>
+		      </div>
+		      <div class="item">
+		      </div>
+		     </div>
+		  </section>
+	     <div class ="foot">
+	      <div class="footer-box no-info-tips">
+	       <div class="remarks">
+	          <div class="prompt"></div>
+	          <p class="text">点击可选择字，摁住拖动可选词。<br>
+	    			长按被选中字词可以修改文字或取消当前选中。</p>
+	          </div>
+	        </div>
+	        <div class="footer-box strokeList">
+	          <div class="remarks">
+	            <h2>标出的错误</h2>
+	            <i id = "strokePanelToggleButton" class="caret"></i>
+	            <div class="md-box">
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	</div>
+
+	<!-- 评论 押韵 -->
+	<div id="yayun" class="page out">
+		<header class="header">
+		    <h2 class="title">评论&bull;押韵</h2>
+		    <a class="fl" href="#pingze" data-rel="back">返回</a>
+		    <a class="fr" href="#duizhang">下一步</a>
+		  </header>
+		  <section class="body-box" id="wrap">
+		    <div class="p-layout">
+		      <div class="p-keyword ellips">
+		      	<span>关键字：</span>
+		      </div>
+		      <div class="item">
+		      </div>
+		     </div>
+		  </section>
+	     <div class ="foot">
+	      <div class="footer-box no-info-tips">
+	        <div class="remarks">
+	          <div class="prompt"></div>
+	          <p class="text">点击可选择字，摁住拖动可选词。<br>长按被选中字词可以修改文字或取消当前选中。</p>
+	        </div>
+	       </div>
+	       <div class="footer-box strokeList">
+	          <div class="remarks">
+	            <h2>标出的错误</h2>
+	            <i id = "strokePanelToggleButton" class="caret"></i>
+	            <div class="md-box">
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	</div>
+
+	<!-- 评论 对仗 -->
+	<div id="duizhang" class="page out">
+		<header class="header">
+		    <h2 class="title">评论&bull;对仗</h2>
+		    <a class="fl" href="#yayun" data-rel="back">返回</a>
+		    <a class="fr" href="#neirong">下一步</a>
+		  </header>
+		  <section class="body-box" id="wrap">
+		    <div class="p-layout">
+		      <div class="p-keyword ellips">
+		      	<span>关键字：</span>
+		      </div>
+		      <div class="item">
+		      </div>
+		     </div>
+		  </section>
+	     <div class="foot">
+	      <div class="footer-box no-info-tips">
+	       <div class="remarks">
+	          <div class="prompt"></div>
+	          <p class="text">点击可选择字，摁住拖动可选词。<br>
+	    			长按被选中字词可以修改文字或取消当前选中。</p>
+	          </div>
+	        </div>
+	        <div class="footer-box strokeList">
+	          <div class="remarks">
+	            <h2>标出的错误</h2>
+	            <i id = "strokePanelToggleButton" class="caret"></i>
+	            <div class="md-box">
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	</div>
+
+	<!-- 评论 内容 -->
+	<div id="neirong" class="page out">
+		<header class="header">
+		    <h2 class="title">评论&bull;内容</h2>
+		    <a class="fl" href="#duizhang" data-rel="back">返回</a>
+		    <a class="fr" href="#result">下一步</a>
+		  </header>
+		  <section class="body-box" id="wrap">
+		    <div class="p-layout">
+		      <div class="p-keyword ellips">
+		      	<span>关键字：</span>
+		      </div>
+		      <div class="item">
+		      </div>
+		     </div>
+		  </section>
+	     <div class="foot">
+	      <div class="footer-box no-info-tips" style=" padding-bottom:85px;">
+	       <div class="remarks">
+	          <div class="prompt"></div>
+	          <p class="text">点击可选择字，摁住拖动可选词。<br>
+	    			长按被选中字词可以修改文字或取消当前选中。</p>
+	          </div>
+	        </div>
+	        <div class="footer-box strokeList" style="padding-bottom:85px;">
+	          <div class="remarks">
+	            <h2>标出的错误</h2>
+	            <i id = "strokePanelToggleButton" class="caret"></i>
+	            <div class="md-box">
+	            </div>
+	          </div>
+	        </div>
+			<div class="score-box" style="z-index: 1999; position: absolute;">
+				<div class="content">
+					<h2>内容评分</h2>
+					<div class="score-bar-outer" id="artScoreBar">
+						<span class="left">0</span>
+						<span class="right">70</span>
+						<span class="value">50</span>
+						<input
+						    type="range"
+						    min="0"                    // default 0
+						    max="70"                  // default 100
+						    step="1"                   // default 1
+						    value="50"                 // default min + (max-min)/2
+						    data-orientation="horizontal" // default horizontal
+						>
+					</div>
+				</div>
+			</div>
+	      </div>
+	</div>
+
+	<!-- 结果 -->
+	<div id="result" class="page out">
+		<header class="header">
+		    <h2 class="title">评论•结果</h2>
+		    <a class="fl" href="#neirong" data-rel="back">返回</a>
+		</header>
+		<section class="body-box">
+		    <div class="j-layout">
+			    <div class="result-verse">
+			        <!-- <p>岱宗夫如何？ 齐鲁青未了。</p>
+			        <p>造化钟神秀， 阴阳割昏晓。</p>
+			        <p>荡胸生层云， 决眦入归鸟。</p>
+			        <p>会当凌绝顶， 一览众山小。</p> -->
+			    </div>
+		    <div class="overall-score-box">
+		        <div class="score-value clearfix">
+			        <label class="table-left">平仄得分：</label>
+			        <div class="result-right">
+			            <span><strong id="resultScorePingze">0</strong>分</span>
+			        </div>
+		        </div>
+		        <div class="score-value clearfix">
+			        <label class="table-left">对仗得分：</label>
+			        <div class="result-right">
+			            <span><strong id="resultScoreDuizhang">0</strong>分</span>
+			        </div>
+		        </div>
+		        <div class="score-value clearfix">
+			        <label class="table-left">押韵得分：</label>
+			        <div class="result-right">
+			            <span><strong id="resultScoreYayun">0</strong>分</span>
+			        </div>
+		        </div>
+		        <div class="score-value clearfix">
+			        <label class="table-left">内容得分：</label>
+			        <div class="result-right">
+			          <span><strong id="resultScoreNeirong">0</strong>分</span>
+			        </div>
+		        </div>
+		        <div class="score-value clearfix">
+			        <label class="table-left overall-left"><strong>总分：</strong></label>
+			        <div class="result-right">
+			            <span class="color-red"><strong class="overall-score" id="resultScoreAll">0</strong>分</span>
+			        </div>
+		        </div>
+		    </div>
+		    <div class="i-confirm text-center">
+		        <button type="button">提交</button>
+		    </div>
+		  </div>
+		</section>
+	</div>
+
+	<!-- 提交成功 -->
+	<div id="success" class="page out">
+		<header class="header">
+		    <h2 class="title">提交</h2>
+		    <a class="fl jsReload" href="javascript:;">返回</a>
+		</header>
+		<section class="body-box">
+		    <div class="w-content">
+			    <i class="submit-ico"></i>
+			    <p class="text-center">您的评分已提交成功</p>
+			    <div class="i-confirm text-center">
+			    	<button type="button" class="jsReload">再写一首</button>
+		    	</div>
+		    </div>
+		</section>
+	</div>
+
+	<!-- 提交失败 -->
+	<div id="failed" class="page out">
+		<header class="header">
+		    <h2 class="title">提交</h2>
+		    <a class="fl jsReload" href="javascript:;">返回</a>
+		</header>
+		<section class="body-box">
+		    <div class="w-content">
+			    <i class="failed-ico"></i>
+			    <p class="text-center">提交失败</p>
+			    <div class="i-confirm text-center">
+			        <button type="button" id="failedResubmit">重新提交</button>
+			        <button type="button" class="jsReload">回到首页</button>
+			    </div>
+		    </div>
+		</section>
+	</div>
+
+	<script src="./dist/js/lib/zepto.js"></script>
+	<script src="./dist/js/lib/zepto.fx.js"></script>
+	<script src="./dist/js/lib/fastclick.js"></script>
+	<script src="./dist/js/lib/rangeslider.js"></script>
+	<script src="./dist/js/lib/countUp.js"></script>
+	<script src="./dist/js/lib/mobilebone.js"></script>
+	<script src="./dist/js/index.js"></script>
+</body>
+</html>
+
+
+
+
+
