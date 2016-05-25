@@ -5,150 +5,6 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>Ailee成诗打分系统</title>
 	<link rel="stylesheet" href="./dist/css/index.css">
-	<style>
-
-	.header{ z-index: 99; }
-
-    .toast{
-      width         : 220px;
-      line-height   : 24px;
-      border-radius : 5px;
-      background    : rgba(0, 0, 0, .7);
-      padding       : 10px 15px;
-      color         : #fff;
-      font-weight   : 700;
-      text-align    : center;
-      word-break    : break-all;
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      margin-left: -125px;
-      margin-top:-12px;
-      z-index: 999;
-    }
-
-    body {
-    	-webkit-user-select: auto;
-    }
-
-    .s-layout .key-word-text{ text-align: center; }
-
-    .longClickView {
-    	display: none;
-    	position: absolute;
-    	left: 0px;
-    	top: 0px;
-    	background-color: transparent;
-    }
-
-    .content .score-bar-outer{
-	    position: relative;
-	    height: 3px;
-	    margin: 0 12%;
-	    border-radius: 10px;
-    }
-	.score-bar-outer .left, .score-bar-outer .right{
-	  position: absolute;
-	  left: -8%;
-	  top: -9px;
-	  color: #6a6969;
-	}
-	.score-bar-outer .right{
-	  left: auto;
-	  right: -11%;
-	}
-	.score-bar-outer .value{
-		position: absolute;
-	    top: -28px;
-	    left: 96%;
-	    width: 22px;
-	    height: 15px;
-	    line-height: 15px;
-	    color: #FFF;
-	    font-size: .13rem;
-	    text-align: center;
-	    background-color: #e15b47;
-	    transform: scale(.8);
-	    z-index: 15;
-	    /*visibility: hidden; safari 导致定位各种问题*/
-	}
-	.score-bar-outer .value:after{
-		content: "";
-	    position: absolute;
-	    bottom: -3px;
-	    left: 50%;
-	    margin-left: -3px;
-	    width: 0;
-	    height: 0;
-	    border-left: 3px solid transparent;
-	    border-right: 3px solid transparent;
-	    border-top: 4px solid #e15b47;
-	}
-
-	.content .score-bar{
-		margin: 0;
-	}
-	.score-bar-fill{
-	    position: relative;
-	    float: left;
-	    height: 3px;
-	    border-radius: 10px;
-	    background-color: #e15b47;
-	    z-index: 14;
-	}
-	.score-bar-handle{
-  		position: absolute;
-  		z-index: 15;
-  		top: -10px;
-	    width: 20px;
-	    height: 20px;
-	    background-color: #cfa77d;
-	    border-radius: 50%;
-	    box-shadow: 0 5px 10px #eadfd0;
-	    cursor: pointer;
-	}
-
-	[contenteditable="true"]{
-		word-break: break-all;
-		word-wrap: break-word;
-	}
-
-	.foot{
-		position: absolute;
-		left:0;
-		bottom:0;
-		width: 100%;
-		height:200px;
-		z-index: 6;
-		-webkit-transition:height .2s ease-in 0s;
-		transition:height .2s ease-in 0s;
-	}
-
-	.footer-box.open-footer-top{
-		z-index: 9;
-	}
-
-	.footer-box.no-info-tips{
-		overflow: hidden;
-	}
-
-	.Long-press-choice:after {
-	  display: none;
-	}
-
-	.Long-press-choice-arrow{
-	    position: absolute;
-	    left: 50%;
-	    bottom: -9px;
-	    width: 0;
-	    height: 0;
-	    margin-left: -4px;
-	    border-left: 7px solid transparent;
-	    border-right: 7px solid transparent;
-	    border-top: 8px solid rgba(47, 47, 46, .9);
-	}
-  
-	</style>
 </head>
 <body>
 	<!-- 首页 -->
@@ -225,9 +81,9 @@
 	          </div>
 	        </div>
 	        <div class="footer-box strokeList">
+	          <h2>批注</h2>
+	          <i id = "strokePanelToggleButton" class="caret"></i>
 	          <div class="remarks">
-	            <h2>批注</h2>
-	            <i id = "strokePanelToggleButton" class="caret"></i>
 	            <div class="md-box">
 	            </div>
 	          </div>
@@ -259,9 +115,9 @@
 	        </div>
 	       </div>
 	       <div class="footer-box strokeList">
+	          <h2>标出的错误</h2>
+	          <i id = "strokePanelToggleButton" class="caret"></i>
 	          <div class="remarks">
-	            <h2>标出的错误</h2>
-	            <i id = "strokePanelToggleButton" class="caret"></i>
 	            <div class="md-box">
 	            </div>
 	          </div>
@@ -294,9 +150,9 @@
 	          </div>
 	        </div>
 	        <div class="footer-box strokeList">
+	          <h2>标出的错误</h2>
+	          <i id = "strokePanelToggleButton" class="caret"></i>
 	          <div class="remarks">
-	            <h2>标出的错误</h2>
-	            <i id = "strokePanelToggleButton" class="caret"></i>
 	            <div class="md-box">
 	            </div>
 	          </div>
@@ -321,17 +177,17 @@
 		     </div>
 		  </section>
 	     <div class="foot">
-	      <div class="footer-box no-info-tips" style=" padding-bottom:85px;">
+	      <div class="footer-box no-info-tips">
 	       <div class="remarks">
 	          <div class="prompt"></div>
 	          <p class="text">点击可选择字，摁住拖动可选词。<br>
 	    			长按被选中字词可以修改文字或取消当前选中。</p>
 	          </div>
 	        </div>
-	        <div class="footer-box strokeList" style="padding-bottom:85px;">
+	        <div class="footer-box strokeList">
+	          <h2>批注</h2>
+	          <i id = "strokePanelToggleButton" class="caret"></i>
 	          <div class="remarks">
-	            <h2>标出的错误</h2>
-	            <i id = "strokePanelToggleButton" class="caret"></i>
 	            <div class="md-box">
 	            </div>
 	          </div>
@@ -339,7 +195,7 @@
 			<div class="score-box" style="z-index: 1999; position: absolute;">
 				<div class="content">
 					<h2>内容评分</h2>
-					<div class="score-bar-outer" id="artScoreBar">
+					<div class="score-bar" id="artScoreBar">
 						<span class="left">0</span>
 						<span class="right">70</span>
 						<span class="value">50</span>
