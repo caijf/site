@@ -4,7 +4,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>AI Lee智能再学习系统</title>
-	<link rel="stylesheet" href="./dist/css/index.css">
+	<link rel="stylesheet" href="./dist/css/main.css">
+	<style>
+	.score-details{ top: 0; right: 0; bottom: 0; left: 0; padding: 15px;}
+	.score-content{ height: initial; }
+	</style>
 </head>
 <body>
 	<!-- 首页 -->
@@ -18,17 +22,43 @@
 			    </h2>
 		    	<p class="i-text">AI Lee智能再学习系统</p>
 			</div>
-			<div class="i-body">
+			<div id="homeContainer">
+				<!-- <div class="login-box">
+				  	<ul>
+				  		<li>
+				  			<label for="">
+				  				<span class="ico-user"></span>
+				  			</label>
+				  			<div>
+				  				<input type="text" class="user-text" placeholder="用户名">
+				  			</div>
+				  			<span class="ico-remove"><i class="cross"></i></span>
+				  		</li>
+				  		<li>
+				  			<label for="">
+				  				<span class="ico-password"></span>
+				  			</label>
+				  			<div>
+				  				<input type="password" class="user-text" placeholder="密码">
+				  			</div>
+				  		</li>
+				  	</ul>
+				  </div>
+				  <div class="i-confirm text-center">
+					<button type="button">登录</button>
+				  </div> -->
+			</div>
+			<!-- <div class="i-body">
 			    <textarea name="" placeholder="请输入一个景点名称" id="inputWord"></textarea>
 			</div>
 			<div class="i-confirm text-center">
-			    <button type="button" id="createPoem">生成诗</button>
-			</div>
+			    <button type="button" id="generatePoem">生成诗</button>
+			</div> -->
 		</div>
 	</div>
 
 	<!-- 生成诗 -->
-	<div id="create" class="page out">
+	<div id="generate" class="page out">
 		<header class="header">
 			  <h2 class="title">生成诗</h2>
 			  <a class="fl" href="#home" data-rel="back">返回</a>
@@ -59,9 +89,9 @@
 	<!-- 评论 平仄 -->
 	<div id="pingze" class="page out">
 		<header class="header">
-		    <h2 class="title">评论&bull;平仄</h2>
-		    <a class="fl" href="#create" data-rel="back">返回</a>
-		    <a class="fr" href="#yayun">下一步</a>
+		    <h2 class="title">评论&bull;平仄<i class="ico-i"></i></h2>
+		    <a class="fl" href="#generate" data-rel="back">返回</a>
+		    <a class="fr" href="#rhythm">下一步</a>
 		  </header>
 		  <section class="body-box" id="wrap">
 		    <div class="p-layout">
@@ -92,11 +122,11 @@
 	</div>
 
 	<!-- 评论 押韵 -->
-	<div id="yayun" class="page out">
+	<div id="rhythm" class="page out">
 		<header class="header">
-		    <h2 class="title">评论&bull;押韵</h2>
+		    <h2 class="title">评论&bull;押韵<i class="ico-i"></i></h2>
 		    <a class="fl" href="#pingze" data-rel="back">返回</a>
-		    <a class="fr" href="#duizhang">下一步</a>
+		    <a class="fr" href="#antithesis">下一步</a>
 		  </header>
 		  <section class="body-box" id="wrap">
 		    <div class="p-layout">
@@ -126,11 +156,11 @@
 	</div>
 
 	<!-- 评论 对仗 -->
-	<div id="duizhang" class="page out">
+	<div id="antithesis" class="page out">
 		<header class="header">
-		    <h2 class="title">评论&bull;对仗</h2>
-		    <a class="fl" href="#yayun" data-rel="back">返回</a>
-		    <a class="fr" href="#neirong">下一步</a>
+		    <h2 class="title">评论&bull;对仗<i class="ico-i"></i></h2>
+		    <a class="fl" href="#rhythm" data-rel="back">返回</a>
+		    <a class="fr" href="#art">下一步</a>
 		  </header>
 		  <section class="body-box" id="wrap">
 		    <div class="p-layout">
@@ -161,10 +191,10 @@
 	</div>
 
 	<!-- 评论 内容 -->
-	<div id="neirong" class="page out">
+	<div id="art" class="page out">
 		<header class="header">
-		    <h2 class="title">评论&bull;内容</h2>
-		    <a class="fl" href="#duizhang" data-rel="back">返回</a>
+		    <h2 class="title">评论&bull;内容<i class="ico-i"></i></h2>
+		    <a class="fl" href="#antithesis" data-rel="back">返回</a>
 		    <a class="fr" href="#result">下一步</a>
 		  </header>
 		  <section class="body-box" id="wrap">
@@ -217,7 +247,7 @@
 	<div id="result" class="page out">
 		<header class="header">
 		    <h2 class="title">评论•结果</h2>
-		    <a class="fl" href="#neirong" data-rel="back">返回</a>
+		    <a class="fl" href="#art" data-rel="back">返回</a>
 		</header>
 		<section class="body-box">
 		    <div class="j-layout">
@@ -301,13 +331,8 @@
 		</section>
 	</div>
 
-	<script src="./dist/js/lib/zepto.js"></script>
-	<script src="./dist/js/lib/zepto.fx.js"></script>
-	<script src="./dist/js/lib/fastclick.js"></script>
-	<script src="./dist/js/lib/rangeslider.js"></script>
-	<script src="./dist/js/lib/countUp.js"></script>
-	<script src="./dist/js/lib/mobilebone.js"></script>
-	<script src="./dist/js/index.js"></script>
+	<script src="./dist/js/lib.js"></script>
+	<script src="./dist/js/bundle.js"></script>
 </body>
 </html>
 
