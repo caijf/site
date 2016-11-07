@@ -195,10 +195,9 @@
 
         // 绑定事件
         // TODO：init提取
-        $wrapper.find(opt.swipeoutEl)
-            .on(EVENT.START, start)
-            .on(EVENT.MOVE, move)
-            .on(EVENT.END, end);
+        $wrapper.on(EVENT.START, opt.swipeoutEl, start)
+            .on(EVENT.MOVE, opt.swipeoutEl, move)
+            .on(EVENT.END, opt.swipeoutEl, end);
         /**
          * 开始移动时触发
          * @param  {Object} e 事件对象
@@ -255,7 +254,7 @@
                 swipeoutAction = swipeoutEl.find('.' + opt.swipeoutActionClass);
                 swipeoutActionWidth = swipeoutAction.width();
                 // 是否动态获取界限值（操作区域的宽度）
-                opt.maxLimit = -swipeoutEl.find('.' + opt.actionClass).width();
+                opt.maxLimit = -swipeoutActionWidth;
                 opt.toggleLimit = opt.maxLimit / 2;
             }
 
@@ -320,9 +319,11 @@
                 allowSwipeout = true;
             });
 
-            if(swipeoutOpenedEl){
-                swipeoutOpenedEl = undefined;
-            }
+            setTimeout(function(){
+                if(swipeoutOpenedEl){
+                    swipeoutOpenedEl = undefined;
+                }
+            }, opt.animateTime + 100);
         }
 
         // 显示滑出dom
