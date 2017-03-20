@@ -5,7 +5,7 @@
         "id": 1,
         "mediaType": 2,
         "downloadUrl": "./src/media/movie.ogg",
-        "playUrl": "./src/media/movie.ogg",
+        "playUrl": "http://www.zhangxinxu.com/study/media/cat.mp4",
         "description": "蒸发太平洋描述",
         "likeNum": 12,
         "isLike": false,
