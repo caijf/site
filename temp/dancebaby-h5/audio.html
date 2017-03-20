@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <title>音频分享页</title>
+    <link rel="stylesheet" href="./src/assets/styles/normalize.css">
+    <link rel="stylesheet" href="./src/assets/styles/main.css">
+</head>
+<body>
+    <div class="container with-fixed-bottom">
+        <!-- loading -->
+        <div class="loading"><div></div></div>
+
+        <!-- 置顶广告条 -->
+        <div class="fixed-top-banner">
+            <img src="./src/assets/images/Rectangle 4.png" alt="">
+            <h3>蓝舞者APP音乐</h3>
+            <p>原创拉丁舞曲音乐</p>
+            <a href="#" class="btn btn-default">免费下载</a>
+        </div>
+
+        <!-- 音频播放区域 -->
+        <!-- <div class="audio">
+            <audio id="audio" src="./assets/media/audio.mp3">您的浏览器不支持播放该音频，请换浏览器试试！</audio>
+            <div class="audio-cover">
+                <img src="./assets/images/temp-audio-cover.png" alt="" id="audio_cover_pic">
+                <i class="icon icon-play" id="audio_play_button"></i>
+            </div>
+            <div class="audio-info">
+                <div class="audio-title">— Talk DIirty —</div>
+                <div class="audio-actor">Jason Derulo</div>
+            </div>
+        </div> -->
+        <div class="audio" id="audio_wrapper" style="display: none;">
+            <audio id="audio">您的浏览器不支持播放该音频，请换浏览器试试！</audio>
+            <div class="audio-cover">
+                <img src="" alt="" id="audio_cover_pic">
+                <i class="icon icon-play" id="audio_play_button"></i>
+            </div>
+            <div class="audio-info">
+                <div class="audio-title"></div>
+                <div class="audio-actor"></div>
+            </div>
+        </div>
+
+        <!-- 置底按钮 -->
+        <div class="fixed-bottom fixed-bottom-audio">
+            <a href="#" class="btn btn-primary">下载这首歌曲，更多音乐尽在蓝舞者APP</a>
+        </div>
+
+    </div>
+
+    <!-- <audio controls="controls" preload="none" src="./assets/audios/audio.mp3"> -->
+        <!-- <embed src="./assets/audios/audio.mp3" height="44" /> -->
+    <!-- </audio> -->
+
+    <script src="./src/assets/libs/zepto.js"></script>
+    <script src="./src/assets/libs/zepto.callbacks.js"></script>
+    <script src="./src/assets/libs/zepto.deferred.js"></script>
+    <script src="./src/assets/scripts/audio.js"></script>
+</body>
+</html>

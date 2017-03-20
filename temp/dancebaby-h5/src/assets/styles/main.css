@@ -1,0 +1,123 @@
+/* global start */
+*{ box-sizing: border-box;}
+body{ background: #2b2937; line-height: 1.5; /* max-width: 640px; */}
+h1,h2,h3,h4,h5,h6{ margin: 0;}
+p{ margin: 0;}
+ul, ol, dl, li{ list-style: none; padding: 0; margin: 0;}
+a{ text-decoration: none;}
+
+html, body{ height: 100%;}
+
+    /* base start */
+.clearfix { *zoom:1;}
+.clearfix:after{ display: table; content: ''; clear: both;}
+    /* icon */ 
+.icon{ display: inline-block; vertical-align: middle; border: 1px solid #000;}
+.icon-play-min{ width: 10px; height: 10px; margin: 0 3px;}
+.icon-play{ width: 48px; height: 48px; background: url('../images/icon_play@2x.png') 0 0 no-repeat; background-size: 48px 48px; border: none;}
+.icon-download{ width: 12px; height: 12px;}
+.icon-zan{ width: 18px; height: 18px;}
+.icon-star{ width: 18px; height: 18px;}
+.icon-share{ width: 18px; height: 18px;}
+
+    /* button */
+.btn{ display: inline-block; text-align: center;}
+.btn-default{ padding: 0 10px; color: #0cc; border: 1px solid #0cc; font-size: 12px;}
+.btn-default .icon{ margin-right: 3px;}
+.btn-primary{ height: 45px; line-height: 45px; padding: 0 10px; background: #0cc; color:#fff;}
+
+    /* animate */
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+    /* base end */
+/* global end */
+
+.container.with-fixed-bottom{ padding-bottom: 70px;}
+.loading{ z-index: 10001; position: fixed; left: 50%; top: 50%; width: 50px; height: 50px; margin-left: -25px; margin-top: -25px;}
+.loading > div { display: block; position: relative; left: 50%; top: 50%; width: 150px; height: 150px; margin: -75px 0 0 -75px; border-radius: 50%; border: 3px solid transparent; border-top-color: #e85656; backface-visibility: hidden; transform: translate3d(0, 0, 0); backface-visibility: hidden; -webkit-animation: spin 2s linear infinite; animation: spin 2s linear infinite;}
+.loading > div:before {content: "";position: absolute;top: 5px;left: 5px;right: 5px;bottom: 5px;border-radius: 50%;border: 3px solid transparent;border-top-color: #209e91;-webkit-animation: spin 3s linear infinite; animation: spin 3s linear infinite;}
+.loading > div:after {content: "";position: absolute;top: 15px;left: 15px;right: 15px;bottom: 15px;border-radius: 50%;border: 3px solid transparent;border-top-color: #dfb81c;-webkit-animation: spin 1.5s linear infinite;animation: spin 1.5s linear infinite;}
+
+/* module start */
+    /* uploader */
+.uploader{ height: 50px; padding: 10px;}
+.uploader-headpic{ float: left; margin-right: 10px;}
+.uploader-headpic img{ width: 30px; height: 30px;}
+.uploader-info{}
+.uploader-name{ line-height: 1.2; font-size: 14px; color: #999;}
+.uploader-record{ font-size: 12px; color:#666;}
+
+    /* video */
+.video{ background: #22202d;}
+.video video{ width: 100%; height: 100%; vertical-align: top;}
+.video-wrap{ position: relative; min-width: 320px; min-height: 150px; background: #d8d8d8 url('../images/default_375x200.png') center center no-repeat; background-size: 100%, 100%;}
+.video-mask{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5);}
+.video-wrap .icon-play{ position: absolute; left: 50%; top: 50%; margin: -24px 0 0 -24px;}
+.video-info{ position: relative; padding: 10px 10px 0 10px;}
+.video-title{ padding-right: 70px; word-break: break-all; word-wrap: break-word; font-size: 16px; color:#fff;}
+.video-description{ margin-top: 5px; line-height: 1.2; font-size: 14px; color: #999;}
+.video-info .btn-default{ position: absolute; right: 12px; top:12px; border-radius: 10px;}
+.video-tags{ padding: 5px 0;}
+.video-tags a{ display: inline-block; margin-right:5px; font-size: 15px; color:#0cc;}
+.video-actions{ margin-top: 5px; border-top: 1px solid #666;}
+.video-actions li{ position:relative; float: left; width: 33.3333%; padding: 10px 0; text-align: center; font-size: 14px; color: #fff;}
+.video-actions li:first-child:after{ display: none;}
+.video-actions li:after{ position: absolute; left: 0; top: 50%; margin-top: -7px; content: ''; width: 1px; height: 14px; background: #999;}
+.video-actions .icon{ margin-right: 5px;}
+
+    /* audio */ 
+.body-audio{ background: url('../images/bg.png') 0 0 no-repeat; background-size: 100% 100%;}
+.audio{ position: absolute; left: 50%; top: 50%; width: 230px; height: 230px; margin-left: -115px; margin-top: -115px; overflow: visible;}
+.audio audio{ display: none;}
+.audio-spin{ animation: spin 20s linear infinite; -webkit-animation:spin 20s linear infinite;}
+.audio-pause{ animation-play-state:paused; -webkit-animation-play-state:paused; }
+
+.audio-cover{ position: relative; width: 230px; height: 230px; border-radius: 50%; overflow: hidden; background: #d8d8d8 url('../images/default_120x120.png') center center no-repeat;}
+.audio-cover img{ width: 100%; height: 100%; border-radius: 50%;}
+.audio-cover .icon-play{ position: absolute; left: 50%; top: 50%; margin-left: -24px; margin-top: -24px;}
+.audio-info{ margin-top: 20px; text-align: center;}
+.audio-title{ font-size: 16px; color:#fff;}
+.audio-actor{ font-size: 12px; color:#666;}
+
+    /* recommend */
+.recommend{ padding: 0 10px;}
+.recommend-title{ height: 30px; line-height: 30px; font-size: 14px; font-weight: normal; color:#0cc;}
+.recommend-list{ overflow-x: auto; overflow-y: hidden; height: 120px;}
+.recommend-list ul{ width: 1000px;}
+.recommend-list li{ float: left; width: 120px; height: 120px; margin-right: 10px;}
+.recommend-list li:last-child{ margin-right: 0;}
+.recommend-list li a{ display: block;}
+.recommend-list li img{ display: block;}
+
+    /* fixed-bottom */
+.fixed-bottom{ position: fixed; left: 0; bottom: 0; width: 100%; padding: 10px; background: #2b2937;}
+.fixed-bottom .btn{ width: 100%; border-radius: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.fixed-bottom-audio{ background: none;}
+
+    /* fixed-top-banner */
+.fixed-top-banner{ position: fixed; left: 0; top: 0; width: 100%; height: 50px; line-height: 36px; padding: 7px 90px 7px 56px; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; background: rgba(34,32,45,0.5); color: #fff; z-index: 10001;}
+.fixed-top-banner h3, .fixed-top-banner p{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.fixed-top-banner h3{ margin-top: 5px; font-size: 14px; line-height: 1.2;}
+.fixed-top-banner p{ font-size: 12px; line-height: 1.2; color: #999;}
+.fixed-top-banner img{ position: absolute; left: 10px; top: 50%; margin-top: -18px; margin-right: 10px; width: 36px; height: 36px; vertical-align: middle;}
+.fixed-top-banner .btn-default{ position: absolute; top: 50%; right: 10px; width: 70px; height: 30px; line-height: 30px; margin-top: -15px; border-radius: 5px; vertical-align: middle;}
+
+/* module end */
+
+
