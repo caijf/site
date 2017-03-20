@@ -11,7 +11,7 @@ $(function () {
      * @return {[type]}    [description]
      */
     function getAudioInfo(id) {
-        var url = '../data/mock.getAudioInfo.js';
+        var url = './data/mock.getAudioInfo.js';
 
         return $.ajax({
             url: url

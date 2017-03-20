@@ -82,7 +82,7 @@ html, body{ height: 100%;}
 .video-actions .icon{ margin-right: 5px;}
 
     /* audio */ 
-.body-audio{ background: url('../images/bg.png') 0 0 no-repeat; background-size: 100% 100%;}
+.body-audio{ background: #2b2937 url('../images/bg.png') 0 0 no-repeat; background-size: 100% 100%;}
 .audio{ position: absolute; left: 50%; top: 50%; width: 230px; height: 230px; margin-left: -115px; margin-top: -115px; overflow: visible;}
 .audio audio{ display: none;}
 .audio-spin{ animation: spin 20s linear infinite; -webkit-animation:spin 20s linear infinite;}
