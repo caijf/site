@@ -48,7 +48,7 @@ $(function () {
      * @return {[type]}    [description]
      */
     function getVideoInfo(id) {
-        var url = '../data/mock.getVideoInfo.js';
+        var url = '../../data/mock.getVideoInfo.js';
 
         return $.ajax({
             url: url
