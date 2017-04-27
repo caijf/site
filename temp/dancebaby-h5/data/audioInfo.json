@@ -1,0 +1,31 @@
+{
+    "code": 1,
+    "msg": "操作成功",
+    "content": {
+        "shareInfo": {
+            "title": "31-It Is",
+            "description": "",
+            "url": "http://m.lanwuzhe.com/audio.html?id=82"
+        },
+        "comments": [],
+        "likeStatus": false,
+        "favoriteStatus": false,
+        "media": {
+            "id": 82,
+            "actor": "",
+            "album": "华尔兹",
+            "audioUrl": "http://blurdancer-audio.oss-cn-shanghai.aliyuncs.com/audio/%E6%81%B0%E6%81%B0%E9%9F%B3%E4%B9%90%2031-It%20Is.mp3",
+            "createTime": 1490774340000,
+            "creatorId": 0,
+            "description": "",
+            "downloadUrl": "",
+            "isShow": true,
+            "playNum": 38,
+            "playTimes": 0,
+            "title": "31-It Is",
+            "categoryIds": "",
+            "sortScore": 1000,
+            "show": true
+        }
+    }
+}

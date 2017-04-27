@@ -1,0 +1,5 @@
+$(function(){
+
+    Util.checkWithOpenApp('home');
+
+});

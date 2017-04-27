@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <link rel="shortcut icon" href="./src/images/favorite_32X32.ico" />
+    <title>蓝舞者-图片分享</title>
+    <link rel="stylesheet" href="./src/styles/normalize.css">
+    <link rel="stylesheet" href="./src/styles/main.css">
+</head>
+<body>
+    <div class="videopage">
+        <div class="container with-fixed-bottom">
+            <!-- loading -->
+            <div class="loading"><div></div></div>
+
+            <!-- 置顶广告条 -->
+            <div class="fixed-top-banner">
+                <i class="ico-logo"></i>
+                蓝舞者APP
+                <a href="javascript:;" class="btn btn-default openapp-action">免费下载</a>
+                <a href="javascript:;" class="ico-close"></a>
+            </div>
+
+            <!-- 图片区域 -->
+            <div class="image" id="image_wrapper" style="display: none;">
+                <img src="" alt="">
+                <div class="description">
+                    <p class="inner" id="image_descript"></p>
+                </div>
+    
+                <!-- 图片遮罩，防止长按图片弹出下载菜单 -->
+                <div class="imageMask"></div>
+            </div>
+
+            <!-- 置底按钮 -->
+            <div class="fixed-bottom">
+                <a href="javascript:;" class="btn btn-primary openapp-action">一键免费下载此高清照片</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="./src/libs/zepto.js"></script>
+    <script src="./src/libs/zepto.callbacks.js"></script>
+    <script src="./src/libs/zepto.deferred.js"></script>
+    <script src="./src/scripts/polyfill.js"></script>
+    <script src="./src/scripts/util.js"></script>
+    <script src="./src/scripts/photo.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+    "code": 1,
+    "msg": "操作成功",
+    "content": {
+        "shareInfo": {
+            "imageUrl": "http://blurdancer-video.oss-cn-shanghai.aliyuncs.com/photo/10.png",
+            "title": "1",
+            "description": "1",
+            "url": "http://m.lanwuzhe.com/photo.html?id=2"
+        }
+    }
+}

@@ -3,29 +3,6 @@
  * @cjf 20170320
  */
 
-// polyfill
-    // 对Date的扩展，将 Date 转化为指定格式的String
-    // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
-    // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) 
-    // 例子： 
-    // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
-    // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
-Date.prototype.Format = function (fmt) {
-    var o = {
-        "M+": this.getMonth() + 1, //月份 
-        "d+": this.getDate(), //日 
-        "h+": this.getHours(), //小时 
-        "m+": this.getMinutes(), //分 
-        "s+": this.getSeconds(), //秒 
-        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
-        "S": this.getMilliseconds() //毫秒 
-    };
-    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-    for (var k in o)
-    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-    return fmt;
-}
-
 /**
  * 转换数字为单位“万”
  * @param  {[type]} num [description]
@@ -42,45 +19,57 @@ function convertToUnitTenThousand(num) {
 
 // TODO：shareUrl传过来的是什么参数？
 $(function () {
+
+    var queryId = Util.query.id ? Util.query.id : '',
+        serverUrl = Util.serverUrl;
+
     /**
      * 获取视频接口
      * @param  {[type]} id [description]
      * @return {[type]}    [description]
      */
     function getVideoInfo(id) {
-        var url = './data/mock.getVideoInfo.js';
+        var url = serverUrl + '/app/bdvideo/getVideoInfo?video_id=' + id;
 
         return $.ajax({
             url: url
         });
     }
 
-    getVideoInfo().then(function (res) {
-        console.log('then');
-        console.log(res);
-        return JSON.parse(res)[0] || res;
-    }).done(function (data, status, xhr) {
-        console.log('done');
-        console.log(data);
+    // 检测唤起app
+    Util.checkWithOpenApp('video?id=' + queryId);
 
-        setTimeout(function () {
-            onResponseVideoInfo(data);
-        }, 1000);
-
-    }).fail(function (xhr, errorType, error) {
-        console.log(errorType);
-        console.log(error);
-        alert('页面加载失败，请稍后在试！');
+    // 顶部banner关闭事件
+    $('.fixed-top-banner .ico-close').on('click', function (e) {
+        $(this).parents('.fixed-top-banner').remove();
     });
+
+    getVideoInfo(queryId).then(function (res) {
+        return res;
+    }).done(function (data, status, xhr) {
+        onResponseVideoInfo(data);
+    }).fail(function (xhr, errorType, error) {
+        // alert('数据加载失败，请稍后在试！');
+        onError();
+    });
+
+    function onError() {
+        $('.loading').remove();
+        $('body').append('<p class="tip-error">加载失败，请稍后再试！</p>');
+    }
 
     function onResponseVideoInfo(res) {
 
-        if(res.code !== 1){
-            alert(res.msg);
+        if(res.code !== 1 || !res.content || !res.content.media){
+            // alert('加载失败，请稍后再试!');
+            // return;
+            onError();
             return;
         }
 
-        var resContent = res.content;
+        var resContent = res.content,
+            media = resContent.media,
+            shareInfo = resContent.shareInfo;
         
         //----------- uploader
         var $uploaderWrapper = $('#uploader_wrapper'),
@@ -89,10 +78,11 @@ $(function () {
             $uploaderCreateTime = $uploaderWrapper.find('.uploader-createtime'),
             $uploaderPlayTotal = $uploaderWrapper.find('.uploader-play-total');
 
-        $uploaderHeadPic.attr('src', resContent.publisherHeadPic);
-        $uploaderName.html(resContent.publisher);
-        $uploaderCreateTime.html(new Date(resContent.createTime).Format('MM-dd hh:mm'));
-        $uploaderPlayTotal.html(convertToUnitTenThousand(resContent.playNum));
+        // $uploaderHeadPic.attr('src', media.publisherHeadPic);
+        $uploaderHeadPic.attr('src', './src/images/headpic.png');
+        $uploaderName.html(media.publisher || '蓝舞者官方微博');
+        $uploaderCreateTime.html(new Date(media.createTime).Format('MM-dd hh:mm'));
+        $uploaderPlayTotal.html(media.playNum ? '<i class="icon-play-small"></i>' + convertToUnitTenThousand(media.playNum) + '次播放' : '');
 
         //----------- video
         var $videoWrapper = $('#video_wrapper'),
@@ -105,16 +95,16 @@ $(function () {
 
         // 标签内容
         var tagsHtml = '';
-        for(var i = 0, len = resContent.tags.length; i < len; i++){
-            tagsHtml += '<a href="#">#' + resContent.tags[i].text + '#</a>';
+        for(var i = 0, len = media.tags.length; i < len; i++){
+            tagsHtml += '<a href="javascript:;" class="openapp-action">#' + media.tags[i].text + '#</a>';
         }
 
         $video.attr({
-            src: resContent.playUrl,
+            src: media.videoUrl,
             preload: true
         });
-        $videoTitle.html(resContent.title);
-        $videoDescription.html(resContent.description);
+        $videoTitle.html(media.title);
+        $videoDescription.html(media.description);
         $videoTag.html(tagsHtml);
 
         // 点击播放按钮
@@ -135,12 +125,11 @@ $(function () {
             $video.get(0).play();
         }
 
-
         //----------- recommend
         var interestHtml = '';
 
-        for(var m = 0, n = resContent.interest.length; m < n; m++){
-            interestHtml += '<li><a href="' + resContent.interest[m].url + '"><img src="' + resContent.interest[m].coverUrl + '" alt=""></a></li>';
+        for(var m = 0, n = resContent.mayLikes.length; m < n; m++){
+            interestHtml += '<li><a href="' + location.protocol + '//' + location.host + location.pathname + '?id=' + resContent.mayLikes[m].id + '"><img src="' + resContent.mayLikes[m].videoCoverUrl + '" alt=""></a></li>';
         }
 
         var $recommendWrapper = $('#recommend_wrapper'),
@@ -156,6 +145,10 @@ $(function () {
         $recommendListContainer.css({
             width: recommendContainerWidth
         });
+
+        $recommendListContainer.find('li img').on('load', function () {
+            Util.adjustImg(this);
+        })
 
         // --------- end
         
@@ -175,8 +168,18 @@ $(function () {
         function hideLoading() {
             $('.loading').remove();
         }
+        
+        /**
+         * 处理微信分享图片
+         * @return {[type]} [description]
+         */
+        function handleWXShareIcon() {
+            $('body').prepend('<div style="display: none;"><img src="'+ shareInfo.imageUrl +'" /></div>');
+        }
 
+        document.title = shareInfo.title;
         hideLoading();
+        handleWXShareIcon();
         render();
     }
     

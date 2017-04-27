@@ -3,139 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
-    <title>视频分享页</title>
+    <link rel="shortcut icon" href="./src/images/favorite_32X32.ico" />
+    <title>蓝舞者-视频分享</title>
     <link rel="stylesheet" href="./src/styles/normalize.css">
     <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 <body>
-    <div class="container with-fixed-bottom">
-        <!-- loading -->
-        <div class="loading"><div></div></div>
+    <div class="videopage">
+        <div class="container with-fixed-bottom">
+            <!-- loading -->
+            <div class="loading"><div></div></div>
 
-        <!-- 置顶广告条 -->
-        <div class="fixed-top-banner">
-            <img src="./src/images/Rectangle 4.png" alt="">
-            零基础拉丁教学尽在蓝舞者
-            <a href="#" class="btn btn-default">免费下载</a>
-        </div>
-
-        <!-- 发布者 -->
-        <!-- <div class="uploader" id="uploader_wrapper">
-            <div class="uploader-headpic"><img src="images/headpic.png" alt=""></div>
-            <div class="uploader-info">
-                <div class="uploader-name">蓝舞者官方微博</div>
-                <div class="uploader-record">11-09 22:46<i class="icon icon-play-min"></i><span class="uploader-play-time">392.1万</span>播放</div>
-            </div>
-        </div> -->
-        <div class="uploader" id="uploader_wrapper" style="display:none;">
-            <div class="uploader-headpic"><img src="" alt=""></div>
-            <div class="uploader-info">
-                <div class="uploader-name"></div>
-                <div class="uploader-record"><span class="uploader-createtime"></span><i class="icon icon-play-min"></i><span class="uploader-play-total"></span>次播放</div>
-            </div>
-        </div>
-
-        <!-- 视频播放区域 -->
-        <!-- <div class="video" id="video_wrapper" style="display:none;">
-            <div class="video-wrap">
-                <video id="video" preload="true" src='./media/movie.ogg'>您的浏览器不支持播放该视频，请换浏览器试试！</video>
-                <div class="video-mask" id="video_mask"><i class="icon icon-play" id="video_play_button"></i></div>
+            <!-- 置顶广告条 -->
+            <div class="fixed-top-banner">
+                <i class="ico-logo"></i>
+                蓝舞者APP
+                <a href="javascript:;" class="btn btn-default openapp-action">免费下载</a>
+                <a href="javascript:;" class="ico-close"></a>
             </div>
 
-            <div class="video-info">
-                <div class="video-title">BlackPin《恰恰舞》分解教学</div>
-                <a href="#" class="btn btn-default"><i class="icon icon-download"></i>下载</a>
-                <p class="video-description">呼声超级高的恰恰舞，小麦老师也出了自己的版本分解超级用心，方便大家更好的学习啦~</p>
-                <div class="video-tags">
-                    <a href="#">#恰恰舞#</a>
-                    <a href="#">#伦巴#</a>
-                    <a href="#">#舞蹈#</a>
-                    <a href="#">#最热#</a>
+            <!-- 发布者 -->
+            <!-- <div class="uploader" id="uploader_wrapper">
+                <div class="uploader-headpic"><img src="images/headpic.png" alt=""></div>
+                <div class="uploader-info">
+                    <div class="uploader-name">蓝舞者官方微博</div>
+                    <div class="uploader-record">11-09 22:46<i class="icon-play-small"></i><span class="uploader-play-time">392.1万</span>播放</div>
                 </div>
-                <div class="video-actions">
-                    <ul class="clearfix">
+            </div> -->
+            <div class="uploader" id="uploader_wrapper" style="display:none;">
+                <div class="uploader-headpic"><img src="" alt=""></div>
+                <div class="uploader-info">
+                    <div class="uploader-name"></div>
+                    <div class="uploader-record"><span class="uploader-createtime"></span><span class="uploader-play-total"></span></div>
+                </div>
+            </div>
+
+            <!-- 视频播放区域 -->
+            <!-- <div class="video" id="video_wrapper" style="display:none;">
+                <div class="video-wrap">
+                    <video id="video" preload="true" src='./media/movie.ogg'>您的浏览器不支持播放该视频，请换浏览器试试！</video>
+                    <div class="video-mask" id="video_mask"><i class="icon-play" id="video_play_button"></i></div>
+                </div>
+
+                <div class="video-info">
+                    <div class="video-title">BlackPin《恰恰舞》分解教学</div>
+                    <a href="#" class="btn btn-default"><i class="icon-download"></i>下载</a>
+                    <p class="video-description">呼声超级高的恰恰舞，小麦老师也出了自己的版本分解超级用心，方便大家更好的学习啦~</p>
+                    <div class="video-tags">
+                        <a href="#">#恰恰舞#</a>
+                        <a href="#">#伦巴#</a>
+                        <a href="#">#舞蹈#</a>
+                        <a href="#">#最热#</a>
+                    </div>
+                    <div class="video-actions">
+                        <ul class="clearfix">
+                            <li>
+                                <i class="icon-zan"></i>点赞
+                            </li>
+                            <li>
+                                <i class="icon-star"></i>收藏
+                            </li>
+                            <li>
+                                <i class="icon-share"></i>分享
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div> -->
+            <div class="video" id="video_wrapper" style="display:none;">
+                <div class="video-wrap">
+                    <video id="video" webkit-playsinline="true" playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="object-fit:fill">您的浏览器不支持播放该视频，请换浏览器试试！</video>
+                    <div class="video-mask" id="video_mask"></div>
+                    <i class="icon-play" id="video_play_button"></i>
+                </div>
+
+                <div class="video-info">
+                    <div class="video-title"></div>
+                    <a href="javascript:;" class="btn btn-default openapp-action"><i class="icon-download"></i>下载</a>
+                    <p class="video-description"></p>
+                    <div class="video-tags openapp-action"></div>
+                    <div class="video-actions openapp-action">
+                        <ul class="clearfix">
+                            <li>
+                                <i class="icon-zan"></i>点赞
+                            </li>
+                            <li>
+                                <i class="icon-star"></i>收藏
+                            </li>
+                            <li>
+                                <i class="icon-share"></i>分享
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 推荐 -->
+            <!-- <div class="recommend" id="recommend_wrapper" style="display:none;">
+                <h3 class="recommend-title">你可能感兴趣</h3>
+                <div class="recommend-list" id="recommend_list">
+                    <ul class="clearfix" id="recommend_ul">
                         <li>
-                            <i class="icon icon-zan"></i>点赞
+                            <a href="#">
+                                <img src="images/intest.png" alt="">
+                            </a>
                         </li>
                         <li>
-                            <i class="icon icon-star"></i>收藏
+                            <a href="#">
+                                <img src="images/intest2.png" alt="">
+                            </a>
                         </li>
                         <li>
-                            <i class="icon icon-share"></i>分享
+                            <a href="#">
+                                <img src="images/intest3.png" alt="">
+                            </a>
                         </li>
                     </ul>
                 </div>
-            </div>
-        </div> -->
-        <div class="video" id="video_wrapper" style="display:none;">
-            <div class="video-wrap">
-                <video id="video">您的浏览器不支持播放该视频，请换浏览器试试！</video>
-                <div class="video-mask" id="video_mask"></div>
-                <i class="icon icon-play" id="video_play_button"></i>
-            </div>
-
-            <div class="video-info">
-                <div class="video-title"></div>
-                <a href="#" class="btn btn-default"><i class="icon icon-download"></i>下载</a>
-                <p class="video-description"></p>
-                <div class="video-tags"></div>
-                <div class="video-actions">
-                    <ul class="clearfix">
-                        <li>
-                            <i class="icon icon-zan"></i>点赞
-                        </li>
-                        <li>
-                            <i class="icon icon-star"></i>收藏
-                        </li>
-                        <li>
-                            <i class="icon icon-share"></i>分享
-                        </li>
-                    </ul>
+            </div> -->
+            <div class="recommend" id="recommend_wrapper" style="display:none;">
+                <h3 class="recommend-title">你可能感兴趣</h3>
+                <div class="recommend-list">
+                    <ul class="clearfix" id="recommend_list"></ul>
                 </div>
             </div>
-        </div>
 
-        <!-- 推荐 -->
-        <!-- <div class="recommend" id="recommend_wrapper" style="display:none;">
-            <h3 class="recommend-title">你可能感兴趣</h3>
-            <div class="recommend-list" id="recommend_list">
-                <ul class="clearfix" id="recommend_ul">
-                    <li>
-                        <a href="#">
-                            <img src="images/intest.png" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="images/intest2.png" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="images/intest3.png" alt="">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div> -->
-        <div class="recommend" id="recommend_wrapper" style="display:none;">
-            <h3 class="recommend-title">你可能感兴趣</h3>
-            <div class="recommend-list">
-                <ul class="clearfix" id="recommend_list"></ul>
+            <!-- 置底按钮 -->
+            <div class="fixed-bottom">
+                <a href="javascript:;" class="btn btn-primary openapp-action">一键免费下载此视频</a>
             </div>
         </div>
-
-        <!-- 置底按钮 -->
-        <div class="fixed-bottom">
-            <a href="#" class="btn btn-primary">十分钟学会拉丁舞，开启你的舞蹈世界</a>
-        </div>
-
     </div>
 
     <script src="./src/libs/zepto.js"></script>
     <script src="./src/libs/zepto.callbacks.js"></script>
     <script src="./src/libs/zepto.deferred.js"></script>
     <script src="./src/libs/html5media.min.js"></script>
+    <script src="./src/scripts/polyfill.js"></script>
+    <script src="./src/scripts/util.js"></script>
     <script src="./src/scripts/video.js"></script>
 </body>
 </html>

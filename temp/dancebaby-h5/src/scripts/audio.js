@@ -5,44 +5,57 @@
 
 // TODO：shareUrl传过来的是什么参数？
 $(function () {
+
+    var queryId = Util.query.id ? Util.query.id : '',
+        serverUrl = Util.serverUrl;
+
+    var defaultCoverUrl = './src/images/default_120x120.png';
+
     /**
      * 获取音频接口
      * @param  {[type]} id [description]
      * @return {[type]}    [description]
      */
     function getAudioInfo(id) {
-        var url = './data/mock.getAudioInfo.js';
+        var url = serverUrl + '/app/bdaudio/audioInfo?id=' + id;
 
         return $.ajax({
             url: url
         });
     }
 
-    getAudioInfo().then(function (res) {
-        console.log('then');
-        console.log(res);
-        return JSON.parse(res)[0] || res;
-    }).done(function (data, status, xhr) {
-        console.log('done');
-        console.log(data);
+    // 顶部banner关闭事件
+    $('.fixed-top-banner .ico-close').on('click', function (e) {
+        $(this).parents('.fixed-top-banner').remove();
+    });
 
-        setTimeout(function () {
-            onResponseAudioInfo(data);
-        }, 1000);
+    getAudioInfo(queryId).then(function (res) {
+        return res;
+    }).done(function (data, status, xhr) {
+        onResponseAudioInfo(data);
 
     }).fail(function (xhr, errorType, error) {
-        console.log(errorType);
-        console.log(error);
-        alert('页面加载失败，请稍后在试！');
+        // alert('页面加载失败，请稍后再试！');
+        onError();
     });
+
+    function onError() {
+        $('.loading').remove();
+        $('body').append('<p class="tip-error">加载失败，请稍后再试！</p>');
+    }
 
     // audio数据请求响应之后
     function onResponseAudioInfo(res) {
 
-        if(res.code !== 1){
-            alert(res.msg);
+        if(res.code !== 1 || !res.content || !res.content.media){
+            // alert('加载失败，请稍后再试!');
+            // return;
+            onError();
             return;
         }
+
+        var media = res.content.media,
+            shareInfo = res.content.shareInfo;
 
         // audio dom
         var $audioWrapper = $('#audio_wrapper'),
@@ -60,10 +73,6 @@ $(function () {
 
             // 标识当前是否播放音频
         var isPlayAudio = false;
-
-        hideLoading();
-        render();
-        $audioWrapper.show();
 
         // 绑定事件
         $audioPlayButton.on('click', function () {
@@ -93,16 +102,25 @@ $(function () {
             $body.addClass('body-audio');
 
             $audio.attr({
-                src: res.content.playUrl,
+                src: media.audioUrl,
                 preload: true
             });
 
-            $audioTitle.html('— ' + res.content.title + ' —');
-            $audioActor.html(res.content.singer);
+            $audioTitle.html('— ' + media.title + ' —');
+            $audioActor.html(media.actor ? media.actor : '');
 
-            $audioCoverPic.attr('src', res.content.coverUrl).on('error', function () {
-                console.log('cover pic load error');
-            });
+            if(media.audioCoverUrl){
+                var img = new Image();
+                img.src = media.audioCoverUrl;
+                img.onload = function(){
+                    $audioCoverPic.attr('src', media.audioCoverUrl);
+                }
+                img.onerror = function () {
+                    $audioCoverPic.attr('src', defaultCoverUrl);
+                }
+            }else{
+                $audioCoverPic.attr('src', defaultCoverUrl);
+            }
         }
 
         /**
@@ -160,5 +178,19 @@ $(function () {
         function pauseCoverRotate() {
             $audioCoverPic.addClass(audioCoverRotatePauseClass);
         }
+        
+        /**
+         * 处理微信分享图片
+         * @return {[type]} [description]
+         */
+        function handleWXShareIcon() {
+            $('body').prepend('<div style="display: none;"><img src="'+ shareInfo.imageUrl +'" /></div>');
+        }
+
+        document.title = shareInfo.title;
+        render();
+        handleWXShareIcon();
+        hideLoading();
+        $audioWrapper.show();
     }
 })
