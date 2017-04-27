@@ -101,7 +101,8 @@ $(function () {
 
         $video.attr({
             src: media.videoUrl,
-            preload: true
+            preload: true,
+            poster: media.videoCoverUrl
         });
         $videoTitle.html(media.title);
         $videoDescription.html(media.description);

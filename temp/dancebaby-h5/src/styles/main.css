@@ -1,6 +1,11 @@
 /* global start */
 *{ box-sizing: border-box;}
-body{ background: #2b2937; line-height: 1.5; /* max-width: 640px; */}
+body{ background: #2b2937; line-height: 1.5; /* max-width: 640px; */
+  -webkit-user-select: none;  /* Chrome all / Safari all /opera15+*/  
+  -moz-user-select: none;     /* Firefox all */  
+  -ms-user-select: none;      /* IE 10+ */  
+  user-select: none;  
+}
 h1,h2,h3,h4,h5,h6{ margin: 0;}
 p{ margin: 0;}
 ul, ol, dl, li{ list-style: none; padding: 0; margin: 0;}
