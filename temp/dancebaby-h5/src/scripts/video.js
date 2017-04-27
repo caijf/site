@@ -130,7 +130,7 @@ $(function () {
         var interestHtml = '';
 
         for(var m = 0, n = resContent.mayLikes.length; m < n; m++){
-            interestHtml += '<li><a href="' + location.protocol + '//' + location.host + location.pathname + '?id=' + resContent.mayLikes[m].id + '"><img src="' + resContent.mayLikes[m].videoCoverUrl + '" alt=""></a></li>';
+            interestHtml += '<li><a href="' + location.protocol + '//' + location.host + location.pathname + '?id=' + resContent.mayLikes[m].id + '"><img src="' + resContent.mayLikes[m].videoCoverUrl + '?x-oss-process=image/resize,h_120" alt=""></a></li>';
         }
 
         var $recommendWrapper = $('#recommend_wrapper'),
@@ -175,8 +175,7 @@ $(function () {
          * @return {[type]} [description]
          */
         function handleWXShareIcon() {
-            // $('body').prepend('<div style="display:none;"><img src="'+ shareInfo.imageUrl +'" /></div>');
-            $('body').prepend('<div style="display: none;"><img src="http://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493312068363&di=f4a437607554804be59451e5ecc4cad5&imgtype=0&src=http%3A%2F%2Ff.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fa5c27d1ed21b0ef416ab6849dfc451da81cb3e61.jpg" /></div>');
+            $('body').prepend('<div style="display:none;"><img src="'+ shareInfo.imageUrl +'" /></div>');
         }
 
         document.title = shareInfo.title;
