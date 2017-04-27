@@ -120,9 +120,15 @@ $(function () {
          * 播发视频
          */
         function playVideo() {
-            $video.attr('controls', 'controls');
-            $videoPlayButton.hide();
-            $videoMask.hide();
+            setTimeout(function () {
+                $videoPlayButton.hide();
+                $videoMask.hide();
+                $video.attr('controls', 'controls');
+            }, 300)
+
+            // $video.attr('controls', 'controls');
+            // $videoPlayButton.hide();
+            // $videoMask.hide();
             $video.get(0).play();
         }
 
