@@ -102,7 +102,8 @@ $(function () {
         $video.attr({
             src: media.videoUrl,
             preload: true,
-            poster: media.videoCoverUrl
+            poster: media.videoCoverUrl,
+            controls: 'controls'
         });
         $videoTitle.html(media.title);
         $videoDescription.html(media.description);
@@ -120,11 +121,11 @@ $(function () {
          * 播发视频
          */
         function playVideo() {
-            setTimeout(function () {
-                $videoPlayButton.hide();
-                $videoMask.hide();
-                $video.attr('controls', 'controls');
-            }, 300)
+            // setTimeout(function () {
+            //     $videoPlayButton.hide();
+            //     $videoMask.hide();
+            //     $video.attr('controls', 'controls');
+            // }, 300)
 
             // $video.attr('controls', 'controls');
             // $videoPlayButton.hide();
