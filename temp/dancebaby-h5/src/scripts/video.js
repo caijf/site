@@ -175,7 +175,7 @@ $(function () {
          * @return {[type]} [description]
          */
         function handleWXShareIcon() {
-            $('body').prepend('<div style="position:absolute; opacity:0; filter: alpha(opacity=0);"><img src="'+ shareInfo.imageUrl +'" /></div>');
+            $('body').prepend('<div style="display:none;"><img src="'+ shareInfo.imageUrl +'" /></div>');
         }
 
         document.title = shareInfo.title;
