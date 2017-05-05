@@ -182,7 +182,8 @@ $(function () {
          * @return {[type]} [description]
          */
         function handleWXShareIcon() {
-            $('body').prepend('<div style="display:none;"><img src="'+ shareInfo.imageUrl +'" /></div>');
+            // $('body').prepend('<div style="display:none;"><img src="'+ shareInfo.imageUrl +'" /></div>');
+            $('body').prepend('<img src="http://singerimg.kugou.com/uploadpic/softhead/400/20140521/20140521170341908469.jpg" style="display:block; width:0; height:0;" />');
         }
 
         document.title = shareInfo.title;
