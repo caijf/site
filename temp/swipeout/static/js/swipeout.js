@@ -215,7 +215,6 @@
             // 存在滑出元素，并且不处于操作区域，隐藏滑出元素
             if (swipeoutOpenedEl && $target.parents('.' + opt.swipeoutActionClass).length <= 0) {
                 swipeoutClose();
-                e.preventDefault();
                 return;
             }
 
@@ -288,6 +287,9 @@
                 isMove = false;
                 return;
             }
+
+            // 阻止冒泡
+            e.stopPropagation();
 
             isTouch = false;
             isMove = false;
