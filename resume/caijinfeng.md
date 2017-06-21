@@ -15,7 +15,7 @@
 - 熟悉 `Zepto` `jQuery` `requirejs` `underscore` `lodash` 等工具库
 - 熟悉 `Backbone` `react` `react-native` `angular` 等框架
 - 熟悉敏捷开发流程
-- 熟悉 `nodejs` `npm` `bower` 等包管理工具
+- 熟悉 `nodejs` `gulp` `grunt` `webpack` `npm` `bower` 等工具
 - 熟练使用`svn` `git` `sublime` 等开发工具
 
 
