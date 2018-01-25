@@ -1,0 +1,24 @@
+{
+  "name": "compontents",
+  "authors": [
+    "caijf <369756941@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "text": "~2.0.14",
+    "requirejs": "~2.1.22",
+    "jquery": "~2.2.1",
+    "underscore": "~1.8.3"
+  }
+}

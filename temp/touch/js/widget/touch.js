@@ -8,7 +8,13 @@
  *         解决方案：可以使用left/top，如果非要用transform的话事件绑定在父级元素
  */
 
-define([], function(){
+(function(root, factory) {
+    if (typeof define === 'function' && (define.amd || define.cmd)) {
+        define('Toucher',[],factory); 
+    } else {
+        root.Toucher = root.T = factory();
+    }
+}(this, function() {
 
 
     // 取点计数，判断方向用

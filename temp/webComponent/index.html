@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>example</title>
+	<style>
+	
+	*{ margin: 0; padding: 0; }
+
+	.header{ height: 44px;  background: #099fde; color:#fff;}
+	.header-back, .header-right{ height: 44px; line-height: 44px; text-align: center; }
+	.header-title{ line-height: 44px; text-align: center; font-size: 16px;}
+
+	#content{ position: absolute; top:0; bottom:0; left: 0; right: 0;}
+
+	#js_tab, #js_refreshTop, #js_refreshBottom, #js_bottomBtn{ height: 44px; line-height: 44px; text-align: center;}
+	#js_favoriteBox{ height: -webkit-calc(100% - 176px); height: calc(100% - 176px); line-height: 44px; text-align: center; background: red; color: #fff;}
+	
+	@-webkit-keyframes loading{
+		0% {
+			-webkit-transform: rotate(0deg);
+		}
+
+		100% {
+			-webkit-transform: rotate(360deg);
+		}
+	}
+	@keyframes loading{
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	</style>
+
+	<link rel="stylesheet" href="css/loading.submit.css">
+</head>
+<body>
+	<div id="content">
+		<div id="js_tab">
+			选项卡
+		</div>
+		<div id="js_refreshTop">
+			顶部刷新
+		</div>
+		<div id="js_favoriteBox">
+			收藏列表
+		</div>
+		<div id="js_refreshBottom">
+			底部刷新
+		</div>
+		<div id="js_bottomBtn">
+			底部按钮
+		</div>
+	</div>
+
+	<script src="bower_components/requirejs/require.js" data-main='js/main.js'></script>
+</body>
+</html>
