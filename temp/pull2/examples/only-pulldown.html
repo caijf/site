@@ -71,7 +71,8 @@
                 li.className = 'list-group-item';
                 li.innerHTML = 'item pullDown ' + pullDownTotal;
 
-                oFragment.prepend(li);
+                // oFragment.prepend(li);
+                oFragment.insertBefore(li, oFragment.firstElementChild);
             }
 
             listWrapper.insertBefore(oFragment, listWrapper.getElementsByTagName('li')[0]);
