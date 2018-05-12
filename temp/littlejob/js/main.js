@@ -126,10 +126,18 @@ $(function () {
       };
       // 等100%动画结束后执行播放
       wx.ready(function () {
-        document.getElementById('ring').play()
-        document.getElementById('ring').pause()
-        document.getElementById('guss').play()
-        document.getElementById('guss').pause()
+        // document.getElementById('ring').play()
+        // document.getElementById('ring').pause()
+        // document.getElementById('guss').play()
+        // document.getElementById('guss').pause()
+
+        var audio_eles = document.getElementsByTagName('audio');
+
+        for (var i = audio_eles.length - 1; i >= 0; i--) {
+          audio_eles[i].play();
+          audio_eles[i].pause();
+        }
+
         document.getElementById('main2').play()
         setTimeout(step, 100);
       })
@@ -291,6 +299,12 @@ $(function () {
         o_selected = target_index-1
         musicplay(target_index + '')
         showdetail(target_index + '')
+
+        if(moonIsLight){
+          $('.moon').removeClass('active');
+          moonIsLight = false;
+        }
+
         $('.gifts .single').eq(o_selected).animate({ 'padding': '0px' }, 100,'linear',function (){
           animateStop = true
         })
