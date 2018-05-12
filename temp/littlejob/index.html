@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-control" content="no-cache,no-store,must-revalidate">
+  <meta http-equiv="Expires" content="0">
+  <title></title>
+  <script src="./js/flexible.js"></script>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="./js/zepto.js"></script>
+  <script src="./js/fx.js"></script>
+  <script src="./js/touch.js"></script>
+</head>
+<body>
+  <audio id="main2" src="http://modian-static.modianli.com/little-job/audio/main2.mp3" preload="auto"></audio>
+  <audio id="guss" src="http://modian-static.modianli.com/little-job/audio/guss.mp3" preload="auto"></audio>
+  <audio id="ring" src="http://modian-static.modianli.com/little-job/audio/open/ring.mp3" preload="auto" loop="loop"></audio>
+  <!-- <audio id="enter" src="http://modian-static.modianli.com/little-job/audio/open/enter.mp3" preload="auto"></audio> -->
+  <audio id="enter" src="./audio/open/enter.mp3" preload="auto"></audio>
+  <audio id="light" src="http://modian-static.modianli.com/little-job/audio/open/light.mp3" preload="auto"></audio>
+  <audio id="1" src="http://modian-static.modianli.com/little-job/audio/product/1.mp3" preload="auto"></audio>
+  <audio id="2" src="http://modian-static.modianli.com/little-job/audio/product/2.mp3" preload="auto"></audio>
+  <audio id="3" src="http://modian-static.modianli.com/little-job/audio/product/3.mp3" preload="auto"></audio>
+  <audio id="4" src="http://modian-static.modianli.com/little-job/audio/product/4.mp3" preload="auto"></audio>
+  <audio id="5" src="http://modian-static.modianli.com/little-job/audio/product/5.mp3" preload="auto"></audio>
+  <audio id="6" src="http://modian-static.modianli.com/little-job/audio/product/6.mp3" preload="auto"></audio>
+  <audio id="7" src="http://modian-static.modianli.com/little-job/audio/product/7.mp3" preload="auto"></audio>
+  <audio id="8" src="http://modian-static.modianli.com/little-job/audio/product/8.mp3" preload="auto"></audio>
+  <audio id="9" src="http://modian-static.modianli.com/little-job/audio/product/9.mp3" preload="auto"></audio>
+  <audio id="10" src="http://modian-static.modianli.com/little-job/audio/product/10.mp3" preload="auto"></audio>
+  <audio id="11" src="http://modian-static.modianli.com/little-job/audio/product/11.mp3" preload="auto"></audio>
+  <script>
+    if (navigator.userAgent.indexOf("MQQBrowser")) {
+      try {
+        window.ProxyStatus.clearCookieAndCache(1);    // 清理 [Cookie]
+        window.ProxyStatus.clearCookieAndCache(2);    // 清理 [文件缓存] ★
+        window.ProxyStatus.clearCookieAndCache(4);    // 清理 [广告过滤缓存]
+        window.ProxyStatus.clearCookieAndCache(8);    // 清理 [DNS缓存]
+        console.log('okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk');
+      } catch (error) {
+
+      }
+    }
+  </script>
+  <div id="container" class="container">
+  <!-- <div id="container" style="display: none;" class="container"> -->
+    <span id="loading" class="loading" data-percent="0"></span>
+  </div>
+  <div class="h5container">
+    <div class="guss">
+      <div class="guss_word">
+        <span>猜</span>
+        <span>猜</span>
+        <span>我</span>
+        <span>是</span>
+        <span>谁</span>
+      </div>
+    </div>
+    <div class="back1" style="z-index: 2;"></div>
+    <!-- <div class="back1" style="display: none;"></div> -->
+    <div class="word" style="z-index: 3;">
+      <div class="lightme">
+        <!-- <img class="nor" src="http://modian-static.modianli.com/little-job/img/btns/lightme_nor.png" alt="">
+        <img class="active" src="http://modian-static.modianli.com/little-job/img/btns/lightme_active.png" alt=""> -->
+        <img class="nor" src="./img/btns/lightme_nor.png" alt="">
+      </div>
+      <div class="touchme">
+        <!-- <img class="nor" src="http://modian-static.modianli.com/little-job/img/btns/touchme_nor.png" alt="">
+        <img class="active" src="http://modian-static.modianli.com/little-job/img/btns/touchme_active.png" alt=""> -->
+        <img class="nor" src="./img/btns/touchme_nor.png" alt="">
+      </div>
+      <div class="enter">
+        <a href="https://i.eqxiu.com/s/zA4qxod3">
+          <img src="http://modian-static.modianli.com/little-job/img/enter.png" alt="">
+        </a>
+      </div>
+    </div>
+    <div class="back2" style="z-index: 1;">
+    <!-- <div class="back2" style="display: none;"> -->
+      <div class="moon">
+        <div class="btn_nor"></div>
+        <div class="btn_active"></div>
+      </div>
+      <div class="gifts">
+      </div>
+      <div class="showbox">
+        <img class="detail_1" src="http://modian-static.modianli.com/little-job/img/detail/1.png" alt="">
+        <img class="detail_2" src="http://modian-static.modianli.com/little-job/img/detail/2.png" alt="">
+        <img class="detail_3" src="http://modian-static.modianli.com/little-job/img/detail/3.png" alt="">
+        <img class="detail_4" src="http://modian-static.modianli.com/little-job/img/detail/4.png" alt="">
+        <img class="detail_5" src="http://modian-static.modianli.com/little-job/img/detail/5.png" alt="">
+        <img class="detail_6" src="http://modian-static.modianli.com/little-job/img/detail/6.png" alt="">
+        <img class="detail_7" src="http://modian-static.modianli.com/little-job/img/detail/7.png" alt="">
+        <img class="detail_8" src="http://modian-static.modianli.com/little-job/img/detail/8.png" alt="">
+        <img class="detail_9" src="http://modian-static.modianli.com/little-job/img/detail/9.png" alt="">
+        <img class="detail_10" src="http://modian-static.modianli.com/little-job/img/detail/10.png" alt="">
+        <img class="detail_11" src="http://modian-static.modianli.com/little-job/img/detail/11.png" alt="">
+      </div>
+    </div>
+    <div class="cover-slide" style="z-index: 4;">
+      <div class="slide-box">
+        <!-- <span>滑动来接听</span> -->
+        <div class="slider-cover"></div>
+        <div class="slider"></div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="./js/video.js"></script>
+<script src="./js/main.js"></script>
+</html>
