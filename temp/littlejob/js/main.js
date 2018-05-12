@@ -297,15 +297,19 @@ $(function () {
       })
     }
   }
-  $('.h5container').on('tap', '.touchme', function () {
+  $('.touchme').tap(function (e) {
+    e.preventDefault();
+    $('.showbox img').css('display','none')
     if (keeproll === false && !disableTab&& animateStop) {
 
       if(moonIsLight){
         $('.moon').removeClass('active');
         moonIsLight = false;
       }
-      o_id && musicpause(o_id)
-      o_id && musicreset(o_id)
+      if(o_id){
+        musicpause(o_id)
+        musicreset(o_id)
+      }
 
       $('.gifts .single').animate({ 'padding': '0.6667rem 0.6667rem 0px 0.6667rem' }, 100)
       let a = parseInt(Math.random() * 11) +1
