@@ -120,7 +120,7 @@ $(function () {
                 $('.guss').css('display','none');
                 document.getElementById('ring').play()
               }, 2000);
-            }, 1000);
+            }, 2000);
           })
         }
       };
