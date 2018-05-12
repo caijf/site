@@ -99,10 +99,16 @@ body {
                 }
             }
             span {
-                margin-left: 10rem;
+                margin-right: 0.15rem;
                 color: #fff;
                 // display: block;
-                font-size: 1rem;
+
+                // font-size: 1rem;
+                width: 0.747rem;
+
+                img{
+                    width: 0.747rem;
+                }
             }
         } 
     }

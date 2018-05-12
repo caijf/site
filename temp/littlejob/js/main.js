@@ -300,10 +300,12 @@ $(function () {
   $('.h5container').on('tap', '.touchme', function () {
     if (keeproll === false && !disableTab&& animateStop) {
 
-      $('.moon').removeClass('active');
-      moonIsLight = false;
-      musicpause(o_id)
-      musicreset(o_id)
+      if(moonIsLight){
+        $('.moon').removeClass('active');
+        moonIsLight = false;
+      }
+      o_id && musicpause(o_id)
+      o_id && musicreset(o_id)
 
       $('.gifts .single').animate({ 'padding': '0.6667rem 0.6667rem 0px 0.6667rem' }, 100)
       let a = parseInt(Math.random() * 11) +1
@@ -322,6 +324,7 @@ $(function () {
     e.preventDefault();
     $('.moon').addClass('active');
     $('.showbox img').css('display','none')
+    $('.gifts .single').animate({ 'padding': '0.6667rem 0.6667rem 0px 0.6667rem' }, 100)
 
     if(!moonIsLight){
       musicplay('light')
