@@ -253,10 +253,9 @@ $(function () {
   //生成产品dom
   var template = ''
   for (let index = 1; index < 12; index++) {
+    // todo: change link
     // <img src="http://modian-static.modianli.com/little-job/img/` + index + `.png" alt="">
-    template = template + `<div class="single">
-                              <img src="./img/static/`+ index +`.png" alt="">
-                          </div>`.trim()
+    template = template + '<div class="single"><img src="./img/static/' + index + '.png" alt=""></div>'.trim()
   }
   $('.gifts').html(template)
   // 获取初始值
