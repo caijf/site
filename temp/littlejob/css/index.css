@@ -39,8 +39,6 @@ body {
   height: 0.1067rem;
   width: 2rem;
   border: 0.0133rem solid #eee;
-  background: linear-gradient(to top, #eee, #eee);
-  background-size: 0 100%;
   transition: background-size .1s;
   left: 0;
   top: 0;
@@ -56,6 +54,15 @@ body {
   top: -1.5em;
   font-size: 0.16rem;
   color: #eee;
+}
+
+.loading-inner {
+    position: absolute;
+    left: 0; 
+    top: 0; 
+    bottom: 0;
+    background: #eee;
+    width: 0;
 }
 
 @keyframes guss {
@@ -334,16 +341,13 @@ body {
 }
 
 .h5container .word .lightme img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 6.04rem;
-  transform: translate(-50%, -50%);
+  display: block;
+  max-width: 100%;
 }
 
-.h5container .word .lightme img.nor {
+/*.h5container .word .lightme img.nor {
   display: block;
-}
+}*/
 
 /*.h5container .word .lightme img.active {
   display: none;
@@ -359,24 +363,21 @@ body {
 
 .h5container .word .touchme {
   position: absolute;
-  right: 0;
-  bottom: -0.1rem;
+  right: 0.5rem;
+  bottom: 0;
   z-index: 2;
   width: 3rem;
   height: 2rem;
 }
 
 .h5container .word .touchme img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 6.04rem;
-  transform: translate(-50%, -50%);
+  display: block;
+  max-width: 100%;
 }
 
-.h5container .word .touchme img.nor {
+/*.h5container .word .touchme img.nor {
   display: block;
-}
+}*/
 
 /*.h5container .word .touchme img.active {
   display: none;

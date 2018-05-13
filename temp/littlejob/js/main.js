@@ -79,12 +79,19 @@ $(function () {
       img.src = urlRoot + midname + index + '.png';
     })(start);
   }
+
+
+  var playTotalTime = 15500,
+    playSpeed = parseInt(playTotalTime/maxLength, 10);
+
+  var eleLoadingInner = eleLoading.getElementsByClassName('loading-inner')[0];
+
   var play = function () {
     // loading进度
     // var percent = Math.round(100 * (store.length + audios.length) / (maxLength + 6));
     var percent = Math.round(100 * store.length / maxLength);
     eleLoading.setAttribute('data-percent', percent);
-    eleLoading.style.backgroundSize = percent + '% 100%';
+    eleLoadingInner.style.width = percent + '%';
     // 全部加载完毕，无论成功还是失败
     if (percent == 100) {
       // for (let audio_i = 0; audio_i < audios.length; audio_i++) {
@@ -106,8 +113,10 @@ $(function () {
         index++;
         // 如果超过最大限制
         if (index <= indexRange[1]) {
-          setTimeout(step, 66.6);
+          setTimeout(step, playSpeed);
         } else {
+          document.getElementById('main2').pause();
+
           // 本段播放结束回调
           // 我这里就放一个重新播放的按钮
           // eleContainer.insertAdjacentHTML('beforeEnd', '<button onclick="play()">再看一遍英姿</button>');
@@ -273,7 +282,7 @@ $(function () {
     return value;
   }
   var o_deg = getTransform($('.gifts').css('transform'), 'rotate')
-  console.log(o_deg)
+  // console.log(o_deg)
   function showdetail (index) {
     let classname_d = '.detail_'+index
     $('.showbox img').css('display','none')
@@ -293,8 +302,8 @@ $(function () {
         })
       })
     } else {
-      let angle = 32 * (target_index-1) + o_deg
-      $('.gifts').animate({ rotate: angle + 'deg' }, 2000, 'linear', function () {
+      let angle = 32.7 * (target_index-1) + o_deg
+      $('.gifts').animate({ rotate: angle + 'deg' }, angle === o_deg ? 100 : 2000, 'linear', function () {
         o_selected = target_index-1
         musicplay(target_index + '')
         showdetail(target_index + '')
