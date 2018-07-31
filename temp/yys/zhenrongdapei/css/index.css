@@ -1,0 +1,350 @@
+.container{
+	background: #f4f9fd;
+}
+.header{
+	padding: 1.2rem 0.6rem;
+}
+
+.title{
+	padding: 0 0.6rem;
+	height: 2rem;
+	line-height: 2rem;
+	background: #8eb7cd;
+}
+
+.choice-header{
+	height: 3rem;
+	line-height: 3rem;
+	padding: 0 0.6rem;
+	background: #f4f9fd;
+}
+.header-title2{
+	color: #8eb7cd;
+	float: left;
+	font-size: 0.6rem;
+}
+.header-has{
+	float: right;
+	vertical-align: middle;
+	color: #63899e;
+	font-size: 0.6rem;
+}
+.has-num{
+	color: #efc000;
+}
+.title-tab{
+	float: left;
+	color: #feffff;
+	font-size: 0.65rem;
+	width: 33.3%;
+	display: inline-block;
+	text-align: center;
+	position: relative;
+}
+.tab-now{
+	color: #efc000;
+}
+.tab-now .title-bottom{
+	height: 4px;
+	width: 100%;
+	background: #efc000;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.con-list{
+	background: #fff;
+	padding-top: 1.175rem;
+}
+.con-list .item{
+	width: 4.475rem;
+	height: 4.475rem;
+	display: inline-block;
+	border-radius: 3px;
+	overflow: hidden;
+	position: relative;
+}
+.con-list .list-item{
+	width: 30%;
+	float: left;
+	text-align: center;
+	display: inline-block;
+	font-size: 0.5rem;
+	margin: 0 0.3rem 1rem 0.2rem;
+}
+.con-list .item-img{
+	height: 100%;
+}
+.con-list .item-word{
+	text-align: center;
+	display:inline-block;
+	vertical-align: middle;
+    margin-top: 0.5rem;
+	color: #63899e;
+}
+.con-list .item-cover{
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.6);
+	display: none;
+	position: absolute;
+}
+.con-list .cover-img{
+	width: 1rem;
+	height: 1rem;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -0.5rem;
+	margin-top: -0.5rem;
+}
+.ch-item .item-cover{
+	display: inline-block;
+}
+.item-more{
+	color: #8eb7cd;
+	font-size: 0.55rem;
+	height: 1.5rem;
+	line-height: 1.5rem;
+	background: #d6e3eb;
+	text-align: center;
+	margin: 0 0.6rem;
+}
+.btn-list{
+	padding: 1rem 0.6rem;
+	background: #fff;
+}
+.btn-list .btn{
+	display: inline-block;
+	height: 1.75rem;
+	line-height: 1.75rem;
+	text-align: center;
+	color: #fff;
+	font-size: 0.6rem;
+	background: #8eb7cd;
+	width: 7rem;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+.bf{
+	background: #fff;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.hr-title{
+	position: relative;
+	height: 2px;
+	margin: 0 0.6rem;
+	background: #fff;
+	/*text-align: center;*/
+	border-top: 2px solid #8eb7cd;
+	border-bottom: 1px solid #8eb7cd;
+}
+.hr-name{
+	left: 50%;
+	top: 50%;
+	margin-top: -0.5rem;
+	margin-left: -2.2rem;
+	color: #63899e;
+	font-size: 0.6rem;
+	position: absolute;
+	padding: 0 5px;
+	background: #f4f9fd;
+}
+.rem-title{
+	margin: 1.25rem 0 0;
+	color: #63899e;
+	padding: 0 0.25rem;
+	font-size: 0.6rem;
+	background: #d6e3eb;
+	height: 1.5rem;
+	line-height: 1.5rem;
+}
+.con-list{
+	font-size: 0;
+	line-height: 0;
+	margin-bottom: 0.6rem;
+	
+}
+.cons .con-list{
+	height: 27rem;
+	overflow: hidden;
+}
+.con-rem{
+	display: none;
+	margin: 0 0.6rem;
+}
+.con-item{
+	float: left;
+	width: 2.5rem;
+	display: inline-block;
+	border: 2px solid #d6e3eb;
+	border-radius: 5px;
+	margin: 0.13rem;
+}
+.con-item:last-child{
+	margin-right: 0;
+}
+.con-item .con-img{
+	width: 100%;
+	height: 100%;
+}
+.rem-title .fr .con-img{
+	display: none;
+	}
+.con-name{
+	color: #8eb7cd;
+	font-size: 0.6rem;
+	/*height: 1.3rem;*/
+	line-height: 1.5rem;
+	font-weight: bold;
+}
+.con-info{
+	color: #111111;
+	font-size: 0.6rem;
+	line-height: 1.2rem;
+	margin-bottom: 0.6rem;
+}
+.pb50{
+	padding-bottom: 1.35rem;
+}
+.mb50{
+	margin-bottom: 1rem;
+}
+.jue-part{
+	padding: 0.75rem 0.6rem;
+	background: #fff;
+}
+.jue-item{
+	margin-bottom: 0.6rem;
+}
+.jue-list{
+	margin-bottom: 0.6rem;
+	border-bottom: 1px dashed #d6e3eb;
+}
+.jue-list:last-child{
+	border-bottom: 0 none;
+}
+.jue-name{
+	width: 4.25rem;
+	text-align: center;
+	height: 1.3rem;
+	line-height: 1.3rem;
+	background: #e1edf6;
+	color: #63899e;
+	display: inline-block;
+	font-size: 0.65rem;
+	vertical-align: middle;
+	margin-right: 0.6rem;
+}
+.jue-info{
+	color: #3a3b3b;
+	font-size: 0.65rem;
+	vertical-align: middle;
+}
+
+.pd50{
+	padding-bottom: 1rem;
+}
+.rem-more{
+	margin: 1rem 0.6rem 0;
+	background: #63899e;
+	color: #fff;
+	font-size: 0.5rem;
+	box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    border-radius: 2px;
+}
+.more-title{
+	height: 1.5rem;
+	line-height: 1.5rem;
+	padding: 0 8px;
+	border-bottom: 1px dashed #8eb7cd;
+}
+.more-tip{
+	text-align: center;
+	color: #d6e3eb;
+	padding: 0.3rem 0;
+}
+.more-icon{
+	width: 0.9rem;
+	height: 0.4rem;
+	line-height: 0.4rem;
+	margin-top: 5px;
+	background: url(../images/more_tip.jpg) left top no-repeat;
+	display: inline-block;
+	background-size: 100% 100%;
+}
+.group-list{
+	padding: 1rem 0;
+	background: #f4f9fd;
+}
+.group-list .con-list{
+	background: #f4f9fd;
+}
+.rem-more .clearfix{
+	margin: 0.8rem 0.2rem 0.3rem 0.1rem;
+}
+
+
+
+/*悬浮窗*/
+.xf_bottom{position: fixed;bottom: 0;left: 0;width: 16.25rem;height: 2rem;background-color: #000000;opacity: 0.65;filter: alpha(opacity=65);z-index: 2;}
+.xf_bottom .xf_logo{width: 1.6rem;height: 1.6rem;margin-top: 0.22rem;margin-left: 0.4rem;float: left;}
+.xf_bottom .xf_font{height: 1.6rem;width: 6.15rem;margin-top: 0.2rem;}
+.xf_bottom .xf_open{float: right;background-color: #fff;width: 3rem;height: 1rem;font-size: 0.5rem;text-align: center;border-radius: 0.1rem;color: #2D2321;margin-top: 0.55rem;margin-right: 0.3rem;line-height: 1rem;cursor: pointer;display: block;}
+
+.fixed-bar {
+    position: fixed;
+    right: 0;
+    bottom: 2.77667rem;
+    width: 1.68889rem;
+    height: 1.45556rem;
+    z-index: 9999;
+}
+
+.zhenrong{
+    bottom: 5.77667rem;
+}
+
+.fixed-bar .error-btn i {
+    background-position: 0 0;
+}
+.fixed-bar i {
+    display: block;
+    width: 0.62500rem;
+    height: 0.62500rem;
+    margin: 0 auto;
+    background: url(../images/fixed-btn.png) no-repeat;
+    background-size: 1.27778rem 0.62500rem;
+}
+.fixed-bar a span {
+    color: #fff;
+    font-size: 0.58556rem;
+}
+.fixed-bar .error-btn {
+    margin-bottom: 0.13889rem;
+}
+.fixed-bar a {
+    display: block;
+    width: 1.68889rem;
+    height: 1.68889rem;
+    padding-top: 0.18056rem;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+    line-height:0.58056rem;
+	box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    border-radius: 2px 0 0 2px;
+}
+
+
+
+
+
+
+

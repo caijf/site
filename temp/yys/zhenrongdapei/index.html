@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>阵容搭配工具</title>
+    <meta name="keywords" content="阴阳师式神阵容搭配,网易游戏,16163,阴阳师助手" />
+    <meta name="description" content="阴阳师式神搭配工具，为你提供最热门的式神斗技阵容组合！ " />
+    <meta http-equiv="pragram" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="imagemode" content="force">
+    <meta name="HandheldFriendly" content="true">
+    <meta content="yes" name="”apple-mobile-web-app-capable”">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="MobileOptimized" content="320">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<script type="text/javascript">
+//REM设置
+(function(doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            docFont = (clientWidth / 325) * 20;
+            docEl.style.fontSize = docFont + 'px';
+            return docFont;
+        };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+</script>
+
+<body>
+    <div class="container bf pd50">
+        <div class="choice-header">
+            <span class="header-title2">请选择你拥有的式神</span>
+            <span class="header-has">已经选择<span class="has-num">0</span>个式神</span>
+        </div>
+        <p class="title clearfix">
+            <span class="title-tab">SSR式神<span class="title-bottom"></span></span>
+            <span class="title-tab tab-now">SR式神<span class="title-bottom"></span></span>
+            <span class="title-tab">R式神<span class="title-bottom"></span></span>
+        </p>
+        <div class="cons">
+            <div class="con-list clearfix" style="display:none;">
+            </div>
+            <p class="item-more" style="display:none;">加载更多式神</p>
+            <div class="con-list clearfix">
+            </div>
+            <p class="item-more">加载更多式神</p>
+            <div class="con-list clearfix" style="display:none;">
+            </div>
+            <p class="item-more" style="display:none;">加载更多式神</p>
+        </div>
+        <p class="btn-list clearfix">
+            <span class="btn fl">生成阵容</span>
+            <span class="btn fr">全部清除</span>
+        </p>
+        <div class="group-list">
+            <p class="hr-title"><span class="hr-name">最佳阵容推荐</span></p>
+            <div class="rems">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/common.js" type="text/javascript"></script>
+    <script src="js/index.js" type="text/javascript"></script>
+    <script src="js/choice.js" type="text/javascript"></script>
+    <style>
+    body {
+        padding-bottom: 13.888888%;
+    }
+
+    .sticky-bar {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        z-index: 999;
+        padding-top: 13.888888%;
+        background-color: rgba(0, 0, 0, .0);
+        z-index: 999;
+        height: 100%;
+    }
+
+    .sticky-bar.a,
+    .sticky-bar.a .sticky-bar-app {
+        display: block;
+    }
+
+    .sticky-bar.b,
+    .sticky-bar.b .sticky-bar-ad {
+        display: block;
+    }
+
+    .sticky-bar-ad {
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .sticky-bar-ad-link {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .sticky-bar-app {
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 2%;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: auto 76%;
+    }
+
+    .sticky-bar-btn {
+        position: absolute;
+        /*top: 60%;*/
+        right: 32%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        background-color: #6d91d8;
+        font-size: 0.8rem;
+        border-radius: 3px;
+        color: #ffffff;
+        text-align: center;
+        width: 35%;
+        line-height: 1.0rem;
+        height: 1.0rem;
+        padding: 1.8% 0;
+    }
+
+    .sticky-bar-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 6%;
+        padding-top: 6%;
+        background: url(https://nos.netease.com/gameyw-gbox/2017-06-23/mm18/1498187155847_w0nbcc.jpg) no-repeat center;
+        background-size: contain;
+        z-index: 2;
+    }
+
+    .sticky-bar.gameforumsapp .sticky-bar-app {
+        background-image: url(https://nos.netease.com/gameyw-gbox/2017-06-23/mm18/1498187035889_4igdnm.jpg);
+    }
+
+    .sticky-bar.yysapp .sticky-bar-app {
+        background-image: url(//nos.netease.com/gameyw-gbox/2017-06-23/mm18/1498186904964_wya69x.jpg);
+    }
+
+    @media only screen and (orientation: landscape) {
+        .sticky-bar {
+            padding-top: 8.888888%;
+        }
+        .sticky-bar-ad {
+            background-size: auto 100%;
+        }
+        .sticky-bar-btn {
+            font-size: 1.1em;
+            width: 16%;
+            padding: 1.4% 0;
+        }
+        .sticky-bar-close {
+            width: 4%;
+            padding-top: 4%;
+        }
+    }
+
+    * {
+        padding: 0;
+        margin: 0
+    }
+
+    .box {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        position: fixed;
+        left: 0;
+        top: 0;
+        display: none;
+        z-index: 9999;
+    }
+
+    .box1 {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 9999;
+    }
+
+    .iimg {
+        margin: 6rem 0.5rem 1rem 0.5rem;
+    }
+
+    .iimg img {
+        width: 100%;
+    }
+
+    .boxtext {
+        color: #ffffff;
+        height: 2.5rem;
+        font-size: 0.7rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .boxwit {
+        color: #ffffff;
+        height: 1.0rem;
+        font-size: 0.5rem;
+        text-align: center;
+        width: 100%;
+    }
+    </style>
+</body>
+
+</html>
