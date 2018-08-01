@@ -59,6 +59,11 @@
 				show(page2);
 			}, false);
 
+			page2.addEventListener('click', function (e) {
+				hide(page2);
+				show(page1);
+			}, false);
+
 			function init() {
 				show(page1);
 			}
