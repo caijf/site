@@ -3,11 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
-	<title>演示</title>
+	<title>RD minisite phone</title>
 	<style>
 		*{
 			margin: 0;
 			padding: 0;
+		}
+
+		*:focus{
+			outline: none;
 		}
 
 		img{
@@ -30,11 +34,29 @@
 			transition: opacity 0.5s ease 0s;
 		}
 
+		#agreement{
+			position: absolute;
+			left: 0;
+			top: 52.7%;
+			height: 10.6vw;
+			width: 100%;
+		}
+
+		#submit{
+			position: absolute;
+			left: 6vw;
+			right: 5.5vw;
+			top: 80.9%;
+			height: 11.3vw;
+		}
+
 	</style>
 </head>
 <body>
 	<div id="page-1">
 		<img src="images/1.jpg" alt="" />
+		<a id="agreement" href="agreement.html"></a>
+		<span id="submit"></span>
 	</div>
 	<div id="page-2">
 		<img src="images/2.jpg" alt="" />
@@ -54,7 +76,10 @@
 			var page1 = document.querySelector('#page-1'),
 				page2 = document.querySelector('#page-2');
 
-			page1.addEventListener('click', function (e) {
+			var agreement = document.querySelector('#agreement'),
+				submit = document.querySelector('#submit');
+
+			submit.addEventListener('click', function (e) {
 				hide(page1);
 				show(page2);
 			}, false);
