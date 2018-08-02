@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+	<title>RD minisite iPad</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		*:focus{
+			outline: none;
+		}
+
+		img{
+			display: block;
+			width: 100%;
+		}
+
+		body{
+			position: relative;
+		}
+		
+		div{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			opacity: 0;
+			transition: opacity 0.5s ease 0s;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="page-1">
+		<img src="images/pad-1.jpg" alt="" />
+	</div>
+	<div id="page-2">
+		<img src="images/pad-2.jpg" alt="" />
+	</div>
+	<script>
+		(function () {
+			function show(el) {
+				el.style.opacity = 1;
+				el.style.zIndex = 100;
+			}
+
+			function hide(el) {
+				el.style.opacity = 0;
+				el.style.zIndex = 1;
+			}
+
+			var page1 = document.querySelector('#page-1'),
+				page2 = document.querySelector('#page-2');
+
+			page1.addEventListener('click', function (e) {
+				hide(page1);
+				show(page2);
+			}, false);
+
+			page2.addEventListener('click', function (e) {
+				hide(page2);
+				show(page1);
+			}, false);
+
+			function init() {
+				show(page1);
+			}
+
+			init();
+		})();
+	</script>
+</body>
+</html>

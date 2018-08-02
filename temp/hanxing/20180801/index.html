@@ -21,8 +21,6 @@
 
 		body{
 			position: relative;
-			max-width: 768px;
-			margin: 0 auto;
 		}
 		
 		div{
@@ -36,10 +34,18 @@
 
 		#agreement{
 			position: absolute;
-			left: 0;
-			top: 52.7%;
-			height: 10.6vw;
-			width: 100%;
+			left: 24.67vw;
+			top: 54%;
+			height: 8vw;
+			width: 19.33vw;
+		}
+
+		#checkbox{
+			position: absolute;
+			left: 5.73vw;
+			top: 54%;
+			height: 8vw;
+			width: 19.33vw;
 		}
 
 		#submit{
@@ -54,15 +60,68 @@
 </head>
 <body>
 	<div id="page-1">
-		<img src="images/1.jpg" alt="" />
+		<img src="images/1.jpg" alt="" id="p1-default" style="display: none;" />
+		<img src="images/1-actived.jpg" alt="" id="p1-actived" style="display: none;" />
 		<a id="agreement" href="agreement.html"></a>
 		<span id="submit"></span>
+		<span id="checkbox"></span>
 	</div>
 	<div id="page-2">
 		<img src="images/2.jpg" alt="" />
 	</div>
 	<script>
 		(function () {
+			var isSupportStorage = (function () {
+				try{
+					var key = '__test__storage__support__';
+					localStorage.setItem(key, 1);
+					localStorage.removeItem(key);
+					return true;
+				}catch(err){
+					return false;
+				}
+			})();
+
+			// ----checkbox toggle start----
+			var ss = isSupportStorage ? sessionStorage : {}; // 勾选状态本地缓存
+			var defaultChecked = '0';
+
+			if(typeof ss.isChecked === 'undefined'){
+				ss.isChecked = defaultChecked;
+			}
+
+			var p1Default = document.querySelector('#p1-default'),
+				p1Actived = document.querySelector('#p1-actived'),
+				checkbox = document.querySelector('#checkbox');
+
+			function toggleChecked() {
+				if(ss.isChecked === '1'){
+					p1Actived.style.display = 'none';
+					p1Default.style.display = 'block';
+					ss.isChecked = '0';
+				}else{
+					p1Default.style.display = 'none';
+					p1Actived.style.display = 'block';
+					ss.isChecked = '1';
+				}
+			}
+
+			function showImage() {
+				if(ss.isChecked === '1'){
+					p1Default.style.display = 'none';
+					p1Actived.style.display = 'block';
+				}else{
+					p1Actived.style.display = 'none';
+					p1Default.style.display = 'block';
+				}
+			}
+
+			checkbox.addEventListener('click', function (e) {
+				toggleChecked();
+			}, false);
+			// ----checkbox toggle end----
+
+			// ----page change start----
 			function show(el) {
 				el.style.opacity = 1;
 				el.style.zIndex = 100;
@@ -80,6 +139,10 @@
 				submit = document.querySelector('#submit');
 
 			submit.addEventListener('click', function (e) {
+				if(ss.isChecked !== '1'){
+					alert('必须接受条款才能继续！');
+					return;
+				}
 				hide(page1);
 				show(page2);
 			}, false);
@@ -88,8 +151,10 @@
 				hide(page2);
 				show(page1);
 			}, false);
+			// ----page change end----
 
 			function init() {
+				showImage();
 				show(page1);
 			}
 
