@@ -32,12 +32,23 @@
 			transition: opacity 0.5s ease 0s;
 		}
 
+		.withImageMask::after{
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			z-index: 2;
+		}
+
 		#agreement{
 			position: absolute;
 			left: 24.67vw;
 			top: 54%;
 			height: 8vw;
 			width: 19.33vw;
+			z-index: 3;
 		}
 
 		#checkbox{
@@ -46,6 +57,7 @@
 			top: 54%;
 			height: 8vw;
 			width: 19.33vw;
+			z-index: 3;
 		}
 
 		#submit{
@@ -54,19 +66,20 @@
 			right: 5.5vw;
 			top: 80.9%;
 			height: 11.3vw;
+			z-index: 3;
 		}
 
 	</style>
 </head>
 <body>
-	<div id="page-1">
+	<div id="page-1" class="withImageMask">
 		<img src="images/1.jpg" alt="" id="p1-default" style="display: none;" />
 		<img src="images/1-actived.jpg" alt="" id="p1-actived" style="display: none;" />
 		<a id="agreement" href="agreement.html"></a>
 		<span id="submit"></span>
 		<span id="checkbox"></span>
 	</div>
-	<div id="page-2">
+	<div id="page-2" class="withImageMask">
 		<img src="images/2.jpg" alt="" />
 	</div>
 	<script>

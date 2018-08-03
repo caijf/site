@@ -32,13 +32,23 @@
 			transition: opacity 0.5s ease 0s;
 		}
 
+		.withImageMask::after{
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			z-index: 2;
+		}
+
 	</style>
 </head>
 <body>
-	<div id="page-1">
+	<div id="page-1" class="withImageMask">
 		<img src="images/pad-1.jpg" alt="" />
 	</div>
-	<div id="page-2">
+	<div id="page-2" class="withImageMask">
 		<img src="images/pad-2.jpg" alt="" />
 	</div>
 	<script>
