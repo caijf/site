@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>情话</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        font-size: 2.8vw;
+        background: #fff; 
+        color: #333;
+        font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+
+    h2{
+        font-size: 3.5vw;
+        text-align: center;
+        margin: 1em;
+    }
+
+    ul, li{ list-style: none;}
+
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    li{
+        width: 33.33%;
+        position:relative;
+    }
+
+    li:nth-child(2n){
+        background: #444;
+        color: #fff;
+    }
+    /*
+    li:nth-child(3n){
+        background: #ddd;
+    }*/
+
+    li:before {
+        display: block;
+        content: ' ';
+        padding-bottom: 100%;
+    }
+    li div {
+        position: absolute;
+        top: 50%;
+        padding: 20px;
+        line-height: 1.5;
+        transform: translateY(-50%);
+    }
+/*
+    @media screen and (min-width: 992px) {
+      li{
+        width: 20%;
+      }
+    }*/
+
+    @media screen and (max-width: 576px) {
+      h2{
+        font-size: 6vw;
+      }
+      li{
+        width: 100%;
+        font-size: 4.5vw;
+      }
+    }
+    </style>
+</head>
+
+<body>
+    <h2>情话</h2>
+</body>
+
+<script>
+    var data = [
+        [
+            '你知道你跟猴子有什么区别么？',
+            '不知道',
+            '猴子住在山上，你住在我心里'
+        ],
+        [
+            '你长的特别像我一个亲戚',
+            '像谁？',
+            '像我妈的女婿'
+        ],
+        [
+            '猜猜我心脏在哪边',
+            '左边',
+            '错，在你那边'
+        ],
+        [
+            '你今天有点怪',
+            '怎么怪了？',
+            '怪好看的'
+        ],
+        [
+            '我有超能力',
+            '什么',
+            '超喜欢你'
+        ],
+        [
+            '我很怕你',
+            '为什么',
+            '因为我很怕老婆'
+        ],
+        [
+            '你猜我爱打游戏还是爱喝酒',
+            '爱喝酒',
+            '错，我爱你'
+        ],
+        // [
+        //     '你心疼不心疼我啊？',
+        //     '心在你那里、疼不疼你说了算'
+        // ],
+        // [
+        //     '我们是不是在哪见过？',
+        //     '在我的脑海里'
+        // ],
+        // [
+        //     '你的小名叫觉觉吧？',
+        //     '因为我想睡觉觉啦'
+        // ],
+        [
+            '我刚在看电影、电音好的名字竟然跟我喜欢的人名字一样',
+            '什么电影？',
+            '你的名字'
+        ],
+        [
+            '最近体重增加了不少',
+            '为什么',
+            '因为心里多了一个你'
+        ],
+        [
+            '我知道有三个人喜欢你',
+            '谁啊',
+            '我啊我啊我啊'
+        ],
+        // [
+        //     '如果过几天，有个白胡子老头把你打晕装在麻袋里，你不要害怕，因为我的圣诞愿望，是你'
+        // ],
+        [
+            '我最近手头有点紧……',
+            '嗯？',
+            '能借你手牵一下嘛'
+        ],
+        [
+            '你属什么',
+            '狗，怎么了',
+            '不、你属于我'
+        ],
+        [
+            '我可以你亲你吗',
+            '不要脸',
+            '那亲嘴好了'
+        ],
+        // [
+        //     '来者何人',
+        //     '你的人'
+        // ],
+        [
+            '你为什么乱动我东西',
+            '我动什么了',
+            '你动了我的心'
+        ],
+        [
+            '你知道你配什么最好看么？',
+            '什么？',
+            '我'
+        ],
+        [
+            '我知道有个办法可以减两斤',
+            '什么办法？',
+            '把你的心放在我这里'
+        ],
+        // [
+        //     '你在干什么？',
+        //     '唉',
+        //     '怎么了？',
+        //     '没出息的我除了想你还能干什么'
+        // ],
+        [
+            '你妈没教过你礼尚往来吗？',
+            '我喜欢你',
+            '你得亲我'
+        ],
+        [
+            '喜欢和你一起看电影，电影不好看没关系，你好看'
+        ],
+        [
+            '帮我买张车票，我发红包给你，多了算你的',
+            '好的，买去哪儿的？',
+            '去你心里'
+        ],
+        [
+            '你知道冬天我想喝什么？',
+            '……',
+            '我想呵护你'
+        ],
+        [
+            '以后我和你一起吃饭饭钱得你付',
+            '为什么？',
+            '因为我的钱都给你保管啊'
+        ],
+        // [
+        //     '我发现我家的猫好像很喜欢你',
+        //     '为什么呀？我都没见过你家的猫',
+        //     '猜猜看',
+        //     '不知道',
+        //     '它老喜欢趴在我的胸口',
+        //     '然后？',
+        //     '因为你在我心里啊'
+        // ],
+        [
+            '我想套一样东西但是我觉得很难套得到',
+            '什么东西难套嘞？',
+            '套你的心啊！'
+        ],
+        [
+            '你以后会孤独的',
+            '为什么？',
+            '因为你一个人住在我心里没有邻居'
+        ],
+        [
+            '你有么有闻到烧焦的味道？',
+            '没有啊',
+            '是我爱你的心在燃烧~'
+        ],
+        [
+            '有一天，你在一个没有门没有窗到处都是红色的地方。猜想一下，你在哪里？',
+            '…………',
+            '你在我心里'
+        ],
+        [
+            '你有什么感兴趣的吗？',
+            '你猜？',
+            '游戏？还是其他？',
+            '我只对你感兴趣！'
+        ],
+        [
+            '有没有人说过你眼睛很好看',
+            '有啊有啊',
+            '但我觉得你的眼睛没有我的眼睛好看',
+            '为什么啊',
+            '因为我眼睛里有你啊'
+        ],
+        [
+            '不要脸',
+            '要脸干嘛，要你就行了'
+        ],
+        [
+            '你上辈子一定是碳酸饮料吧，不然我为什么看见你就开心的冒泡'
+        ],
+        [
+            '晚什么安？我巴不得你想我想的夜不能寐'
+        ],
+        [
+            '你是我的药，一日见效'
+        ],
+        [
+            '我喜欢你、你不喜欢我的话，请把这四个字还给我'
+        ],
+        [
+            '想送你个超可爱的礼物、可是快递员不让我钻进箱子里'
+        ],
+        [
+            '你长的好看我也就忍了、可你偏偏长成我喜欢的样子，你要我怎么办'
+        ],
+        [
+            '我语文不好但我会说我爱你，我数学不好但我会说520，我英语不好但我会说 I LOVE YOU'
+        ]
+        // [
+        //     '你还会爱上其他女孩么？',
+        //     '会，而且她还会叫你妈妈'
+        // ]
+    ];
+    
+    function createElement(tag) {
+        return document.createElement(tag);
+    }
+    
+    var oUl = createElement('ul');
+
+    var oFrag = document.createDocumentFragment();
+
+    var items, i, j, oLi, oDiv, oP;
+
+    for (i=0; i < data.length; i++) {
+        items= data[i];
+        oLi = createElement('li');
+        oDiv = createElement('div');
+
+        for (j=0; j < items.length; j++) {
+            oP = createElement('p');
+            var sex = j%2?'她':'我';
+            if(!!(j%2)){
+                oP.style.opacity="0.7";
+            }
+
+            var preStr = '：“',
+                fixStr = '”';
+            
+            if(items.length === 1){
+                sex = '';
+                preStr = '';
+                fixStr = '';
+            }
+
+            oP.innerHTML = sex + preStr + items[j] + fixStr;
+            oDiv.appendChild(oP);
+        }
+        oLi.appendChild(oDiv);
+        oFrag.appendChild(oLi);
+    }
+
+    oUl.appendChild(oFrag);
+    document.body.appendChild(oUl);
+</script>
+</html>
