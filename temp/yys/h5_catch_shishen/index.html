@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name=viewport content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui" />
+	<title>抓取阴阳师式神数据</title>
+</head>
+<body>
+	<h1>抓取阴阳师式神数据</h1>
+	
+	<input type="text" placeholder="请输入式神id" id="searchInput" />
+	<button id="searchButton">查找</button>
+
+	<div id="content"></div>
+	
+	<script src="./np.js"></script>
+	<script src="./shishen.js"></script>
+	<script src="./jinengxiangqing.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	
+	<script>
+		// 美化json数据
+		function formatJson(msg) {
+	        var rep = "~";
+	        var jsonStr = JSON.stringify(msg, null, rep).replace(/\\/g, '');
+	        var str = "";
+	        for (var i = 0; i < jsonStr.length; i++) {
+	            var text2 = jsonStr.charAt(i)
+	            if (i > 1) {
+	                var text = jsonStr.charAt(i - 1)
+	                if (rep != text && rep == text2) {
+	                    str += "<br/>"
+	                }
+	            }
+	            str += text2;
+	        }
+	        jsonStr = "";
+	        for (var i = 0; i < str.length; i++) {
+	            var text = str.charAt(i);
+	            if (rep == text)
+	                jsonStr += "&nbsp;&nbsp;"
+	            else {
+	                jsonStr += text;
+	            }
+	            if (i == str.length - 2)
+	                jsonStr += "<br/>"
+	        }
+	        return jsonStr;
+	    }
+		
+		$(function () {
+			
+			// 评级映射
+			var levelMap = ['D', 'C', 'B', 'A', 'S'];
+
+			// 式神技能请求url
+			var hero_skill_url = 'https://g37simulator.webapp.163.com/get_hero_skill';
+
+			// 式神技能请求参数
+			var hero_skill_data = {
+				heroid: 314,
+				awake: 0,
+				level: 0,
+				star: 2
+			}
+
+			// 式神觉醒技能请求参数
+			var hero_awaken_skill_data = {
+				eroid: 314,
+				awake: 1,
+				level: 0,
+				star: 2
+			}
+			
+			// 式神数据请求url
+			var hero_attr_url = 'https://g37simulator.webapp.163.com/get_hero_attr';
+
+			// 式神属性请求参数
+			var hero_attr_data = {
+				heroid: 314,
+				awake: 0,
+				level: 1,
+				star: 2
+			}
+			// 式神觉醒属性请求参数
+			var hero_awaken_attr_data = {
+				heroid: 314,
+				awake: 1,
+				level: 1,
+				star: 2
+			}
+
+			var $input = $('#searchInput'),
+				$btn = $('#searchButton'),
+				$con = $('#content');
+
+			$btn.on('click', function (e) {
+				var val = $input.val();
+				var baseData = getShiShenData(val);
+
+				if(!val || !baseData){
+					alert('请输入正确的式神ID');
+					return;
+				}
+
+				hero_skill_data.heroid = val;
+				hero_awaken_skill_data.heroid = val;
+				hero_attr_data.heroid = val;
+				hero_awaken_attr_data.heroid = val;
+
+				$con.html('加载中...');
+
+				var skill, awaken_skill, attr, awaken_attr;
+
+				var promise_skill = $.ajax({
+					dataType: "json",
+					url: hero_skill_url,
+					data: hero_skill_data
+				});
+				var promise_awaken_skill = $.ajax({
+					dataType: "json",
+					url: hero_skill_url,
+					data: hero_awaken_skill_data
+				});
+				var promise_attr = $.ajax({
+					dataType: "json",
+					url: hero_attr_url,
+					data: hero_attr_data
+				});
+				var promise_awaken_attr = $.ajax({
+					dataType: "json",
+					url: hero_attr_url,
+					data: hero_awaken_attr_data
+				});
+
+				promise_skill.then(function (res) {
+					if(res.success){
+						skill = res.data;
+					}
+					return promise_awaken_skill;
+				}).then(function (res) {
+					if(res.success){
+						awaken_skill = res.data;
+					}
+					return promise_attr;
+				}).then(function (res) {
+					if(res.success){
+						attr = res.data;
+					}
+					return promise_awaken_attr;
+				}).then(function (res) {
+					if(res.success){
+						awaken_attr = res.data;
+					}
+
+					console.log(skill);
+					console.log(awaken_skill);
+					console.log(attr);
+					console.log(awaken_attr);
+
+					// var content = '<h3>技能</h3>' + JSON.stringify(skill) + '<h3>觉醒</h3>' + JSON.stringify(awaken_skill) + '<h3>初始属性</h3>' + JSON.stringify(attr) + '<h3>觉醒属性</h3>' + JSON.stringify(awaken_attr);
+
+					// $con.html(content);
+
+					// 攻击、生命、防御、速度、暴击、暴击伤害、效果命中、效果抵抗
+					// var propsList = ['attack', 'maxHp', 'defense', 'speed', 'critRate', 'critPower', 'debuffEnhance', 'debuffResist'];
+
+					var objData = {
+						id: Number(val),
+						name: baseData.name,
+						properties: [
+							{
+								name: '攻击',
+								base: {
+									level: levelMap[attr.score.attack],
+									value: attr.attack
+								},
+								awaken: {
+									level: awaken_attr ? levelMap[awaken_attr.score.attack] : '',
+									value: awaken_attr ? awaken_attr.attack : ''
+								}
+							},
+							{
+								name: '生命',
+								base: {
+									level: levelMap[attr.score.maxHp],
+									value: attr.maxHp
+								},
+								awaken: {
+									level: awaken_attr ? levelMap[awaken_attr.score.maxHp] : '',
+									value: awaken_attr ? awaken_attr.maxHp : ''
+								}
+							},
+							{
+								name: '防御',
+								base: {
+									level: levelMap[attr.score.defense],
+									value: attr.defense
+								},
+								awaken: {
+									level: awaken_attr ? levelMap[awaken_attr.score.defense] : '',
+									value: awaken_attr ? awaken_attr.defense : ''
+								}
+							},
+							{
+								name: '速度',
+								base: {
+									level: levelMap[attr.score.speed],
+									value: attr.speed
+								},
+								awaken: {
+									level: awaken_attr ? levelMap[awaken_attr.score.speed] : '',
+									value: awaken_attr ? awaken_attr.speed : ''
+								}
+							},
+							{
+								name: '暴击',
+								base: {
+									level: levelMap[attr.score.critRate],
+									value: attr.critRate > 0 ? NP.times(attr.critRate, 100)+'%' : '0%'
+								},
+								awaken: {
+									level: awaken_attr ? levelMap[awaken_attr.score.critRate] : '',
+									value: awaken_attr ? (awaken_attr.critRate > 0 ? NP.times(awaken_attr.critRate, 100)+'%' : '0%') : ''
+								}
+							},
+							{
+								name: '暴击伤害',
+								base: {
+									value: attr.critPower > 0 ? NP.times(NP.plus(attr.critPower, 1), 100)+'%' : '0%'
+								},
+								awaken: {
+									value: awaken_attr ? (awaken_attr.critPower > 0 ? NP.times(NP.plus(awaken_attr.critPower, 1), 100)+'%' : '0%') : ''
+								}
+							},
+							{
+								name: '效果命中',
+								base: {
+									value: attr.debuffEnhance > 0 ? NP.times(attr.debuffEnhance, 100)+'%' : '0%'
+								},
+								awaken: {
+									value: awaken_attr ? (awaken_attr.debuffEnhance > 0 ? NP.times(awaken_attr.debuffEnhance, 100)+'%' : '0%') : ''
+								}
+							},
+							{
+								name: '效果抵抗',
+								base: {
+									value: attr.debuffResist > 0 ? NP.times(attr.debuffResist, 100)+'%' : '0%'
+								},
+								awaken: {
+									value: awaken_attr ? (awaken_attr.debuffResist > 0 ? NP.times(awaken_attr.debuffResist, 100)+'%' : '0%') : ''
+								}
+							}
+						],
+						skills: [1,2,3].map(function (item, index) {
+							var skillItem = skill[val+item];
+							if(!skillItem){return ''};
+
+							var baseDataSkill = (baseData.skills && baseData.skills[index]) || {};
+							return {
+								id: val+item,
+								name: skillItem.name,
+								cost: baseDataSkill.cost,
+								talk: baseDataSkill.talk,
+								type: baseDataSkill.type,
+								desc: skillItem.normaldesc.replace(/『/g, '「').replace(/』/g, '」').split('\n'),
+								upgrade: skillItem.desc.map(function (des) {
+									return des.substr(4);
+								}),
+								detail: getJNDetail(skillItem.normaldesc)
+							}
+						}).filter(function (item) {
+							return !!item;
+						}),
+						awaken: {
+							materials: awaken_attr ? awaken_attr.awakeitem.map(function (item) {
+								return {
+									name: item[0],
+									count: item[2]
+								}
+							}) : [],
+							effect: awaken_skill ? awaken_skill.add : ''
+						}
+					};
+					
+					// 缓存觉醒技能名称
+					var temp_awaken_skill_name = '';
+					var temp_awaken_effect = objData.awaken.effect;
+
+					// 觉醒技能处理
+					if(awaken_skill && (awaken_skill.add_type === '2' || awaken_skill.add.indexOf('觉醒技能')>-1)){
+
+						objData.skills = objData.skills.map(function (item) {
+							if(awaken_skill[item.id]){
+								temp_awaken_skill_name = awaken_skill[item.id].name;
+
+								item.desc = awaken_skill[item.id].normaldesc.replace(/『/g, '「').replace(/』/g, '」').split('\n');
+								item.upgrade = awaken_skill[item.id].desc.map(function (des) {
+									return des.substr(4);
+								});
+								item.detail = getJNDetail(awaken_skill[item.id].normaldesc);
+							}
+
+							return item;
+						});
+						
+						try{
+							objData.awaken.effect = temp_awaken_effect.substr(0, 4) + '「'+ temp_awaken_skill_name +'」' + temp_awaken_effect.substr(4);
+						}catch(e){}
+
+					}
+
+					$con.html(formatJson(objData));
+
+				}).fail(function (err) {
+					$con.html('出错啦！');
+				})
+
+				// $.getJSON(hero_skill_url, hero_skill_data, function (skillData) {
+				// 	if(skillData.success){
+				// 		skill = skillData.data;
+
+				// 		$.getJSON(hero_skill_url, hero_awaken_skill_data, function (awakenSkillData) {
+				// 			if(awakenSkillData.success){
+				// 				awaken_skill = awakenSkillData.data;
+
+				// 				$.getJSON(hero_attr_url, hero_attr_data, function (attrData) {
+
+				// 					if(attrData.success){
+				// 						attr = attrData.data;
+
+				// 						$.getJSON(hero_attr_url, hero_awaken_attr_data, function (awakenAttrData) {
+				// 							if(awakenAttrData.success){
+				// 								awaken_attr = awakenAttrData.data;
+
+				// 								console.log(skill);
+				// 								console.log(awaken_skill);
+				// 								console.log(attr);
+				// 								console.log(awaken_attr);
+
+				// 								var content = '<h3>技能</h3>' + JSON.stringify(skill) + '<h3>觉醒</h3>' + JSON.stringify(awaken_skill) + '<h3>初始属性</h3>' + JSON.stringify(attr) + '<h3>觉醒属性</h3>' + JSON.stringify(awaken_attr);
+
+				// 								$con.html(content);
+				// 							}
+				// 						})	
+				// 					}
+				// 				})
+
+				// 			}
+				// 		})
+				// 	}
+				// });
+
+			});
+
+		});
+
+
+	</script>
+
+</body>
+</html>
