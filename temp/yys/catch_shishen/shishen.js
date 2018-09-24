@@ -347,7 +347,7 @@ var ssData = [{
       },
       {
         talk: '照亮黑暗就是我的宿命。',
-        cost: 3,
+        cost: 4,
         type: '主动'
       },
     ]
@@ -364,6 +364,11 @@ var ssData = [{
         talk: '别过来！别碰我！我不是故意的……',
         cost: 0,
         type: '普攻'
+      },
+      {
+        talk: '鬼……鬼火啊，打、打他们！',
+        cost: 2,
+        type: '主动'
       },
       {
         talk: '鬼……鬼火啊，打、打他们！',
@@ -2984,7 +2989,7 @@ var ssData = [{
     "name": "鬼灯",
     "interactive": true,
     cv: '安元洋贵',
-    categories: ['男系'],
+    categories: ['鬼系', '男系'],
     skills: [
       {
         talk: '如果打上一架就能解决，就太好了。',

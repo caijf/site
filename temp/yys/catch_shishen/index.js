@@ -173,7 +173,10 @@ function getData(id) {
 	return Promise.all([promise_hero_skill, promise_hero_awaken_skill, promise_hero_attr, promise_hero_awaken_attr]);
 }
 
-shishen.data.map(item=>item.id).forEach((item)=>{
+// shishen.data.map(item=>item.id).forEach((item)=>{
+[{
+	id: 315
+}].map(item=>item.id).forEach((item)=>{
 	let id = item;
 	getData(id).then(([skill, awaken_skill, attr, awaken_attr])=>{
 		// console.log(id);
@@ -208,7 +211,7 @@ function writeToFile(data) {
 			if(err){
 				console.log('出错啦');
 			}
-			console.log('已保存到本地')
+			console.log(data.id+' 已保存到本地')
 		})
 	}else{
 		console.log('id不存在');
@@ -345,25 +348,70 @@ function createData(id, skill, awaken_skill, attr, awaken_attr) {
 	let temp_awaken_effect = objData.awaken.effect;
 
 	// 觉醒技能处理
-	if(awaken_skill && (awaken_skill.add_type === '2' || awaken_skill.add.indexOf('觉醒技能')>-1)){
+	if(awaken_skill){
 
-		objData.skills = objData.skills.map(function (item) {
-			if(awaken_skill[item.id]){
-				temp_awaken_skill_name = awaken_skill[item.id].name;
+		if(awaken_skill.add_type == 2 || awaken_skill.add.indexOf('觉醒技能')>-1){
+			objData.skills = objData.skills.map(function (item) {
+				if(awaken_skill[item.id]){
+					temp_awaken_skill_name = awaken_skill[item.id].name;
 
-				item.desc = awaken_skill[item.id].normaldesc.replace(/『/g, '「').replace(/』/g, '」').split('\n');
-				item.upgrade = awaken_skill[item.id].desc.map(function (des) {
-					return des.substr(4);
-				});
-				item.detail = jinengxiangqing.getDetail(awaken_skill[item.id].normaldesc);
-			}
+					item.desc = awaken_skill[item.id].normaldesc.replace(/『/g, '「').replace(/』/g, '」').split('\n');
+					item.upgrade = awaken_skill[item.id].desc.map(function (des) {
+						return des.substr(4);
+					});
+					item.detail = jinengxiangqing.getDetail(awaken_skill[item.id].normaldesc);
+				}
 
-			return item;
-		});
+				return item;
+			});
 
-		try{
-			objData.awaken.effect = temp_awaken_effect.substr(0, 4) + '「'+ temp_awaken_skill_name +'」' + temp_awaken_effect.substr(4);
-		}catch(e){}
+			try{
+				objData.awaken.effect = temp_awaken_effect.substr(0, 4) + '「'+ temp_awaken_skill_name +'」' + temp_awaken_effect.substr(4);
+			}catch(e){}
+		}else if(awaken_skill.add_type == 1 || awaken_skill.add.indexOf('觉醒添加')>-1){
+			let newSkillId = [1,2,3].map(function (item, index) {
+				let skillId = id+''+item;
+
+				if(awaken_skill[skillId]){
+					temp_awaken_skill_name = awaken_skill[skillId].name;
+					return skillId;
+				}else{
+					return '';
+				}
+			}).filter(function (item) {
+				return !!item;
+			})[0];
+
+			skill[newSkillId] = awaken_skill[newSkillId];
+			
+			objData.skills = [1,2,3].map(function (item, index) {
+				let skillId = id+''+item;
+				let skillItem = skill[skillId];
+				if(!skillItem){return ''};
+
+				let baseDataSkill = (baseData.skills && baseData.skills[index]) || {};
+				return {
+					id: skillId,
+					name: skillItem.name,
+					cost: baseDataSkill.cost,
+					talk: baseDataSkill.talk,
+					type: baseDataSkill.type,
+					desc: skillItem.normaldesc.replace(/『/g, '「').replace(/』/g, '」').split('\n'),
+					upgrade: skillItem.desc.map(function (des) {
+						return des.substr(4);
+					}),
+					detail: jinengxiangqing.getDetail(skillItem.normaldesc)
+				}
+			}).filter(function (item) {
+				return !!item;
+			});
+
+			try{
+				objData.awaken.effect = temp_awaken_effect + '「'+ temp_awaken_skill_name +'」';
+			}catch(e){}
+			
+		}
+
 	}
 
 	return objData;
