@@ -46,6 +46,20 @@ const hero_awaken_attr_data = {
 	level: 1,
 	star: 2
 }
+// 式神未觉醒满级属性请求参数
+const hero_full_attr_data = {
+	// heroid: 314,
+	awake: 0,
+	level: 40,
+	star: 6
+}
+// 式神觉醒满级属性请求参数
+const hero_awaken_full_attr_data = {
+	// heroid: 314,
+	awake: 1,
+	level: 40,
+	star: 6
+}
 
 let errIds = [];
 
@@ -170,21 +184,76 @@ function getData(id) {
 		});
 	});
 
-	return Promise.all([promise_hero_skill, promise_hero_awaken_skill, promise_hero_attr, promise_hero_awaken_attr]);
+	const promise_hero_full_attr = new Promise((resolve, reject)=>{
+		http.get(`${hero_attr_url}?${queryString.stringify({...hero_full_attr_data, ...defaultParam})}`, (res)=>{
+			let content = '';
+
+			res.on('data', (data)=>{
+				content += data;
+			});
+
+			res.on('end', ()=>{
+				content = parseData(content);
+				
+				if(content.success){
+					resolve(content.data);
+				}else{
+					// reject(id);
+					errIds.push(id)
+				}
+			})
+
+		}).on('error', (err)=>{
+			// console.log(id + ' 错误信息：' + err);
+			// reject(id);
+			errIds.push(id)
+		});
+	});
+
+	const promise_hero_awaken_full_attr = new Promise((resolve, reject)=>{
+		http.get(`${hero_attr_url}?${queryString.stringify({...hero_awaken_full_attr_data, ...defaultParam})}`, (res)=>{
+			let content = '';
+
+			res.on('data', (data)=>{
+				content += data;
+			});
+
+			res.on('end', ()=>{
+				content = parseData(content);
+				
+				if(content.success){
+					resolve(content.data);
+				}else{
+					// reject(id);
+					errIds.push(id)
+				}
+			})
+
+		}).on('error', (err)=>{
+			// console.log(id + ' 错误信息：' + err);
+			// reject(id);
+			errIds.push(id)
+		});
+	});
+
+	return Promise.all([promise_hero_skill, promise_hero_awaken_skill, promise_hero_attr, promise_hero_awaken_attr, promise_hero_full_attr, promise_hero_awaken_full_attr]);
 }
 
 // shishen.data.map(item=>item.id).forEach((item)=>{
-[{
-	id: 315
-}].map(item=>item.id).forEach((item)=>{
+[{id: 241}].map(item=>item.id).forEach((item)=>{
 	let id = item;
-	getData(id).then(([skill, awaken_skill, attr, awaken_attr])=>{
+	getData(id).then(([skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr])=>{
 		// console.log(id);
 		// console.log(attr);
 		
-		const data = createData(id, skill, awaken_skill, attr, awaken_attr);
+		const data = createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr);
 // console.log(data);
-		writeToFile(data);
+
+		// 自定义数据
+		writeToFile(`./dist/${id}.js`, data);
+
+		// 缓存数据到本地
+		// writeToFile(`./cache/${id}.js`, {skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr});
 
 	}).catch((errId)=>{
 		if(errIds.length > 0){
@@ -200,28 +269,28 @@ function getData(id) {
 // 	console.log(errId);
 // });
 
-function writeToFile(data) {
+function writeToFile(path, data) {
 	let content;
 	try{
 		content = JSON.stringify(data);
 	}catch(e){}
 
-	if(data.id){
-		fs.writeFile(`./dist/${data.id}.js`, `module.exports = ${content}`, (err)=>{
+	// if(data.id){
+		fs.writeFile(path, `module.exports = ${content}`, (err)=>{
 			if(err){
-				console.log('出错啦');
+				console.log(path + ' 出错啦');
 			}
-			console.log(data.id+' 已保存到本地')
+			console.log(path +' 已保存到本地')
 		})
-	}else{
-		console.log('id不存在');
-	}
+	// }else{
+	// 	console.log('id不存在');
+	// }
 }
 
 // 评级映射
 const levelMap = ['D', 'C', 'B', 'A', 'S'];
 
-function createData(id, skill, awaken_skill, attr, awaken_attr) {
+function createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr) {
 	let baseData = shishen.getDataById(id);
 
 	let objData = {
@@ -237,6 +306,9 @@ function createData(id, skill, awaken_skill, attr, awaken_attr) {
 				awaken: {
 					level: awaken_attr ? levelMap[awaken_attr.score.attack] : '',
 					value: awaken_attr ? awaken_attr.attack : ''
+				},
+				full: {
+					value: awaken_full_attr ? awaken_full_attr.attack : (full_attr ? full_attr.attack : '')
 				}
 			},
 			{
@@ -248,6 +320,9 @@ function createData(id, skill, awaken_skill, attr, awaken_attr) {
 				awaken: {
 					level: awaken_attr ? levelMap[awaken_attr.score.maxHp] : '',
 					value: awaken_attr ? awaken_attr.maxHp : ''
+				},
+				full: {
+					value: awaken_full_attr ? awaken_full_attr.maxHp : (full_attr ? full_attr.maxHp : '')
 				}
 			},
 			{
@@ -259,6 +334,9 @@ function createData(id, skill, awaken_skill, attr, awaken_attr) {
 				awaken: {
 					level: awaken_attr ? levelMap[awaken_attr.score.defense] : '',
 					value: awaken_attr ? awaken_attr.defense : ''
+				},
+				full: {
+					value: awaken_full_attr ? awaken_full_attr.defense : (full_attr ? full_attr.defense : '')
 				}
 			},
 			{
@@ -270,6 +348,9 @@ function createData(id, skill, awaken_skill, attr, awaken_attr) {
 				awaken: {
 					level: awaken_attr ? levelMap[awaken_attr.score.speed] : '',
 					value: awaken_attr ? awaken_attr.speed : ''
+				},
+				full: {
+					value: awaken_full_attr ? awaken_full_attr.speed : (full_attr ? full_attr.speed : '')
 				}
 			},
 			{
@@ -281,6 +362,9 @@ function createData(id, skill, awaken_skill, attr, awaken_attr) {
 				awaken: {
 					level: awaken_attr ? levelMap[awaken_attr.score.critRate] : '',
 					value: awaken_attr ? (awaken_attr.critRate > 0 ? NP.times(awaken_attr.critRate, 100)+'%' : '0%') : ''
+				},
+				full: {
+					value: awaken_full_attr ? (awaken_full_attr.critRate > 0 ? NP.times(awaken_full_attr.critRate, 100)+'%' : '0%') : (full_attr ? (full_attr.critRate > 0 ? NP.times(full_attr.critRate, 100)+'%' : '0%') : '')
 				}
 			},
 			{
@@ -290,6 +374,9 @@ function createData(id, skill, awaken_skill, attr, awaken_attr) {
 				},
 				awaken: {
 					value: awaken_attr ? (awaken_attr.critPower > 0 ? NP.times(NP.plus(awaken_attr.critPower, 1), 100)+'%' : '0%') : ''
+				},
+				full: {
+					value: awaken_full_attr ? (awaken_full_attr.critPower > 0 ? NP.times(NP.plus(awaken_full_attr.critPower, 1), 100)+'%' : '0%') : (full_attr ? (full_attr.critPower > 0 ? NP.times(NP.plus(full_attr.critPower, 1), 100)+'%' : '0%') : '')
 				}
 			},
 			{
@@ -299,6 +386,9 @@ function createData(id, skill, awaken_skill, attr, awaken_attr) {
 				},
 				awaken: {
 					value: awaken_attr ? (awaken_attr.debuffEnhance > 0 ? NP.times(awaken_attr.debuffEnhance, 100)+'%' : '0%') : ''
+				},
+				full: {
+					value: awaken_full_attr ? (awaken_full_attr.debuffEnhance > 0 ? NP.times(awaken_full_attr.debuffEnhance, 100)+'%' : '0%') : (full_attr ? (full_attr.debuffEnhance > 0 ? NP.times(full_attr.debuffEnhance, 100)+'%' : '0%') : '')
 				}
 			},
 			{
@@ -308,6 +398,9 @@ function createData(id, skill, awaken_skill, attr, awaken_attr) {
 				},
 				awaken: {
 					value: awaken_attr ? (awaken_attr.debuffResist > 0 ? NP.times(awaken_attr.debuffResist, 100)+'%' : '0%') : ''
+				},
+				full: {
+					value: awaken_full_attr ? (awaken_full_attr.debuffResist > 0 ? NP.times(awaken_full_attr.debuffResist, 100)+'%' : '0%') : (full_attr ? (full_attr.debuffResist > 0 ? NP.times(full_attr.debuffResist, 100)+'%' : '0%') : '')
 				}
 			}
 		],
@@ -417,7 +510,11 @@ function createData(id, skill, awaken_skill, attr, awaken_attr) {
 	return objData;
 }
 
-
+// function createCacheData(skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr){
+// 	return {
+// 		skill,
+// 	}
+// }
 
 // const  hero_skill_url = 'https://g37simulator.webapp.163.com/get_hero_skill?callback=temp&heroid=316&awake=1&level=0&star=2&_=1537357464127';
 
