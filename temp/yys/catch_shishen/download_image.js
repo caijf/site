@@ -30,7 +30,8 @@ function downImg(opts = {}, path = '') {
 	})
 };
 
-shishen.data.forEach(item=>{
+// shishen.data.forEach(item=>{
+[{id:317}].forEach(item=>{
 	const id = item.id;
 
 	[1,2,3].forEach((skillItem)=>{
