@@ -2506,6 +2506,29 @@ var ssData = [{
       },
     ]
   }, {
+    "id": 317,
+    "level": "SR",
+    "name": "人面树",
+    cv: '花江夏树',
+    categories: [],
+    skills: [
+      {
+        talk: '祈祷，真的能有回应吗？',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '红色，是危险的颜色。',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '神木亦或祸根，乃他人之相。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
     "id": 217,
     "name": "大天狗",
     "level": "SSR",
