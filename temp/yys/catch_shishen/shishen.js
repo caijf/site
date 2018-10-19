@@ -2529,6 +2529,29 @@ var ssData = [{
       },
     ]
   }, {
+    "id": 318,
+    "level": "SR",
+    "name": "於菊虫",
+    cv: '羽饲真梨',
+    categories: ['动物系'],
+    skills: [
+      {
+        talk: '请认真听我讲话！',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '你的茧破开了吗？',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '现在后悔已经太晚了吧！',
+        cost: 2,
+        type: '主动'
+      },
+    ]
+  }, {
     "id": 217,
     "name": "大天狗",
     "level": "SSR",
@@ -3166,6 +3189,29 @@ var ssData = [{
       },
       {
         talk: '有小白在，不会有事的！',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 319,
+    "level": "SSR",
+    "name": "桔梗",
+    cv: '日高法子',
+    categories: ['女系'],
+    skills: [
+      {
+        talk: '接下来，是你的头！',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '我不会逃避，也不会躲藏。',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '你只有死路一条！',
         cost: 3,
         type: '主动'
       },
