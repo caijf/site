@@ -240,7 +240,7 @@ function getData(id) {
 }
 
 // shishen.data.map(item=>item.id).forEach((item)=>{
-[{id: 318}, {id: 319}].map(item=>item.id).forEach((item)=>{
+[{id: 320}, {id: 321}].map(item=>item.id).forEach((item)=>{
 	let id = item;
 	getData(id).then(([skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr])=>{
 		// console.log(id);
@@ -250,7 +250,7 @@ function getData(id) {
 // console.log(data);
 
 		// 自定义数据
-		// writeToFile(`./dist/${id}.js`, data);
+		writeToFile(`./dist/${id}.js`, data);
 
 		// 缓存数据到本地
 		writeToFile(`./cache/${id}.js`, {skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr});

@@ -2552,6 +2552,52 @@ var ssData = [{
       },
     ]
   }, {
+    "id": 320,
+    "level": "SR",
+    "name": "一反木绵",
+    cv: '三石琴乃',
+    categories: ['鬼系', '女系'],
+    skills: [
+      {
+        talk: '你无处可逃了。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '这是命运的交织，你逃不掉的。',
+        cost: 1,
+        type: '主动'
+      },
+      {
+        talk: '我会在你喷散而出的血液之中绽放。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 321,
+    "level": "SR",
+    "name": "入殓师",
+    cv: '速水奖',
+    categories: ['鬼系', '男系'],
+    skills: [
+      {
+        talk: '为你的死亡施上粉墨。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '感受魂魄被一分为二的感觉吧。',
+        cost: 2,
+        type: '主动'
+      },
+      {
+        talk: '织雪，连死亡也无法将我们分离。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
     "id": 217,
     "name": "大天狗",
     "level": "SSR",
@@ -3148,29 +3194,6 @@ var ssData = [{
       },
     ]
   }, {
-    "id": 315,
-    "level": "SP",
-    "name": "少羽大天狗",
-    cv: '白石凉子',
-    categories: ['飞行系', '男系'],
-    skills: [
-      {
-        talk: '风啊，请听命于我！',
-        cost: 0,
-        type: '普攻'
-      },
-      {
-        talk: '吾定必成为崇天高云最强之羽翼。',
-        cost: 0,
-        type: '被动'
-      },
-      {
-        talk: '将这风之力，化作吾之利刃！',
-        cost: 3,
-        type: '主动'
-      },
-    ]
-  }, {
     "id": 316,
     "level": "SSR",
     "name": "白藏主",
@@ -3213,6 +3236,52 @@ var ssData = [{
       {
         talk: '你只有死路一条！',
         cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 315,
+    "level": "SP",
+    "name": "少羽大天狗",
+    cv: '白石凉子',
+    categories: ['飞行系', '男系'],
+    skills: [
+      {
+        talk: '风啊，请听命于我！',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '吾定必成为崇天高云最强之羽翼。',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '将这风之力，化作吾之利刃！',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 322,
+    "level": "SP",
+    "name": "炼狱茨木童子",
+    cv: '福山润',
+    categories: ['鬼系', '男系'],
+    skills: [
+      {
+        talk: '呵，竟敢小看我。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '在这战意中颤抖吧！',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '不堪一击！',
+        cost: 4,
         type: '主动'
       },
     ]
