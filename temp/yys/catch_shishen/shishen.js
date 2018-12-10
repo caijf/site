@@ -1393,6 +1393,29 @@ var ssData = [{
       },
     ]
   }, {
+    "id": 323,
+    "level": "R",
+    "name": "天井下",
+    cv: '小仓唯',
+    categories: ['辅助'],
+    skills: [
+      {
+        talk: '偷偷地——嘿！',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '在这里就安心吧！',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '有回想起重要的人吗？',
+        cost: 0,
+        type: '主动'
+      },
+    ]
+  }, {
     "id": 310,
     "level": "R",
     "name": "蜜桃&芥子",
