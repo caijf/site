@@ -3263,6 +3263,30 @@ var ssData = [{
       },
     ]
   }, {
+    "id": 325,
+    "level": "SSR",
+    "name": "八岐大蛇",
+    cv: '宫野真守',
+    categories: [''],
+    skills: [
+      {
+        talk: '我很感兴趣，人类。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '这是神之力，当然，会有代价。',
+        cost: 0,
+        wait: 1,
+        type: '主动'
+      },
+      {
+        talk: '神的掌心，逃得出去吗？',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
     "id": 315,
     "level": "SP",
     "name": "少羽大天狗",
