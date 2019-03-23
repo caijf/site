@@ -288,7 +288,7 @@
 					var temp_awaken_effect = objData.awaken.effect;
 
 					// 觉醒技能处理
-					if(awaken_skill && (awaken_skill.add_type === '2' || awaken_skill.add.indexOf('觉醒技能')>-1)){
+					if(awaken_skill && (awaken_skill.add_type === '2' || (awaken_skill.add && awaken_skill.add.indexOf('觉醒技能')>-1))){
 
 						objData.skills = objData.skills.map(function (item) {
 							if(awaken_skill[item.id]){

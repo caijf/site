@@ -347,7 +347,7 @@ var ssData = [{
       },
       {
         talk: '照亮黑暗就是我的宿命。',
-        cost: 3,
+        cost: 4,
         type: '主动'
       },
     ]
@@ -364,6 +364,11 @@ var ssData = [{
         talk: '别过来！别碰我！我不是故意的……',
         cost: 0,
         type: '普攻'
+      },
+      {
+        talk: '鬼……鬼火啊，打、打他们！',
+        cost: 2,
+        type: '主动'
       },
       {
         talk: '鬼……鬼火啊，打、打他们！',
@@ -1384,6 +1389,29 @@ var ssData = [{
       {
         talk: '在我的茧里，不用害怕……',
         cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 323,
+    "level": "R",
+    "name": "天井下",
+    cv: '小仓唯',
+    categories: ['辅助'],
+    skills: [
+      {
+        talk: '偷偷地——嘿！',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '在这里就安心吧！',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '有回想起重要的人吗？',
+        cost: 0,
         type: '主动'
       },
     ]
@@ -2501,6 +2529,121 @@ var ssData = [{
       },
     ]
   }, {
+    "id": 317,
+    "level": "SR",
+    "name": "人面树",
+    cv: '花江夏树',
+    categories: [],
+    skills: [
+      {
+        talk: '祈祷，真的能有回应吗？',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '红色，是危险的颜色。',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '神木亦或祸根，乃他人之相。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 318,
+    "level": "SR",
+    "name": "於菊虫",
+    cv: '羽饲真梨',
+    categories: ['动物系'],
+    skills: [
+      {
+        talk: '请认真听我讲话！',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '你的茧破开了吗？',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '现在后悔已经太晚了吧！',
+        cost: 2,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 320,
+    "level": "SR",
+    "name": "一反木绵",
+    cv: '三石琴乃',
+    categories: ['鬼系', '女系'],
+    skills: [
+      {
+        talk: '你无处可逃了。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '这是命运的交织，你逃不掉的。',
+        cost: 1,
+        type: '主动'
+      },
+      {
+        talk: '我会在你喷散而出的血液之中绽放。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 321,
+    "level": "SR",
+    "name": "入殓师",
+    cv: '速水奖',
+    categories: ['鬼系', '男系'],
+    skills: [
+      {
+        talk: '为你的死亡施上粉墨。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '感受魂魄被一分为二的感觉吧。',
+        cost: 2,
+        type: '主动'
+      },
+      {
+        talk: '织雪，连死亡也无法将我们分离。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 324,
+    "level": "SR",
+    "name": "化鲸",
+    cv: '瀬戸麻沙美',
+    categories: ['水系'],
+    skills: [
+      {
+        talk: '妈妈跟我回家吧…',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '妈妈的力量会一直陪在我身边…',
+        cost: 1,
+        type: '主动'
+      },
+      {
+        talk: '妈妈会保护我的…',
+        cost: 1,
+        type: '主动'
+      },
+    ]
+  }, {
     "id": 217,
     "name": "大天狗",
     "level": "SSR",
@@ -2984,7 +3127,7 @@ var ssData = [{
     "name": "鬼灯",
     "interactive": true,
     cv: '安元洋贵',
-    categories: ['男系'],
+    categories: ['鬼系', '男系'],
     skills: [
       {
         talk: '如果打上一架就能解决，就太好了。',
@@ -3097,6 +3240,76 @@ var ssData = [{
       },
     ]
   }, {
+    "id": 316,
+    "level": "SSR",
+    "name": "白藏主",
+    cv: '小林大纪',
+    categories: ['动物系'],
+    skills: [
+      {
+        talk: '我是不会逃避的。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '不准伤害大家！',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '有小白在，不会有事的！',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 319,
+    "level": "SSR",
+    "name": "桔梗",
+    cv: '日高法子',
+    categories: ['女系'],
+    skills: [
+      {
+        talk: '接下来，是你的头！',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '我不会逃避，也不会躲藏。',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '你只有死路一条！',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 325,
+    "level": "SSR",
+    "name": "八岐大蛇",
+    cv: '宫野真守',
+    categories: [''],
+    skills: [
+      {
+        talk: '我很感兴趣，人类。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '这是神之力，当然，会有代价。',
+        cost: 0,
+        wait: 1,
+        type: '主动'
+      },
+      {
+        talk: '神的掌心，逃得出去吗？',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
     "id": 315,
     "level": "SP",
     "name": "少羽大天狗",
@@ -3120,24 +3333,71 @@ var ssData = [{
       },
     ]
   }, {
-    "id": 316,
-    "level": "SSR",
-    "name": "白藏主",
-    cv: '小林大纪',
-    categories: ['动物系'],
+    "id": 322,
+    "level": "SP",
+    "name": "炼狱茨木童子",
+    cv: '福山润',
+    categories: ['鬼系', '男系'],
     skills: [
       {
-        talk: '我是不会逃避的。',
+        talk: '呵，竟敢小看我。',
         cost: 0,
         type: '普攻'
       },
       {
-        talk: '不准伤害大家！',
+        talk: '在这战意中颤抖吧！',
         cost: 0,
         type: '被动'
       },
       {
-        talk: '有小白在，不会有事的！',
+        talk: '不堪一击！',
+        cost: 4,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 326,
+    "level": "SP",
+    "name": "稻荷神御馔津",
+    cv: '川澄绫子',
+    categories: [''],
+    skills: [
+      {
+        talk: '以吾之铃，护此一方。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '吾所希冀的，是人类在阳光下得以安稳。',
+        cost: 3,
+        type: '主动'
+      },
+      {
+        talk: '黑夜来临之际，希望依旧永存。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 327,
+    "level": "SP",
+    "name": "苍风一目连",
+    cv: '绿川光',
+    categories: [''],
+    skills: [
+      {
+        talk: '风之灭，如刃之坚。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '风之守，如心之固。',
+        cost: 2,
+        wait: 3,
+        type: '主动'
+      },
+      {
+        talk: '风尽为盾，风起为刃，仅在一念之间。',
         cost: 3,
         type: '主动'
       },
@@ -3151,3 +3411,5 @@ function getShiShenData(id) {
     })
 }
 
+// exports.data = ssData;
+// exports.getDataById = getShiShenData;

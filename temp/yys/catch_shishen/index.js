@@ -239,9 +239,8 @@ function getData(id) {
 	return Promise.all([promise_hero_skill, promise_hero_awaken_skill, promise_hero_attr, promise_hero_awaken_attr, promise_hero_full_attr, promise_hero_awaken_full_attr]);
 }
 
-// shishen.data.map(item=>item.id).forEach((item)=>{
-[{id: 325}].map(item=>item.id).forEach((item)=>{
-	let id = item;
+// shishen.data.map(item=>item.id).forEach((id)=>{
+[324, 325, 326, 327].forEach((id)=>{
 	getData(id).then(([skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr])=>{
 		// console.log(id);
 		// console.log(attr);
@@ -443,7 +442,7 @@ function createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awake
 	// 觉醒技能处理
 	if(awaken_skill){
 
-		if(awaken_skill.add_type == 2 || awaken_skill.add.indexOf('觉醒技能')>-1){
+		if(awaken_skill.add_type == 2 || (awaken_skill.add && awaken_skill.add.indexOf('觉醒技能')>-1)){
 			objData.skills = objData.skills.map(function (item) {
 				if(awaken_skill[item.id]){
 					temp_awaken_skill_name = awaken_skill[item.id].name;
@@ -461,7 +460,7 @@ function createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awake
 			try{
 				objData.awaken.effect = temp_awaken_effect.substr(0, 4) + '「'+ temp_awaken_skill_name +'」' + temp_awaken_effect.substr(4);
 			}catch(e){}
-		}else if(awaken_skill.add_type == 1 || awaken_skill.add.indexOf('觉醒添加')>-1){
+		}else if(awaken_skill.add_type == 1 || (awaken_skill.add && awaken_skill.add.indexOf('觉醒添加')>-1)){
 			let newSkillId = [1,2,3].map(function (item, index) {
 				let skillId = id+''+item;
 

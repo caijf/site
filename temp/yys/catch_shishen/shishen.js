@@ -2621,6 +2621,29 @@ var ssData = [{
       },
     ]
   }, {
+    "id": 324,
+    "level": "SR",
+    "name": "化鲸",
+    cv: '瀬戸麻沙美',
+    categories: ['水系'],
+    skills: [
+      {
+        talk: '妈妈跟我回家吧…',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '妈妈的力量会一直陪在我身边…',
+        cost: 1,
+        type: '主动'
+      },
+      {
+        talk: '妈妈会保护我的…',
+        cost: 1,
+        type: '主动'
+      },
+    ]
+  }, {
     "id": 217,
     "name": "大天狗",
     "level": "SSR",
@@ -3329,6 +3352,76 @@ var ssData = [{
       {
         talk: '不堪一击！',
         cost: 4,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 326,
+    "level": "SP",
+    "name": "稻荷神御馔津",
+    cv: '川澄绫子',
+    categories: [''],
+    skills: [
+      {
+        talk: '以吾之铃，护此一方。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '吾所希冀的，是人类在阳光下得以安稳。',
+        cost: 3,
+        type: '主动'
+      },
+      {
+        talk: '黑夜来临之际，希望依旧永存。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 327,
+    "level": "SP",
+    "name": "苍风一目连",
+    cv: '绿川光',
+    categories: [''],
+    skills: [
+      {
+        talk: '风之灭，如刃之坚。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '风之守，如心之固。',
+        cost: 2,
+        wait: 3,
+        type: '主动'
+      },
+      {
+        talk: '风尽为盾，风起为刃，仅在一念之间。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 328,
+    "level": "SP",
+    "name": "赤影妖刀姬",
+    cv: '井泽诗织',
+    categories: ['女系'],
+    skills: [
+      {
+        talk: '你们，没有活着的意义。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '不可错过，不可放过。',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '源氏的怒火与裁决。',
+        cost: 3,
         type: '主动'
       },
     ]
