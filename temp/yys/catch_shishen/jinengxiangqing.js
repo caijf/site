@@ -1,5 +1,9 @@
 // 技能详情
-const jinengxiangqing = [
+const data = [
+  {
+    key: '恢复',
+    value: '区别于治疗，不受减疗效果影响，不触发治疗相关效果，不会暴击'
+  },
   {
     key: '锁定',
     value: '【通用，印记】在自身下个回合开始前，消耗此印记，对锁定目标造成攻击100%伤害，且不触发其御魂、被动、无法分担。'
@@ -407,7 +411,7 @@ const jinengxiangqing = [
   },
   {
     key: '白之护',
-    value: '【增益，印记】提升40%效果抵抗，吸收1次伤害'
+    value: '【增益，印记】视为护盾，吸收1次伤害后消失。存在期间，提升40%效果抵抗。'
   },
   {
     key: '邀战',
@@ -592,7 +596,7 @@ const jinengxiangqing = [
 ];
 
 function getJNDetail(str) {
-  var ret = jinengxiangqing.filter(function (item) {
+  var ret = data.filter(function (item) {
     var index = str.indexOf(item.key)
     if(index > -1){
       item.index = index;
