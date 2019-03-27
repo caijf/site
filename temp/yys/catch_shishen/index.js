@@ -240,13 +240,13 @@ function getData(id) {
 }
 
 // shishen.data.map(item=>item.id).forEach((id)=>{
-[324, 325, 326, 327].forEach((id)=>{
+[328].forEach((id)=>{
 	getData(id).then(([skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr])=>{
 		// console.log(id);
 		// console.log(attr);
 		
 		const data = createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr);
-// console.log(data);
+console.log(data);
 
 		// 自定义数据
 		writeToFile(`./dist/${id}.js`, data);
@@ -434,7 +434,7 @@ function createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awake
 			effect: awaken_skill ? awaken_skill.add : ''
 		}
 	};
-// console.log(objData.skills);
+
 	// 缓存觉醒技能名称
 	let temp_awaken_skill_name = '';
 	let temp_awaken_effect = objData.awaken.effect;
