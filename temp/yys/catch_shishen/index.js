@@ -240,7 +240,7 @@ function getData(id) {
 }
 
 // shishen.data.map(item=>item.id).forEach((id)=>{
-[328].forEach((id)=>{
+[330].forEach((id)=>{
 	getData(id).then(([skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr])=>{
 		// console.log(id);
 		// console.log(attr);

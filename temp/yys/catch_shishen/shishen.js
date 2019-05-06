@@ -3310,6 +3310,29 @@ var ssData = [{
       },
     ]
   }, {
+    "id": 330,
+    "level": "SSR",
+    "name": "不知火",
+    cv: '东山奈央',
+    categories: ['女系'],
+    skills: [
+      {
+        talk: '歌姬最初的歌声。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '不知何时起，模糊了人与妖的界线。',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '看那满天星火，愿此刻永恒。',
+        cost: 2,
+        type: '主动'
+      },
+    ]
+  }, {
     "id": 315,
     "level": "SP",
     "name": "少羽大天狗",
