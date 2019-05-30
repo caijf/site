@@ -240,13 +240,13 @@ function getData(id) {
 }
 
 // shishen.data.map(item=>item.id).forEach((id)=>{
-[330].forEach((id)=>{
+[329, 331].forEach((id)=>{
 	getData(id).then(([skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr])=>{
 		// console.log(id);
 		// console.log(attr);
 		
 		const data = createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr);
-console.log(data);
+// console.log(data);
 
 		// 自定义数据
 		writeToFile(`./dist/${id}.js`, data);

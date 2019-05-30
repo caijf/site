@@ -2644,6 +2644,29 @@ var ssData = [{
       },
     ]
   }, {
+    "id": 329,
+    "level": "SR",
+    "name": "海忍",
+    cv: '桑原由气',
+    categories: ['水系', '女系'],
+    skills: [
+      {
+        talk: '影子都能击败你',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '看我的步伐',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '我在等待时机呢',
+        cost: 0,
+        type: '主动'
+      },
+    ]
+  }, {
     "id": 217,
     "name": "大天狗",
     "level": "SSR",
@@ -3444,6 +3467,29 @@ var ssData = [{
       },
       {
         talk: '源氏的怒火与裁决。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 331,
+    "level": "SP",
+    "name": "御怨般若",
+    cv: '梶裕贵',
+    categories: ['男系'],
+    skills: [
+      {
+        talk: '将这怨恨，加倍奉还！',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '以怨报怨，永无止尽。',
+        cost: 0,
+        type: '主动'
+      },
+      {
+        talk: '要一直、一直陪我玩噢。',
         cost: 3,
         type: '主动'
       },
