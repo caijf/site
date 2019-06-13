@@ -6,8 +6,10 @@ const messageKey = '_close_message_';
 
 // 数据
 const data = {
-  cjf: ['qrcode-alipay-1.png', 'qrcode-alipay-2.png', 'qrcode-alipay-3.png'],
-  lj: ['qrcode-alipay-1.png']
+  cjf: ['qrcode-alipay-1.png'],
+  lj: ['qrcode-alipay-1.png'],
+  zzy: ['qrcode-alipay-1.png'],
+  zly: ['qrcode-alipay-1.png']
 }
 
 export default class HomePage extends Component {
@@ -84,6 +86,7 @@ export default class HomePage extends Component {
               ))
             }
           </Radio.Group>
+          <p style={{marginTop: '15px', color: '#999'}}>收藏页面，以便下次使用！</p>
         </div>
       </div>
     )
