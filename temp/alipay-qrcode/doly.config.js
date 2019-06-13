@@ -6,7 +6,7 @@ module.exports = {
 
   env: {
     production: {
-      publicPath: 'https://www.caijinfeng.com/temp/alipay-qrcode/'
+      publicPath: 'https://www.caijinfeng.com/temp/alipay-qrcode/output/'
     }
   }
 }
