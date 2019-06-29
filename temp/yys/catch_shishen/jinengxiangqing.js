@@ -1,5 +1,25 @@
 // 技能详情
-const data = [
+const data = [{
+    key: '双重暴击',
+    value: `暴击时，暴击伤害会结算两次。`
+  },
+  {
+    key: '骨盾',
+    value: `久次良的特殊机制，减少单个回合内40%受到的暴击伤害，受到暴击伤害后，于回合结束时消失。`
+  },
+  {
+    key: '放逐',
+    value: `无法行动，不可被选中，行动条位置被锁定，被动技能及佩戴御魂效果失效，免疫伤害、治疗、增益及减益效果。`
+  },
+  {
+    key: '无尽剑狱',
+    value: `【减益，印记】石浪每攻击1个目标，伤害降低10%。大岳丸死亡或被放逐目标之外的敌方全部死亡时，剑狱即刻关闭。
+    若施放时只有1个敌方、或目标免疫控制效果，则不开启剑狱，但石浪将对其造成双倍伤害。`
+  },
+  {
+    key: '覆土之力',
+    value: `【增益，印记】减少受到伤害的60%，单次伤害减免量不超过自身攻击力40%`
+  },
   {
     key: '暗中守护',
     value: `海忍特殊机制，此守护仅友方可见，敌方不可见。`
@@ -636,21 +656,21 @@ const data = [
 function getJNDetail(str) {
   var ret = data.filter(function (item) {
     var index = str.indexOf(item.key)
-    if(index > -1){
+    if (index > -1) {
       item.index = index;
       return true;
-    }else{
+    } else {
       return false;
     }
     // return str.indexOf(item.key) > -1;
   });
 
-  return ret.sort(function(a, b){
-    if(a.index > b.index){
+  return ret.sort(function (a, b) {
+    if (a.index > b.index) {
       return 1;
-    }else if(a.index < b.index){
+    } else if (a.index < b.index) {
       return -1;
-    }else{
+    } else {
       return 0;
     }
   }).map(function (item) {

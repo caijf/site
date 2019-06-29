@@ -2667,6 +2667,29 @@ var ssData = [{
       },
     ]
   }, {
+    "id": 332,
+    "level": "SR",
+    "name": "久次良",
+    cv: '竹内良太',
+    categories: ['水系', '男系'],
+    skills: [
+      {
+        talk: '别急，稳住阵脚。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '谁敢伤害我的朋友？',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '时机已到，冲锋。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
     "id": 217,
     "name": "大天狗",
     "level": "SSR",
@@ -3352,6 +3375,29 @@ var ssData = [{
       {
         talk: '看那满天星火，愿此刻永恒。',
         cost: 2,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 333,
+    "level": "SSR",
+    "name": "大岳丸",
+    cv: '冈本信彦',
+    categories: ['水系', '男系'],
+    skills: [
+      {
+        talk: '慢一点，铃鹿山的故事我可以讲很久。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '庇护，正是我强大的理由。',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '寸步难行！',
+        cost: 4,
         type: '主动'
       },
     ]
