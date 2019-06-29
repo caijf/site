@@ -77,159 +77,159 @@ function getData(id) {
 	}
 
 	function parseData(data) {
-		return JSON.parse(data.slice(defaultParam.callback.length+1, data.length-1))
+		return JSON.parse(data.slice(defaultParam.callback.length + 1, data.length - 1))
 	}
 
-	const promise_hero_skill = new Promise((resolve, reject)=>{
-		http.get(`${hero_skill_url}?${queryString.stringify({...hero_skill_data, ...defaultParam})}`, (res)=>{
+	const promise_hero_skill = new Promise((resolve, reject) => {
+		http.get(`${hero_skill_url}?${queryString.stringify({...hero_skill_data, ...defaultParam})}`, (res) => {
 			let content = '';
 
-			res.on('data', (data)=>{
+			res.on('data', (data) => {
 				content += data;
 			});
 
-			res.on('end', ()=>{
+			res.on('end', () => {
 				content = parseData(content);
-				
-				if(content.success){
+
+				if (content.success) {
 					resolve(content.data);
-				}else{
+				} else {
 					// reject(id);
 					errIds.push(id)
 				}
 			})
 
-		}).on('error', (err)=>{
+		}).on('error', (err) => {
 			// console.log(id + ' 错误信息：' + err);
 			// reject(id);
 			errIds.push(id)
 		});
 	});
 
-	const promise_hero_awaken_skill = new Promise((resolve, reject)=>{
-		http.get(`${hero_skill_url}?${queryString.stringify({...hero_awaken_skill_data, ...defaultParam})}`, (res)=>{
+	const promise_hero_awaken_skill = new Promise((resolve, reject) => {
+		http.get(`${hero_skill_url}?${queryString.stringify({...hero_awaken_skill_data, ...defaultParam})}`, (res) => {
 			let content = '';
 
-			res.on('data', (data)=>{
+			res.on('data', (data) => {
 				content += data;
 			});
 
-			res.on('end', ()=>{
+			res.on('end', () => {
 				content = parseData(content);
-				
-				if(content.success){
+
+				if (content.success) {
 					resolve(content.data);
-				}else{
+				} else {
 					// reject(id);
 					errIds.push(id)
 				}
 			})
 
-		}).on('error', (err)=>{
+		}).on('error', (err) => {
 			// console.log(id + ' 错误信息：' + err);
 			// reject(id);
 			errIds.push(id)
 		});
 	});
 
-	const promise_hero_attr = new Promise((resolve, reject)=>{
-		http.get(`${hero_attr_url}?${queryString.stringify({...hero_attr_data, ...defaultParam})}`, (res)=>{
+	const promise_hero_attr = new Promise((resolve, reject) => {
+		http.get(`${hero_attr_url}?${queryString.stringify({...hero_attr_data, ...defaultParam})}`, (res) => {
 			let content = '';
 
-			res.on('data', (data)=>{
+			res.on('data', (data) => {
 				content += data;
 			});
 
-			res.on('end', ()=>{
+			res.on('end', () => {
 				content = parseData(content);
-				
-				if(content.success){
+
+				if (content.success) {
 					resolve(content.data);
-				}else{
+				} else {
 					// reject(id);
 					errIds.push(id)
 				}
 			})
 
-		}).on('error', (err)=>{
+		}).on('error', (err) => {
 			// console.log(id + ' 错误信息：' + err);
 			// reject(id);
 			errIds.push(id)
 		});
 	});
 
-	const promise_hero_awaken_attr = new Promise((resolve, reject)=>{
-		http.get(`${hero_attr_url}?${queryString.stringify({...hero_awaken_attr_data, ...defaultParam})}`, (res)=>{
+	const promise_hero_awaken_attr = new Promise((resolve, reject) => {
+		http.get(`${hero_attr_url}?${queryString.stringify({...hero_awaken_attr_data, ...defaultParam})}`, (res) => {
 			let content = '';
 
-			res.on('data', (data)=>{
+			res.on('data', (data) => {
 				content += data;
 			});
 
-			res.on('end', ()=>{
+			res.on('end', () => {
 				content = parseData(content);
-				
-				if(content.success){
+
+				if (content.success) {
 					resolve(content.data);
-				}else{
+				} else {
 					// reject(id);
 					errIds.push(id)
 				}
 			})
 
-		}).on('error', (err)=>{
+		}).on('error', (err) => {
 			// console.log(id + ' 错误信息：' + err);
 			// reject(id);
 			errIds.push(id)
 		});
 	});
 
-	const promise_hero_full_attr = new Promise((resolve, reject)=>{
-		http.get(`${hero_attr_url}?${queryString.stringify({...hero_full_attr_data, ...defaultParam})}`, (res)=>{
+	const promise_hero_full_attr = new Promise((resolve, reject) => {
+		http.get(`${hero_attr_url}?${queryString.stringify({...hero_full_attr_data, ...defaultParam})}`, (res) => {
 			let content = '';
 
-			res.on('data', (data)=>{
+			res.on('data', (data) => {
 				content += data;
 			});
 
-			res.on('end', ()=>{
+			res.on('end', () => {
 				content = parseData(content);
-				
-				if(content.success){
+
+				if (content.success) {
 					resolve(content.data);
-				}else{
+				} else {
 					// reject(id);
 					errIds.push(id)
 				}
 			})
 
-		}).on('error', (err)=>{
+		}).on('error', (err) => {
 			// console.log(id + ' 错误信息：' + err);
 			// reject(id);
 			errIds.push(id)
 		});
 	});
 
-	const promise_hero_awaken_full_attr = new Promise((resolve, reject)=>{
-		http.get(`${hero_attr_url}?${queryString.stringify({...hero_awaken_full_attr_data, ...defaultParam})}`, (res)=>{
+	const promise_hero_awaken_full_attr = new Promise((resolve, reject) => {
+		http.get(`${hero_attr_url}?${queryString.stringify({...hero_awaken_full_attr_data, ...defaultParam})}`, (res) => {
 			let content = '';
 
-			res.on('data', (data)=>{
+			res.on('data', (data) => {
 				content += data;
 			});
 
-			res.on('end', ()=>{
+			res.on('end', () => {
 				content = parseData(content);
-				
-				if(content.success){
+
+				if (content.success) {
 					resolve(content.data);
-				}else{
+				} else {
 					// reject(id);
 					errIds.push(id)
 				}
 			})
 
-		}).on('error', (err)=>{
+		}).on('error', (err) => {
 			// console.log(id + ' 错误信息：' + err);
 			// reject(id);
 			errIds.push(id)
@@ -240,23 +240,30 @@ function getData(id) {
 }
 
 // shishen.data.map(item=>item.id).forEach((id)=>{
-[329, 331].forEach((id)=>{
-	getData(id).then(([skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr])=>{
+[332, 333].forEach((id) => {
+	getData(id).then(([skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr]) => {
 		// console.log(id);
 		// console.log(attr);
-		
+
 		const data = createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr);
-// console.log(data);
+		// console.log(data);
 
 		// 自定义数据
 		writeToFile(`./dist/${id}.js`, data);
 
 		// 缓存数据到本地
-		writeToFile(`./cache/${id}.js`, {skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr});
+		writeToFile(`./cache/${id}.js`, {
+			skill,
+			awaken_skill,
+			attr,
+			awaken_attr,
+			full_attr,
+			awaken_full_attr
+		});
 
-	}).catch((errId)=>{
-		if(errIds.length > 0){
-			fs.writeFile('errlog_log.js', JSON.stringify(errIds), (err)=>{
+	}).catch((errId) => {
+		if (errIds.length > 0) {
+			fs.writeFile('errlog_log.js', JSON.stringify(errIds), (err) => {
 				console.log('错误ID写入文件失败');
 			})
 		}
@@ -270,17 +277,17 @@ function getData(id) {
 
 function writeToFile(path, data) {
 	let content;
-	try{
+	try {
 		content = JSON.stringify(data);
-	}catch(e){}
+	} catch (e) {}
 
 	// if(data.id){
-		fs.writeFile(path, `module.exports = ${content}`, (err)=>{
-			if(err){
-				console.log(path + ' 出错啦');
-			}
-			console.log(path +' 已保存到本地')
-		})
+	fs.writeFile(path, `module.exports = ${content}`, (err) => {
+		if (err) {
+			console.log(path + ' 出错啦');
+		}
+		console.log(path + ' 已保存到本地')
+	})
 	// }else{
 	// 	console.log('id不存在');
 	// }
@@ -295,8 +302,7 @@ function createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awake
 	let objData = {
 		id: id,
 		name: baseData.name,
-		properties: [
-			{
+		properties: [{
 				name: '攻击',
 				base: {
 					level: levelMap[attr.score.attack],
@@ -356,57 +362,59 @@ function createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awake
 				name: '暴击',
 				base: {
 					level: levelMap[attr.score.critRate],
-					value: attr.critRate > 0 ? NP.times(attr.critRate, 100)+'%' : '0%'
+					value: attr.critRate > 0 ? NP.times(attr.critRate, 100) + '%' : '0%'
 				},
 				awaken: {
 					level: awaken_attr ? levelMap[awaken_attr.score.critRate] : '',
-					value: awaken_attr ? (awaken_attr.critRate > 0 ? NP.times(awaken_attr.critRate, 100)+'%' : '0%') : ''
+					value: awaken_attr ? (awaken_attr.critRate > 0 ? NP.times(awaken_attr.critRate, 100) + '%' : '0%') : ''
 				},
 				full: {
-					value: awaken_full_attr ? (awaken_full_attr.critRate > 0 ? NP.times(awaken_full_attr.critRate, 100)+'%' : '0%') : (full_attr ? (full_attr.critRate > 0 ? NP.times(full_attr.critRate, 100)+'%' : '0%') : '')
+					value: awaken_full_attr ? (awaken_full_attr.critRate > 0 ? NP.times(awaken_full_attr.critRate, 100) + '%' : '0%') : (full_attr ? (full_attr.critRate > 0 ? NP.times(full_attr.critRate, 100) + '%' : '0%') : '')
 				}
 			},
 			{
 				name: '暴击伤害',
 				base: {
-					value: attr.critPower > 0 ? NP.times(NP.plus(attr.critPower, 1), 100)+'%' : '0%'
+					value: attr.critPower > 0 ? NP.times(NP.plus(attr.critPower, 1), 100) + '%' : '0%'
 				},
 				awaken: {
-					value: awaken_attr ? (awaken_attr.critPower > 0 ? NP.times(NP.plus(awaken_attr.critPower, 1), 100)+'%' : '0%') : ''
+					value: awaken_attr ? (awaken_attr.critPower > 0 ? NP.times(NP.plus(awaken_attr.critPower, 1), 100) + '%' : '0%') : ''
 				},
 				full: {
-					value: awaken_full_attr ? (awaken_full_attr.critPower > 0 ? NP.times(NP.plus(awaken_full_attr.critPower, 1), 100)+'%' : '0%') : (full_attr ? (full_attr.critPower > 0 ? NP.times(NP.plus(full_attr.critPower, 1), 100)+'%' : '0%') : '')
+					value: awaken_full_attr ? (awaken_full_attr.critPower > 0 ? NP.times(NP.plus(awaken_full_attr.critPower, 1), 100) + '%' : '0%') : (full_attr ? (full_attr.critPower > 0 ? NP.times(NP.plus(full_attr.critPower, 1), 100) + '%' : '0%') : '')
 				}
 			},
 			{
 				name: '效果命中',
 				base: {
-					value: attr.debuffEnhance > 0 ? NP.times(attr.debuffEnhance, 100)+'%' : '0%'
+					value: attr.debuffEnhance > 0 ? NP.times(attr.debuffEnhance, 100) + '%' : '0%'
 				},
 				awaken: {
-					value: awaken_attr ? (awaken_attr.debuffEnhance > 0 ? NP.times(awaken_attr.debuffEnhance, 100)+'%' : '0%') : ''
+					value: awaken_attr ? (awaken_attr.debuffEnhance > 0 ? NP.times(awaken_attr.debuffEnhance, 100) + '%' : '0%') : ''
 				},
 				full: {
-					value: awaken_full_attr ? (awaken_full_attr.debuffEnhance > 0 ? NP.times(awaken_full_attr.debuffEnhance, 100)+'%' : '0%') : (full_attr ? (full_attr.debuffEnhance > 0 ? NP.times(full_attr.debuffEnhance, 100)+'%' : '0%') : '')
+					value: awaken_full_attr ? (awaken_full_attr.debuffEnhance > 0 ? NP.times(awaken_full_attr.debuffEnhance, 100) + '%' : '0%') : (full_attr ? (full_attr.debuffEnhance > 0 ? NP.times(full_attr.debuffEnhance, 100) + '%' : '0%') : '')
 				}
 			},
 			{
 				name: '效果抵抗',
 				base: {
-					value: attr.debuffResist > 0 ? NP.times(attr.debuffResist, 100)+'%' : '0%'
+					value: attr.debuffResist > 0 ? NP.times(attr.debuffResist, 100) + '%' : '0%'
 				},
 				awaken: {
-					value: awaken_attr ? (awaken_attr.debuffResist > 0 ? NP.times(awaken_attr.debuffResist, 100)+'%' : '0%') : ''
+					value: awaken_attr ? (awaken_attr.debuffResist > 0 ? NP.times(awaken_attr.debuffResist, 100) + '%' : '0%') : ''
 				},
 				full: {
-					value: awaken_full_attr ? (awaken_full_attr.debuffResist > 0 ? NP.times(awaken_full_attr.debuffResist, 100)+'%' : '0%') : (full_attr ? (full_attr.debuffResist > 0 ? NP.times(full_attr.debuffResist, 100)+'%' : '0%') : '')
+					value: awaken_full_attr ? (awaken_full_attr.debuffResist > 0 ? NP.times(awaken_full_attr.debuffResist, 100) + '%' : '0%') : (full_attr ? (full_attr.debuffResist > 0 ? NP.times(full_attr.debuffResist, 100) + '%' : '0%') : '')
 				}
 			}
 		],
-		skills: [1,2,3].map(function (item, index) {
-			let skillId = id+''+item;
+		skills: [1, 2, 3].map(function (item, index) {
+			let skillId = id + '' + item;
 			let skillItem = skill[skillId];
-			if(!skillItem){return ''};
+			if (!skillItem) {
+				return ''
+			};
 
 			let baseDataSkill = (baseData.skills && baseData.skills[index]) || {};
 			return {
@@ -440,11 +448,11 @@ function createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awake
 	let temp_awaken_effect = objData.awaken.effect;
 
 	// 觉醒技能处理
-	if(awaken_skill){
+	if (awaken_skill) {
 
-		if(awaken_skill.add_type == 2 || (awaken_skill.add && awaken_skill.add.indexOf('觉醒技能')>-1)){
+		if (awaken_skill.add_type == 2 || (awaken_skill.add && awaken_skill.add.indexOf('觉醒技能') > -1)) {
 			objData.skills = objData.skills.map(function (item) {
-				if(awaken_skill[item.id]){
+				if (awaken_skill[item.id]) {
 					temp_awaken_skill_name = awaken_skill[item.id].name;
 
 					item.desc = awaken_skill[item.id].normaldesc.replace(/『/g, '「').replace(/』/g, '」').split('\n');
@@ -457,17 +465,17 @@ function createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awake
 				return item;
 			});
 
-			try{
-				objData.awaken.effect = temp_awaken_effect.substr(0, 4) + '「'+ temp_awaken_skill_name +'」' + temp_awaken_effect.substr(4);
-			}catch(e){}
-		}else if(awaken_skill.add_type == 1 || (awaken_skill.add && awaken_skill.add.indexOf('觉醒添加')>-1)){
-			let newSkillId = [1,2,3].map(function (item, index) {
-				let skillId = id+''+item;
+			try {
+				objData.awaken.effect = temp_awaken_effect.substr(0, 4) + '「' + temp_awaken_skill_name + '」' + temp_awaken_effect.substr(4);
+			} catch (e) {}
+		} else if (awaken_skill.add_type == 1 || (awaken_skill.add && awaken_skill.add.indexOf('觉醒添加') > -1)) {
+			let newSkillId = [1, 2, 3].map(function (item, index) {
+				let skillId = id + '' + item;
 
-				if(awaken_skill[skillId]){
+				if (awaken_skill[skillId]) {
 					temp_awaken_skill_name = awaken_skill[skillId].name;
 					return skillId;
-				}else{
+				} else {
 					return '';
 				}
 			}).filter(function (item) {
@@ -475,11 +483,13 @@ function createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awake
 			})[0];
 
 			skill[newSkillId] = awaken_skill[newSkillId];
-			
-			objData.skills = [1,2,3].map(function (item, index) {
-				let skillId = id+''+item;
+
+			objData.skills = [1, 2, 3].map(function (item, index) {
+				let skillId = id + '' + item;
 				let skillItem = skill[skillId];
-				if(!skillItem){return ''};
+				if (!skillItem) {
+					return ''
+				};
 
 				let baseDataSkill = (baseData.skills && baseData.skills[index]) || {};
 				return {
@@ -498,10 +508,10 @@ function createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awake
 				return !!item;
 			});
 
-			try{
-				objData.awaken.effect = temp_awaken_effect + '「'+ temp_awaken_skill_name +'」';
-			}catch(e){}
-			
+			try {
+				objData.awaken.effect = temp_awaken_effect + '「' + temp_awaken_skill_name + '」';
+			} catch (e) {}
+
 		}
 
 	}
