@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Alert, Radio } from 'antd';
 import SwipeableViews from 'react-swipeable-views';
 
+import styles from './styles.less';
+
 const messageKey = '_close_message_';
 
 // 数据
@@ -57,8 +59,8 @@ export default class HomePage extends Component {
     const { visibleMessage, name, images, swipeIndex } = this.state;
 
     return (
-      <div style={{padding: '15px'}}>
-        <h1>支付宝-扫码领红包({name})</h1>
+      <div style={{padding: '15px'}} className={styles.page}>
+        <h1>支付宝-扫码领红包({name})12322</h1>
         {
           visibleMessage && (
             <Alert
