@@ -2690,6 +2690,29 @@ var ssData = [{
       },
     ]
   }, {
+    "id": 335,
+    "level": "SR",
+    "name": "蟹姬",
+    cv: '',
+    categories: ['水系', '女系'],
+    skills: [
+      {
+        talk: '嗯？要不要试试看？',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '听说你还不服气？',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '如果被我的螺螺锤敲到脑袋的话，你可能会死。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
     "id": 217,
     "name": "大天狗",
     "level": "SSR",
@@ -3536,6 +3559,29 @@ var ssData = [{
       },
       {
         talk: '要一直、一直陪我玩噢。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 334,
+    "level": "SP",
+    "name": "骁浪荒川之主",
+    cv: '',
+    categories: ['男系', '水系'],
+    skills: [
+      {
+        talk: '以荒川为名，吾乃荒川之主。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '恃强凌弱者，吾必诛之！',
+        cost: 1,
+        type: '主动'
+      },
+      {
+        talk: '这海浪为吾而立！',
         cost: 3,
         type: '主动'
       },

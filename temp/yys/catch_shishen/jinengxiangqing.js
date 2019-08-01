@@ -1,5 +1,34 @@
 // 技能详情
-const data = [{
+const data = [
+  {
+    key: '屹立不倒',
+    value: `无法触发复活效果，无法被复活，无法被占位`
+  },
+  {
+    key: '怒吼',
+    value: `【通用，印记】效果唯一，友方全体减伤20%、敌方全体施放技能后，40%概率失去1点鬼火`
+  },
+  {
+    key: '海怒',
+    value: `【增益，印记】每层提高20%伤害和30点速度，上限三层。`
+  },
+  {
+    key: '蟹壳',
+    value: `【增益，印记】受到非暴击伤害降低20%。总伤害减免量不超过自身攻击力100%。`
+  },
+  {
+    key: '眩晕',
+    alias: '眩晕【减益，印记】',
+    value: `【减益，印记】使目标眩晕1回合`
+  },
+  {
+    key: '祝福种子',
+    value: `【通用，状态】给予友方后，当萤草受到治疗时，对拥有此印记的友方恢复等量的生命。`
+  },
+  {
+    key: '虫怨',
+    value: `【减益，印记】回合后造成间接伤害`
+  },{
     key: '双重暴击',
     value: `暴击时，暴击伤害会结算两次。`
   },
@@ -655,7 +684,7 @@ const data = [{
 
 function getJNDetail(str) {
   var ret = data.filter(function (item) {
-    var index = str.indexOf(item.key)
+    var index = str.indexOf(item.alias||item.key)
     if (index > -1) {
       item.index = index;
       return true;
