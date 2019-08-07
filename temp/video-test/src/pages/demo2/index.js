@@ -1,50 +1,41 @@
 import React from 'react';
+import '~/utils/mediaDevices.polyfill';
 
 export default class Demo2 extends React.Component {
 
-  componentWillMount() {
-    if (navigator.mediaDevices === undefined) {
-      var div = document.createElement("div");
-      div.innerHTML = 'mediaDevices not supported';
-      document.body.appendChild(div);
-    }
+  getUserMedia = ({ constraints }) => {
+    constraints = constraints || {
+      audio: true,
+      video: {
+        width: 1280,
+        height: 720
+      }
+    };
 
-    navigator.getUserMedia = navigator.getUserMedia ||
-      navigator.webkitGetUserMedia ||
-      navigator.mozGetUserMedia;
-
-    if (navigator.getUserMedia) {
-      navigator.getUserMedia({
-        audio: true,
-        video: {
-          width: 1280,
-          height: 720
-        }
-      },
-        function (stream) {
-          var video = document.querySelector('video');
+    navigator.mediaDevices.getUserMedia({ audio: true, video: true })
+      .then(function (stream) {
+        var video = document.querySelector('video');
+        // 旧的浏览器可能没有srcObject
+        if ("srcObject" in video) {
           video.srcObject = stream;
-          video.onloadedmetadata = function (e) {
-            video.play();
-          };
-        },
-        function (err) {
-          alert("The following error occurred: " + err.name);
+        } else {
+          // 防止在新的浏览器里使用它，应为它已经不再支持了
+          video.src = window.URL.createObjectURL(stream);
         }
-      );
-    } else {
-      var div = document.createElement("div");
-      div.innerHTML = 'getUserMedia not supported';
-      document.body.appendChild(div);
-      alert("getUserMedia not supported");
-    }
+        video.onloadedmetadata = function (e) {
+          video.play();
+        };
+      })
+      .catch(function (err) {
+        console.log(err.name + ": " + err.message);
+      });
   }
 
   render() {
     return (
       <div>
         <video id="video" width="640" height="480" autoPlay="" playsInline muted></video>
-        <button id="snap" className="sexyButton">Snap Photo</button>
+        <button onClick={this.getUserMedia}>Snap Photo</button>
       </div>
     )
   }
