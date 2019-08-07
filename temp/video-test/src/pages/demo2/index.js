@@ -1,5 +1,8 @@
 import React from 'react';
+import { Button } from 'antd-mobile';
 import '~/utils/mediaDevices.polyfill';
+
+import styles from './style.less';
 
 export default class Demo2 extends React.Component {
 
@@ -13,7 +16,8 @@ export default class Demo2 extends React.Component {
     };
 
     navigator.mediaDevices.getUserMedia({ audio: true, video: true })
-      .then(function (stream) {
+      .then((stream)=>{
+this.gotMediaStream(stream);
         var video = document.querySelector('video');
         // 旧的浏览器可能没有srcObject
         if ("srcObject" in video) {
@@ -26,16 +30,25 @@ export default class Demo2 extends React.Component {
           video.play();
         };
       })
-      .catch(function (err) {
+      .catch((err)=>{
         console.log(err.name + ": " + err.message);
       });
   }
 
+  gotMediaStream = (stream) => {
+    // 拿到流后 获取到视频中所有的track 取其中第一个videotrack
+    let videoTrack = stream.getVideoTracks()[0]
+    console.log(videoTrack)
+    // 通过 videotrack 的getsettings 拿到constrants的对象
+    let videoConstraints = videoTrack.getSettings()
+    console.log(videoConstraints)
+  }
+
   render() {
     return (
-      <div>
-        <video id="video" width="640" height="480" autoPlay="" playsInline muted></video>
-        <button onClick={this.getUserMedia}>Snap Photo</button>
+      <div className={styles.page}>
+        <video id="video" className={styles.video} autoPlay playsInline muted></video>
+        <Button type="primary" className={styles.btn} onClick={this.getUserMedia}>打开摄像头和麦克风</Button>
       </div>
     )
   }
