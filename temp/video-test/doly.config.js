@@ -8,6 +8,10 @@ module.exports = {
     "~": path.join(__dirname, "./src")
   },
 
+  devServer: {
+    https: true
+  },
+
   // 扩展 babel-loader 的 plugins
   extraBabelPlugins: [
     ["import", { libraryName: "antd-mobile", style: "css" }] // `style: true` 会加载 less 文件
