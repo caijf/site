@@ -11,7 +11,7 @@ const demos = [
     path: '/demo1'
   },
   {
-    name: 'getUserMedia 2',
+    name: 'getUserMedia',
     path: '/demo2'
   }
 ]
