@@ -3425,6 +3425,30 @@ var ssData = [{
       },
     ]
   }, {
+    "id": 338,
+    "level": "SSR",
+    "name": "泷夜叉姬",
+    cv: '生天目仁美',
+    categories: ['女系'],
+    skills: [
+      {
+        talk: '切断！',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '永恒之月！',
+        cost: 0,
+        wait: 0,
+        type: '主动'
+      },
+      {
+        talk: '向着永劫之风岚，进军！',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
     "id": 315,
     "level": "SP",
     "name": "少羽大天狗",
@@ -3567,7 +3591,7 @@ var ssData = [{
     "id": 334,
     "level": "SP",
     "name": "骁浪荒川之主",
-    cv: '',
+    cv: '子安武人',
     categories: ['男系', '水系'],
     skills: [
       {
@@ -3583,6 +3607,29 @@ var ssData = [{
       {
         talk: '这海浪为吾而立！',
         cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 339,
+    "level": "SP",
+    "name": "烬天玉藻前",
+    cv: '朴璐美',
+    categories: ['男系'],
+    skills: [
+      {
+        talk: '你的一切被我看穿了哦。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '你还配不上这力量。',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '传说的火焰，去改变命运之流吧！',
+        cost: 4,
         type: '主动'
       },
     ]
