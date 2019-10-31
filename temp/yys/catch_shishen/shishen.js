@@ -2693,7 +2693,7 @@ var ssData = [{
     "id": 335,
     "level": "SR",
     "name": "蟹姬",
-    cv: '',
+    cv: '植田佳奈',
     categories: ['水系', '女系'],
     skills: [
       {
@@ -2708,6 +2708,53 @@ var ssData = [{
       },
       {
         talk: '如果被我的螺螺锤敲到脑袋的话，你可能会死。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    "id": 340,
+    "level": "SR",
+    "name": "纸舞",
+    cv: '上坂堇',
+    categories: ['女系'],
+    skills: [
+      {
+        talk: '轻轻薄纸，我寄人间',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '明月依旧，落纸不归。',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '画中伊人，纸刃随风。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    id: 342,
+    level: "SR",
+    name: "星熊童子",
+    cv: '梶裕贵',
+    categories: ['鬼系'],
+    skills: [
+      {
+        talk: '唷～',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '别，自己人。',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '都听咱的就对了～',
+        wait: 1,
         cost: 3,
         type: '主动'
       },
@@ -3630,6 +3677,29 @@ var ssData = [{
       {
         talk: '传说的火焰，去改变命运之流吧！',
         cost: 4,
+        type: '主动'
+      },
+    ]
+  }, {
+    id: 341,
+    level: "SP",
+    name: "鬼王酒吞童子",
+    cv: '阪口周平',
+    categories: ['男系', '鬼系'],
+    skills: [
+      {
+        talk: '能让本大爷出手，是你的荣幸。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '只要能守住大江山，就算烧成灰烬也罢！',
+        cost: 0,
+        type: '被动'
+      },
+      {
+        talk: '这无穷无尽的烈火，将吞噬我最后的动摇！',
+        cost: 3,
         type: '主动'
       },
     ]
