@@ -240,7 +240,7 @@ function getData(id) {
 }
 
 // shishen.data.map(item=>item.id).forEach((id)=>{
-[341,342].forEach((id) => {
+[344].forEach((id) => {
 	getData(id).then(([skill, awaken_skill, attr, awaken_attr, full_attr, awaken_full_attr]) => {
 		// console.log(id);
 		// console.log(attr);
@@ -409,7 +409,7 @@ function createData(id, skill, awaken_skill, attr, awaken_attr, full_attr, awake
 				}
 			}
 		],
-		skills: [1, 2, 3].map(function (item, index) {
+		skills: [4, 5, 6].map(function (item, index) {
 			let skillId = id + '' + item;
 			let skillItem = skill[skillId];
 			if (!skillItem) {

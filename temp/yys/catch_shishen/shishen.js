@@ -3496,6 +3496,29 @@ var ssData = [{
       },
     ]
   }, {
+    "id": 344,
+    "level": "SSR",
+    "name": "云外镜",
+    cv: '村濑步',
+    categories: [''],
+    skills: [
+      {
+        talk: '我已确信，眼目以内恶意满盈。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '破晓晨曦，万物初醒。',
+        cost: 0,
+        type: '主动'
+      },
+      {
+        talk: '时时拂拭，勿惹尘埃。',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
     "id": 315,
     "level": "SP",
     "name": "少羽大天狗",
@@ -3699,6 +3722,30 @@ var ssData = [{
       },
       {
         talk: '这无穷无尽的烈火，将吞噬我最后的动摇！',
+        cost: 3,
+        type: '主动'
+      },
+    ]
+  }, {
+    id: 343,
+    level: "SP",
+    name: "天剑韧心鬼切",
+    cv: '斋贺光希',
+    categories: ['男系', '鬼系'],
+    skills: [
+      {
+        talk: '手中之剑，已在心中。',
+        cost: 0,
+        type: '普攻'
+      },
+      {
+        talk: '唯此心具足千刀万剑。',
+        cost: 0,
+        wait: 1,
+        type: '主动'
+      },
+      {
+        talk: '斩断你如恶鬼般的妄念！',
         cost: 3,
         type: '主动'
       },
