@@ -87,7 +87,7 @@ module.exports = {
   env: {
     // 生产环境
     production: {
-      publicPath: "https://www.caijinfeng.com/temp/xy3d/dist/", // 静态资源基础域名路径，如 https://img.99bill.com/
+      publicPath: "https://www.caijinfeng.com/temp/xy3d/site/", // 静态资源基础域名路径，如 https://img.99bill.com/
       outputPath: "site",
       html: {
         template: "src/document.ejs",
