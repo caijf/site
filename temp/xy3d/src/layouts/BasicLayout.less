@@ -1,0 +1,141 @@
+@import "~antd/es/style/themes/default.less";
+
+@layout-header-background: rgb(46, 56, 83); // 头部背景颜色
+@sider-width: 250px; // Sider宽度，默认250
+
+// header
+.header {
+  padding: 0;
+  color: #fff;
+  // background: @layout-header-background;
+  white-space: nowrap;
+
+  &:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+}
+
+.logo {
+  display: inline-flex;
+  vertical-align: top;
+  align-items: center;
+  width: @sider-width;
+  overflow: hidden;
+  transition: width 0.2s ease-out 0s;
+  height: @layout-header-height;
+  padding: 0 0 0 24px;
+  color: #fff;
+}
+
+.logoImageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-right: 12px;
+}
+
+.logoImage {
+  min-width: 44px;
+  max-width: 56px;
+  max-height: 56px;
+  display: block;
+}
+
+.title {
+  color: #fff;
+  margin: 0;
+  font-size: 20px;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.trigger {
+  font-size: 20px;
+  height: @layout-header-height;
+  width: @layout-header-height;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  margin-left: 12px;
+
+  &:hover {
+    background: lighten(@layout-header-background, -5%);
+    cursor: pointer;
+  }
+}
+
+// headerRightContent
+.headerRightContent {
+  position: absolute;
+  right: 12px;
+  top: 0;
+  background: inherit;
+
+  > * {
+    display: inline-block;
+    height: @layout-header-height;
+    line-height: @layout-header-height;
+    padding: 0 12px;
+    color: #fff;
+
+    &:hover {
+      color: #fff;
+      background: lighten(@layout-header-background, -5%);
+      cursor: pointer;
+    }
+  }
+}
+
+// 通知icon
+:global(&.notice-icon.ant-dropdown-open) {
+  background: lighten(@layout-header-background, -5%);
+}
+
+// sider
+.sider {
+  height: calc(100% - @layout-header-height);
+  top: @layout-header-height;
+  padding-bottom: 0;
+  position: fixed;
+  overflow: auto;
+}
+
+// menu
+.menu {
+  height: 100%;
+  border: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// right layout
+.rightLayout {
+  margin-left: @sider-width;
+  transition: margin 0.2s ease-out 0s;
+  min-height: calc(100vh - @layout-header-height);
+}
+
+// content
+.content {
+  position: relative;
+  margin: 24px;
+}
+
+// footer
+.footer {
+  padding: 24px;
+}
+
+// global
+:global {
+  // fix 1px移入偏移问题，官方 calc(100% + 1px)
+  .ant-menu-inline .ant-menu-item,
+  .ant-menu-inline .ant-menu-submenu-title {
+    width: 100%;
+  }
+}
