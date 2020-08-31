@@ -59,7 +59,7 @@ export default {
     },
     {
       path: "todo",
-      name: "开发中",
+      name: "整理中",
       icon: <ToolOutlined />,
       routes: [
         {
