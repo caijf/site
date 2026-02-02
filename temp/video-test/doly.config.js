@@ -28,7 +28,7 @@ module.exports = {
   env: {
     // 生产环境
     production: {
-      publicPath: 'https://www.caijinfeng.com/temp/video-test/preview/',
+      publicPath: 'https://www.caijf.top/temp/video-test/preview/',
       outputFilename: 'assets/js/[name].[hash].js',
       outputChunkFilename: 'assets/js/[name].[chunkhash:8].chunk.js',
       css: {

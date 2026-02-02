@@ -1,13 +1,12 @@
 module.exports = {
-  outputPath: 'output',
+  outputPath: "output",
 
   // 扩展 babel-loader 的 plugins
-  extraBabelPlugins: [['import', { libraryName: 'antd', style: true }]],
+  extraBabelPlugins: [["import", { libraryName: "antd", style: true }]],
 
   env: {
     production: {
-      publicPath: 'https://www.caijinfeng.com/temp/alipay-qrcode/output/'
-    }
-  }
-}
-
+      publicPath: "https://www.caijf.top/temp/alipay-qrcode/output/",
+    },
+  },
+};

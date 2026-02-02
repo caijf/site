@@ -1,90 +1,229 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	<meta name="format-detection" content="telephone=no,email=no" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="default" />
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="//caijinfeng.com/apple-touch-icon_57x57.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="//caijinfeng.com/apple-touch-icon_72x72.png">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="//caijinfeng.com/apple-touch-icon_144x144.png">
-	<!-- <link rel="apple-touch-icon-precomposed" sizes="57x57" href="//caijinfeng.com/57x57.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="//caijinfeng.com/72x72.png">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="//caijinfeng.com/114x114.png">
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="//caijinfeng.com/144x144.png"> -->
-	<title>蔡金锋-记录成长</title>
-	<style>
-	body,div,h1,h2,ul,ol,p{ margin: 0; padding: 0;}
-	html,body{ height: 100%;}
-	ul,ol{ list-style: none;}
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="57x57"
+      href="//www.caijf.top/apple-touch-icon_57x57.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="72x72"
+      href="//www.caijf.top/apple-touch-icon_72x72.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="144x144"
+      href="//www.caijf.top/apple-touch-icon_144x144.png"
+    />
+    <!-- <link rel="apple-touch-icon-precomposed" sizes="57x57" href="//www.caijf.top/57x57.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="//www.caijf.top/72x72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="//www.caijf.top/114x114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="//www.caijf.top/144x144.png"> -->
+    <title>蔡金锋-记录成长</title>
+    <style>
+      body,
+      div,
+      h1,
+      h2,
+      ul,
+      ol,
+      p {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      ul,
+      ol {
+        list-style: none;
+      }
 
-	body{ color: #444; font-size: 100%; font-family: Hiragino Sans GB,Microsoft YaHei,tahoma,arial,simsun; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
-	a{ text-decoration: none; color: #000;}
-	a:hover{ color: #06c;}
+      body {
+        color: #444;
+        font-size: 100%;
+        font-family:
+          Hiragino Sans GB,
+          Microsoft YaHei,
+          tahoma,
+          arial,
+          simsun;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+      a:hover {
+        color: #06c;
+      }
 
-	/**
+      /**
 	 * common
 	 * by cjf 20150123
 	 */
-	.fn-clearfix{ *zoom:1;}
-	.fn-clearfix:before,.fn-clearfix:after{ display: table; content: "";}
-	.fn-clearfix:after{ clear: both;}
-	.fn-vm{ position: relative; display: table; width: 100%; height: 100%;}
-	.fn-vm-inner{ display: table-cell; vertical-align: middle; text-align: center;}
+      .fn-clearfix {
+        zoom: 1;
+      }
+      .fn-clearfix:before,
+      .fn-clearfix:after {
+        display: table;
+        content: '';
+      }
+      .fn-clearfix:after {
+        clear: both;
+      }
+      .fn-vm {
+        position: relative;
+        display: table;
+        width: 100%;
+        height: 100%;
+      }
+      .fn-vm-inner {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+      }
 
-	/* fonts */
-	@font-face{font-family:'jeff';src:url('temp/fonts/jeff.eot?ezbtzx');src:url('temp/fonts/jeff.eot?#iefixezbtzx') format('embedded-opentype'),url('temp/fonts/jeff.woff?ezbtzx') format('woff'),url('temp/fonts/jeff.ttf?ezbtzx') format('truetype'),url('temp/fonts/jeff.svg?ezbtzx#jeff') format('svg');font-weight:normal;font-style:normal;}
-[class^="icon-"],[class*=" icon-"]{font-family:'jeff';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;}
-	.icon-github:before{content:"\e600";}
-	.icon-vcard:before{content:"\e601";}
-	.icon-newspaper:before{content:"\e602";}
-	.icon-sina-weibo:before{content:"\e604";}
+      /* fonts */
+      @font-face {
+        font-family: 'jeff';
+        src: url('temp/fonts/jeff.eot?ezbtzx');
+        src:
+          url('temp/fonts/jeff.eot?#iefixezbtzx') format('embedded-opentype'),
+          url('temp/fonts/jeff.woff?ezbtzx') format('woff'),
+          url('temp/fonts/jeff.ttf?ezbtzx') format('truetype'),
+          url('temp/fonts/jeff.svg?ezbtzx#jeff') format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+      [class^='icon-'],
+      [class*=' icon-'] {
+        font-family: 'jeff';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+      }
+      .icon-github:before {
+        content: '\e600';
+      }
+      .icon-vcard:before {
+        content: '\e601';
+      }
+      .icon-newspaper:before {
+        content: '\e602';
+      }
+      .icon-sina-weibo:before {
+        content: '\e604';
+      }
 
-
-	/**
+      /**
 	 * page
 	 * by cjf 20150123
 	 */
-	.main{ position: relative; width: 100%; height: 100%; min-height:500px; overflow: hidden; background:#000 url(temp/images/bg1.jpg) no-repeat; background-size: cover; background-attachment: fixed;}
-	.main header{ width: 100%; height: 100%; color: #fff; background: rgba(0,0,0,.6);}
-	.main .fn-vm{ opacity: 1; width: 70%; margin: 0 auto;}
-	.main h1{ padding: 20px 0; font: 50px/1.2 Latha,tahoma;}
-	.main p{ font: 18px/30px Latha,tahoma;}
-	/* nav */
-	.nav{ margin-top: 20px;}
-	.nav a{ margin: 0 15px; color: #999;}
-	.nav a:hover{ color: #fff;}
-	.nav span[class^="icon-"]{ font-size: 30px;}
-	</style>
-</head>
-<body>
-	<div class="main">
-		<header>
-			<div class="fn-vm">
-				<div class="fn-vm-inner">
-					<h1>蔡金锋</h1>
-					<p>人恒过，然后能改；困于心，衡于虑，而后作；征于色，发于声，而后喻。</p>
-					<div class="nav">
-						<a href="https://github.com/caijf" target="_blank" title="Github"><span class="icon-github"></span></a>
-						<a href="http://note.youdao.com/noteshare?id=d54e6b3dedaca6b9a67899f80b1cbff3" target="_blank" title="博客"><span class="icon-newspaper"></span></a>
-						<a href="http://weibo.com/caijeff" target="_blank" title="新浪微博"><span class="icon-sina-weibo"></span></a>
-						<!-- <a href="https://www.caijinfeng.com/resume/index.html" target="_blank" title="关于我"><span class="icon-vcard"></span></a> -->
-					</div>
-				</div>
-			</div>
-		</header>
-	</div>
-	<script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "https://hm.baidu.com/hm.js?ee5e8ce23391e2ff20bf1886d1ee6738";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
+      .main {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+        overflow: hidden;
+        background: #000 url(temp/images/bg1.jpg) no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+      .main header {
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.6);
+      }
+      .main .fn-vm {
+        opacity: 1;
+        width: 70%;
+        margin: 0 auto;
+      }
+      .main h1 {
+        padding: 20px 0;
+        font:
+          50px/1.2 Latha,
+          tahoma;
+      }
+      .main p {
+        font:
+          18px/30px Latha,
+          tahoma;
+      }
+      /* nav */
+      .nav {
+        margin-top: 20px;
+      }
+      .nav a {
+        margin: 0 15px;
+        color: #999;
+      }
+      .nav a:hover {
+        color: #fff;
+      }
+      .nav span[class^='icon-'] {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <header>
+        <div class="fn-vm">
+          <div class="fn-vm-inner">
+            <h1>蔡金锋</h1>
+            <p>
+              人恒过，然后能改；困于心，衡于虑，而后作；征于色，发于声，而后喻。
+            </p>
+            <div class="nav">
+              <a href="https://github.com/caijf" target="_blank" title="Github"
+                ><span class="icon-github"></span
+              ></a>
+              <a
+                href="http://note.youdao.com/noteshare?id=d54e6b3dedaca6b9a67899f80b1cbff3"
+                target="_blank"
+                title="博客"
+                ><span class="icon-newspaper"></span
+              ></a>
+              <a
+                href="http://weibo.com/caijeff"
+                target="_blank"
+                title="新浪微博"
+                ><span class="icon-sina-weibo"></span
+              ></a>
+              <!-- <a href="https://www.caijf.top/resume/index.html" target="_blank" title="关于我"><span class="icon-vcard"></span></a> -->
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+    <script>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement('script');
+        hm.src = 'https://hm.baidu.com/hm.js?ee5e8ce23391e2ff20bf1886d1ee6738';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
 
-	_hmt.push(['_trackPageview', '/index']);
-	</script>
-</body>
+      _hmt.push(['_trackPageview', '/index']);
+    </script>
+  </body>
 </html>
