@@ -1,448 +1,388 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>caijinfeng</title>
+    <title>caijinfeng.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 
-    <style type="text/css">
+    <style>
+      /* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+      /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
       body {
-        font-family: Helvetica, arial, sans-serif;
-        font-size: 14px;
-        line-height: 1.6;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        background-color: white;
-        padding: 30px;
+        font-family: var(
+          --vscode-markdown-font-family,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe WPC',
+          'Segoe UI',
+          'Ubuntu',
+          'Droid Sans',
+          sans-serif
+        );
+        font-size: var(--vscode-markdown-font-size, 14px);
+        padding: 0 26px;
+        line-height: var(--vscode-markdown-line-height, 22px);
+        word-wrap: break-word;
       }
 
-      body > *:first-child {
-        margin-top: 0 !important;
-      }
-      body > *:last-child {
-        margin-bottom: 0 !important;
-      }
-
-      a {
-        color: #4183c4;
-      }
-      a.absent {
-        color: #cc0000;
-      }
-      a.anchor {
-        display: block;
-        padding-left: 30px;
-        margin-left: -30px;
-        cursor: pointer;
-        position: absolute;
+      #code-csp-warning {
+        position: fixed;
         top: 0;
-        left: 0;
-        bottom: 0;
+        right: 0;
+        color: white;
+        margin: 16px;
+        text-align: center;
+        font-size: 12px;
+        font-family: sans-serif;
+        background-color: #444444;
+        cursor: pointer;
+        padding: 6px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
       }
 
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        margin: 20px 0 10px;
-        padding: 0;
-        font-weight: bold;
-        -webkit-font-smoothing: antialiased;
-        cursor: text;
+      #code-csp-warning:hover {
+        text-decoration: none;
+        background-color: #007acc;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+      }
+
+      body.scrollBeyondLastLine {
+        margin-bottom: calc(100vh - 22px);
+      }
+
+      body.showEditorSelection .code-line {
         position: relative;
       }
 
-      h1:hover a.anchor,
-      h2:hover a.anchor,
-      h3:hover a.anchor,
-      h4:hover a.anchor,
-      h5:hover a.anchor,
-      h6:hover a.anchor {
-        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==)
-          no-repeat 10px center;
-        text-decoration: none;
+      body.showEditorSelection .code-active-line:before,
+      body.showEditorSelection .code-line:hover:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -12px;
+        height: 100%;
       }
 
-      h1 tt,
-      h1 code {
-        font-size: inherit;
+      body.showEditorSelection li.code-active-line:before,
+      body.showEditorSelection li.code-line:hover:before {
+        left: -30px;
       }
 
-      h2 tt,
-      h2 code {
-        font-size: inherit;
+      .vscode-light.showEditorSelection .code-active-line:before {
+        border-left: 3px solid rgba(0, 0, 0, 0.15);
       }
 
-      h3 tt,
-      h3 code {
-        font-size: inherit;
+      .vscode-light.showEditorSelection .code-line:hover:before {
+        border-left: 3px solid rgba(0, 0, 0, 0.4);
       }
 
-      h4 tt,
-      h4 code {
-        font-size: inherit;
+      .vscode-light.showEditorSelection .code-line .code-line:hover:before {
+        border-left: none;
       }
 
-      h5 tt,
-      h5 code {
-        font-size: inherit;
+      .vscode-dark.showEditorSelection .code-active-line:before {
+        border-left: 3px solid rgba(255, 255, 255, 0.4);
       }
 
-      h6 tt,
-      h6 code {
-        font-size: inherit;
+      .vscode-dark.showEditorSelection .code-line:hover:before {
+        border-left: 3px solid rgba(255, 255, 255, 0.6);
       }
 
-      h1 {
-        font-size: 28px;
-        color: black;
+      .vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+        border-left: none;
       }
 
-      h2 {
-        font-size: 24px;
-        border-bottom: 1px solid #cccccc;
-        color: black;
+      .vscode-high-contrast.showEditorSelection .code-active-line:before {
+        border-left: 3px solid rgba(255, 160, 0, 0.7);
       }
 
-      h3 {
-        font-size: 18px;
+      .vscode-high-contrast.showEditorSelection .code-line:hover:before {
+        border-left: 3px solid rgba(255, 160, 0, 1);
       }
 
-      h4 {
-        font-size: 16px;
-      }
-
-      h5 {
-        font-size: 14px;
-      }
-
-      h6 {
-        color: #777777;
-        font-size: 14px;
-      }
-
-      p,
-      blockquote,
-      ul,
-      ol,
-      dl,
-      li,
-      table,
-      pre {
-        margin: 15px 0;
-      }
-
-      hr {
-        background: transparent
-          url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC)
-          repeat-x 0 0;
-        border: 0 none;
-        color: #cccccc;
-        height: 4px;
-        padding: 0;
-      }
-
-      body > h2:first-child {
-        margin-top: 0;
-        padding-top: 0;
-      }
-      body > h1:first-child {
-        margin-top: 0;
-        padding-top: 0;
-      }
-      body > h1:first-child + h2 {
-        margin-top: 0;
-        padding-top: 0;
-      }
-      body > h3:first-child,
-      body > h4:first-child,
-      body > h5:first-child,
-      body > h6:first-child {
-        margin-top: 0;
-        padding-top: 0;
-      }
-
-      a:first-child h1,
-      a:first-child h2,
-      a:first-child h3,
-      a:first-child h4,
-      a:first-child h5,
-      a:first-child h6 {
-        margin-top: 0;
-        padding-top: 0;
-      }
-
-      h1 p,
-      h2 p,
-      h3 p,
-      h4 p,
-      h5 p,
-      h6 p {
-        margin-top: 0;
-      }
-
-      li p.first {
-        display: inline-block;
-      }
-      li {
-        margin: 0;
-      }
-      ul,
-      ol {
-        padding-left: 30px;
-      }
-
-      ul :first-child,
-      ol :first-child {
-        margin-top: 0;
-      }
-
-      dl {
-        padding: 0;
-      }
-      dl dt {
-        font-size: 14px;
-        font-weight: bold;
-        font-style: italic;
-        padding: 0;
-        margin: 15px 0 5px;
-      }
-      dl dt:first-child {
-        padding: 0;
-      }
-      dl dt > :first-child {
-        margin-top: 0;
-      }
-      dl dt > :last-child {
-        margin-bottom: 0;
-      }
-      dl dd {
-        margin: 0 0 15px;
-        padding: 0 15px;
-      }
-      dl dd > :first-child {
-        margin-top: 0;
-      }
-      dl dd > :last-child {
-        margin-bottom: 0;
-      }
-
-      blockquote {
-        border-left: 4px solid #dddddd;
-        padding: 0 15px;
-        color: #777777;
-      }
-      blockquote > :first-child {
-        margin-top: 0;
-      }
-      blockquote > :last-child {
-        margin-bottom: 0;
-      }
-
-      table {
-        padding: 0;
-        border-collapse: collapse;
-      }
-      table tr {
-        border-top: 1px solid #cccccc;
-        background-color: white;
-        margin: 0;
-        padding: 0;
-      }
-      table tr:nth-child(2n) {
-        background-color: #f8f8f8;
-      }
-      table tr th {
-        font-weight: bold;
-        border: 1px solid #cccccc;
-        margin: 0;
-        padding: 6px 13px;
-      }
-      table tr td {
-        border: 1px solid #cccccc;
-        margin: 0;
-        padding: 6px 13px;
-      }
-      table tr th :first-child,
-      table tr td :first-child {
-        margin-top: 0;
-      }
-      table tr th :last-child,
-      table tr td :last-child {
-        margin-bottom: 0;
+      .vscode-high-contrast.showEditorSelection
+        .code-line
+        .code-line:hover:before {
+        border-left: none;
       }
 
       img {
         max-width: 100%;
+        max-height: 100%;
       }
 
-      span.frame {
-        display: block;
-        overflow: hidden;
-      }
-      span.frame > span {
-        border: 1px solid #dddddd;
-        display: block;
-        float: left;
-        overflow: hidden;
-        margin: 13px 0 0;
-        padding: 7px;
-        width: auto;
-      }
-      span.frame span img {
-        display: block;
-        float: left;
-      }
-      span.frame span span {
-        clear: both;
-        color: #333333;
-        display: block;
-        padding: 5px 0 0;
-      }
-      span.align-center {
-        display: block;
-        overflow: hidden;
-        clear: both;
-      }
-      span.align-center > span {
-        display: block;
-        overflow: hidden;
-        margin: 13px auto 0;
-        text-align: center;
-      }
-      span.align-center span img {
-        margin: 0 auto;
-        text-align: center;
-      }
-      span.align-right {
-        display: block;
-        overflow: hidden;
-        clear: both;
-      }
-      span.align-right > span {
-        display: block;
-        overflow: hidden;
-        margin: 13px 0 0;
-        text-align: right;
-      }
-      span.align-right span img {
-        margin: 0;
-        text-align: right;
-      }
-      span.float-left {
-        display: block;
-        margin-right: 13px;
-        overflow: hidden;
-        float: left;
-      }
-      span.float-left span {
-        margin: 13px 0 0;
-      }
-      span.float-right {
-        display: block;
-        margin-left: 13px;
-        overflow: hidden;
-        float: right;
-      }
-      span.float-right > span {
-        display: block;
-        overflow: hidden;
-        margin: 13px auto 0;
-        text-align: right;
+      a {
+        text-decoration: none;
       }
 
-      code,
-      tt {
-        margin: 0 2px;
-        padding: 0 5px;
-        white-space: nowrap;
-        border: 1px solid #eaeaea;
-        background-color: #f8f8f8;
+      a:hover {
+        text-decoration: underline;
+      }
+
+      a:focus,
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: 1px solid -webkit-focus-ring-color;
+        outline-offset: -1px;
+      }
+
+      hr {
+        border: 0;
+        height: 2px;
+        border-bottom: 2px solid;
+      }
+
+      h1 {
+        padding-bottom: 0.3em;
+        line-height: 1.2;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-weight: normal;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > th {
+        text-align: left;
+        border-bottom: 1px solid;
+      }
+
+      table > thead > tr > th,
+      table > thead > tr > td,
+      table > tbody > tr > th,
+      table > tbody > tr > td {
+        padding: 5px 10px;
+      }
+
+      table > tbody > tr + tr > td {
+        border-top: 1px solid;
+      }
+
+      blockquote {
+        margin: 0 7px 0 5px;
+        padding: 0 16px 0 10px;
+        border-left-width: 5px;
+        border-left-style: solid;
+      }
+
+      code {
+        font-family:
+          Menlo, Monaco, Consolas, 'Droid Sans Mono', 'Courier New', monospace,
+          'Droid Sans Fallback';
+        font-size: 1em;
+        line-height: 1.357em;
+      }
+
+      body.wordWrap pre {
+        white-space: pre-wrap;
+      }
+
+      pre:not(.hljs),
+      pre.hljs code > div {
+        padding: 16px;
         border-radius: 3px;
+        overflow: auto;
       }
 
       pre code {
-        margin: 0;
-        padding: 0;
-        white-space: pre;
-        border: none;
-        background: transparent;
+        color: var(--vscode-editor-foreground);
+        tab-size: 4;
       }
 
-      .highlight pre {
-        background-color: #f8f8f8;
-        border: 1px solid #cccccc;
-        font-size: 13px;
-        line-height: 19px;
-        overflow: auto;
-        padding: 6px 10px;
-        border-radius: 3px;
+      /** Theming */
+
+      .vscode-light pre {
+        background-color: rgba(220, 220, 220, 0.4);
+      }
+
+      .vscode-dark pre {
+        background-color: rgba(10, 10, 10, 0.4);
+      }
+
+      .vscode-high-contrast pre {
+        background-color: rgb(0, 0, 0);
+      }
+
+      .vscode-high-contrast h1 {
+        border-color: rgb(0, 0, 0);
+      }
+
+      .vscode-light table > thead > tr > th {
+        border-color: rgba(0, 0, 0, 0.69);
+      }
+
+      .vscode-dark table > thead > tr > th {
+        border-color: rgba(255, 255, 255, 0.69);
+      }
+
+      .vscode-light h1,
+      .vscode-light hr,
+      .vscode-light table > tbody > tr + tr > td {
+        border-color: rgba(0, 0, 0, 0.18);
+      }
+
+      .vscode-dark h1,
+      .vscode-dark hr,
+      .vscode-dark table > tbody > tr + tr > td {
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+    </style>
+
+    <style>
+      /* Tomorrow Theme */
+      /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+      /* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+      /* Tomorrow Comment */
+      .hljs-comment,
+      .hljs-quote {
+        color: #8e908c;
+      }
+
+      /* Tomorrow Red */
+      .hljs-variable,
+      .hljs-template-variable,
+      .hljs-tag,
+      .hljs-name,
+      .hljs-selector-id,
+      .hljs-selector-class,
+      .hljs-regexp,
+      .hljs-deletion {
+        color: #c82829;
+      }
+
+      /* Tomorrow Orange */
+      .hljs-number,
+      .hljs-built_in,
+      .hljs-builtin-name,
+      .hljs-literal,
+      .hljs-type,
+      .hljs-params,
+      .hljs-meta,
+      .hljs-link {
+        color: #f5871f;
+      }
+
+      /* Tomorrow Yellow */
+      .hljs-attribute {
+        color: #eab700;
+      }
+
+      /* Tomorrow Green */
+      .hljs-string,
+      .hljs-symbol,
+      .hljs-bullet,
+      .hljs-addition {
+        color: #718c00;
+      }
+
+      /* Tomorrow Blue */
+      .hljs-title,
+      .hljs-section {
+        color: #4271ae;
+      }
+
+      /* Tomorrow Purple */
+      .hljs-keyword,
+      .hljs-selector-tag {
+        color: #8959a8;
+      }
+
+      .hljs {
+        display: block;
+        overflow-x: auto;
+        color: #4d4d4c;
+        padding: 0.5em;
+      }
+
+      .hljs-emphasis {
+        font-style: italic;
+      }
+
+      .hljs-strong {
+        font-weight: bold;
+      }
+    </style>
+
+    <style>
+      /*
+ * Markdown PDF CSS
+ */
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu',
+          'Droid Sans', sans-serif, 'Meiryo';
+        padding: 0 12px;
       }
 
       pre {
         background-color: #f8f8f8;
         border: 1px solid #cccccc;
-        font-size: 13px;
+        border-radius: 3px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+      }
+
+      pre:not(.hljs) {
+        padding: 23px;
         line-height: 19px;
-        overflow: auto;
-        padding: 6px 10px;
-        border-radius: 3px;
-      }
-      pre code,
-      pre tt {
-        background-color: transparent;
-        border: none;
       }
 
-      sup {
-        font-size: 0.83em;
-        vertical-align: super;
-        line-height: 0;
+      blockquote {
+        background: rgba(127, 127, 127, 0.1);
+        border-color: rgba(0, 122, 204, 0.5);
       }
 
-      kbd {
-        display: inline-block;
-        padding: 3px 5px;
-        font-size: 11px;
-        line-height: 10px;
-        color: #555;
-        vertical-align: middle;
-        background-color: #fcfcfc;
-        border: solid 1px #ccc;
-        border-bottom-color: #bbb;
-        border-radius: 3px;
-        box-shadow: inset 0 -1px 0 #bbb;
+      .emoji {
+        height: 1.4em;
       }
 
-      * {
-        -webkit-print-color-adjust: exact;
+      code {
+        font-size: 14px;
+        line-height: 19px;
       }
-      @media screen and (min-width: 914px) {
-        body {
-          width: 854px;
-          margin: 0 auto;
-        }
+
+      /* for inline code */
+      :not(pre):not(.hljs) > code {
+        color: #c9ae75; /* Change the old color so it seems less like an error */
+        font-size: inherit;
       }
-      @media print {
-        table,
-        pre {
-          page-break-inside: avoid;
-        }
-        pre {
-          word-wrap: break-word;
-        }
+
+      /* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+      .page {
+        page-break-after: always;
       }
     </style>
+
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
   </head>
-
   <body>
-    <h1 id="toc_0">蔡金锋</h1>
-
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme:
+          document.body.classList.contains('vscode-dark') ||
+          document.body.classList.contains('vscode-high-contrast')
+            ? 'dark'
+            : 'default',
+      });
+    </script>
+    <h1 id="%E8%94%A1%E9%87%91%E9%94%8B">蔡金锋</h1>
     <p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -460,7 +400,6 @@
       </svg>
       - <a href="tel:17521182015">17521182015</a>
     </p>
-
     <p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -475,9 +414,8 @@
           d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"
         ></path>
       </svg>
-      - <a href="mailto:369756941@qq.com">369756941@qq.com</a>
+      - <a href="mailto:jinfeng.cai@qq.com">jinfeng.cai@qq.com</a>
     </p>
-
     <p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -494,7 +432,6 @@
       </svg>
       - <a href="https://github.com/caijf">https://github.com/caijf</a>
     </p>
-
     <p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -515,281 +452,174 @@
       </svg>
       - <a href="https://www.caijf.top/resume/caijinfeng.pdf">下载pdf版</a>
     </p>
-
-    <h2 id="toc_1">教育背景</h2>
-
+    <h2 id="%E6%95%99%E8%82%B2%E8%83%8C%E6%99%AF">教育背景</h2>
     <ul>
       <li>
-        <strong>上海工程技术大学</strong> - 物流管理(自考专升本，本科) - 2016.12
-        ~ 2018.12
+        <strong>上海工程技术大学</strong> - 物流管理(专升本，本科) - 2016.12 ~
+        2018.12
       </li>
       <li>
         <strong>厦门软件职业技术学院</strong> - 计算机应用与维护(专科) - 2008.09
         ~ 2011.07
       </li>
     </ul>
-
-    <h2 id="toc_2">自我介绍</h2>
-
-    <p>专注于脚手架，可复用组件，工具库</p>
-
-    <p>能力项：沟通协调、执行力、自我驱动力</p>
-
-    <p>
-      有多年中后台/移动端/小程序等业务项目前端开发经验，负责脚手架，公共组件，工具库开发与维护，独自开发【痒痒鼠宝典】小程序。
-    </p>
-
-    <h2 id="toc_3">个人技能</h2>
-
+    <h2 id="%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D">自我介绍</h2>
     <ul>
       <li>
-        熟悉 <code>typescript</code>
-        <code>react</code> ，有丰富的项目经验，能够精确实现视觉稿到页面
+        熟练掌握 html / css / javascript / typescript / react 等各种前端技术；
+      </li>
+      <li>熟练使用 antd / antd-mobile 等前端组件库；</li>
+      <li>
+        熟练使用 eslint / stylelint / prettier / lint-staged / commitlint
+        等代码规范工具；
+      </li>
+      <li>熟练使用 vite / rollup / webpack / umi 等前端构建工具；</li>
+      <li>熟练使用 git / vscode 等开发工具；</li>
+      <li>有中后台管理系统/移动端/小程序等业务项目前端开发经验；</li>
+      <li>有脚手架/组件库/工具库开发经验。</li>
+    </ul>
+    <h2 id="%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE">个人项目</h2>
+    <ul>
+      <li>
+        <a href="https://github.com/doly-dev/vite-template-doly"
+          >vite-template-doly</a
+        >
+        - 基于 create-vite/template-react-ts 扩展的脚手架
       </li>
       <li>
-        熟悉 <code>webpack</code> <code>rollup</code>
-        <code>gulp</code> 等构建工具，有搭建项目、工具库、组件库脚手架经验
+        <a
+          href="https://doly-dev.github.io/cra-template-doly-site/latest/index.html"
+          >cra-template-doly</a
+        >
+        - 基于 Create React App + craco 扩展的脚手架
       </li>
       <li>
-        熟悉 <code>lodash</code> <code>jquery</code>
-        <code>zepto</code> 等工具库，有个人开发业务相关的工具库经验
+        <a href="https://www.npmjs.com/package/doly-cli">doly-cli</a> -
+        开箱即用的 react 应用开发工具
       </li>
       <li>
-        熟练使用 <code>git</code> <code>svn</code>
-        <code>vscode</code> 等开发相关工具
+        <a href="https://doly-dev.github.io/rc-hooks/latest/index.html#/hooks"
+          >rc-hooks</a
+        >
+        - React Hooks Library
       </li>
       <li>
-        熟练使用 <code>eslint</code> <code>stylelint</code>
-        <code>prettier</code> <code>lint-staged</code>
-        <code>commitlint</code> 等前端规范工具
+        <a href="https://doly-dev.github.io/doly-icons/latest/icons"
+          >doly-icons</a
+        >
+        - 基于 Bootstrap Icons 的 React 图标组件
+      </li>
+      <li>
+        <a href="https://caijf.github.io/rc-slider-captcha"
+          >rc-slider-captcha</a
+        >
+        - React 滑块验证码组件
+      </li>
+      <li>
+        <a href="https://antd-more.vercel.app/components">antd-more</a> - 基于
+        antd 扩展的业务场景组件。
+      </li>
+      <li>
+        <a href="https://mobile-more.vercel.app/components">mobile-more</a> -
+        基于 antd-mobile 扩展的业务场景组件。
+      </li>
+      <li>
+        <a href="https://doly-dev.github.io/util-helpers/index.html"
+          >util-helpers</a
+        >
+        - 基于业务场景的工具方法库
+      </li>
+      <li>
+        <a href="https://caijf.github.io/ut2/index.html">ut2</a> - 现代
+        JavaScript 实用工具库
+      </li>
+      <li>
+        <a href="https://www.npmjs.com/package/cache2">cache2</a> - 数据存储管理
       </li>
     </ul>
-
-    <h2 id="toc_4">工作经历</h2>
-
-    <p><strong>上海，快钱，资深前端开发工程师 2017.08至今</strong></p>
-
+    <h2 id="%E5%B7%A5%E4%BD%9C%E7%BB%8F%E5%8E%86">工作经历</h2>
+    <p><strong>上海，快钱，前端开发 2017.08至今</strong></p>
     <ul>
       <li>
         基于 webpack 开发了 <code>doly-cli</code> 项目构建工具，主导多个项目从
         <code>fis</code> 迁移至 <code>webpack</code> 构建。
       </li>
-      <li>
-        开发内部业务工具库 <code>kqjs</code> 以及开源的 <code>rc-hooks</code>
-        <code>util-helpers</code> 等，提高开发效率。
-      </li>
+      <li>开发内部业务工具库 <code>kqjs</code> 提高开发效率。</li>
+      <li>开源的 <code>rc-hooks</code> <code>util-helpers</code></li>
       <li>
         参与十多个中后台前端项目开发，基于 antd 开发业务组件库
         <a href="https://github.com/doly-dev/antd-more">antd-more</a
         >，目前已在多个项目中使用。
       </li>
-      <li>推动 typescript 应用于项目开发。</li>
+      <li>推动 <code>typescript</code> 应用于项目开发。</li>
     </ul>
-
     <p><strong>上海，携程，前端开发 2014.06至2017.08</strong></p>
-
-    <p><code>UED</code></p>
-
+    <p>主要有两段经历：</p>
+    <p>一、起初在<code>UED</code>，负责<code>css</code>制作页面</p>
     <ul>
       <li>
         参与机票PC端项目重构和维护，机票订单详情，值机选座，低价订阅，往返搜索结果等。
       </li>
       <li>
-        参与移动端H5项目重构和维护，我的携程，订单，站内信，收藏等，以及我携v6.3响应式改造。
+        参与移动端H5项目重构和维护，我的携程，订单，站内信，收藏等，以及我携响应式改造。
       </li>
     </ul>
-
-    <p><code>基础业务研发部</code></p>
-
+    <p>
+      二、后面内部转岗到<code>基础业务研发部</code>，负责<code>javascript</code>开发，使用
+      <code>backbone</code>+<code>zepto</code>+<code>require</code>
+      <code>webpack</code> <code>react</code> <code>react-native</code>
+      <code>crn</code>等技术栈。
+    </p>
     <ul>
-      <li>主要负责h5收藏、h5大首页、h5更多、rn浏览历史等项目开发与维护。</li>
       <li>
-        公共组件：
-
-        <ul>
-          <li>下拉刷新</li>
-          <li>国家码h5、online</li>
-          <li>network状态</li>
-          <li>...</li>
-          <li>RN组件</li>
-        </ul>
+        主要负责移动端我的收藏、h5首页、h5更多、rn浏览历史等项目开发与维护。
+      </li>
+      <li>
+        负责公共组件开发，如<code>下拉刷新</code> <code>国家码h5/pc</code>
+        <code>network状态</code> <code>RN组件</code> 等。
       </li>
       <li>
         参与工作流程改进、推行代码规范、git版本控制、css模块化、打包构建工具的使用、优化与重构。
       </li>
     </ul>
-
-    <p><strong>厦门，灵感方舟 返还网，前端组长，2013.02至2014.05</strong></p>
-
+    <p>
+      <strong>厦门灵感方舟网络科技有限公司，前端组长，2013.02至2014.05</strong>
+    </p>
     <ul>
+      <li>业务项目开发</li>
       <li>项目分配管理</li>
       <li>制定团队代码规范</li>
       <li>组织内部分享交流</li>
       <li>与其它部门协调</li>
     </ul>
-
     <p>
       参与项目：<a href="http://www.fanhuan.com/">返还网</a>、<a
         href="http://www.kanjia.com/"
         >砍价券</a
       >、QQ空间应用
     </p>
-
-    <p><strong>厦门，三五互联，界面开发，2012.07至2013.01</strong></p>
-
     <p>
-      参与<a href="http://mall.35.com/">三五商城</a>和<a
-        href="http://crmdemo.35.com/index/index.aspx"
-        >CRM</a
-      >项目开发，敏捷开发，快速迭代
+      <strong>厦门三五互联科技股份有限公司，前端开发，2012.07至2013.01</strong>
     </p>
-
-    <p>常用组件开发，参与制定前端规范</p>
-
-    <p><strong>厦门，志必达，前端开发，2011.11至2012.07</strong></p>
-
-    <p>基于shopex进行二次开发</p>
-
+    <ul>
+      <li>业务项目开发</li>
+      <li>常用组件开发</li>
+      <li>参与制定前端规范。</li>
+    </ul>
+    <p>
+      参与<a href="http://mall.35.com/">三五商城</a>和<del
+        ><a href="http://crmdemo.35.com/index/index.aspx">CRM</a></del
+      >项目开发，敏捷开发，快速迭代。
+    </p>
+    <p>
+      <strong>厦门市志必达电脑技术有限公司，前端开发，2011.11至2012.07</strong>
+    </p>
+    <p>基于<code>shopex</code>，二次开发商城项目。</p>
     <p>
       <strong
-        >厦门，阿里国际股份投资有限公司，前端开发，2011.05至2011.11</strong
+        >厦门，阿里国际股份投资有限公司，网页制作实习，2011.05至2011.11</strong
       >
     </p>
-
-    <p>
-      实习阶段，打开前端的大门，从认识<code>photoshop</code>到<code>table</code>到<code>css</code>再到<code>javascript</code>，什么不会学什么，参与交互、设计，企业网站建设
-    </p>
-
-    <h2 id="toc_5">作品</h2>
-
-    <p><code>产品</code></p>
-
-    <p>
-      <img
-        src="http://img.nga.178.com/attachments/mon_201905/28/eyQ5-6yzfK0T3cSsg-84.jpg.thumb.jpg?ynotemdtimestamp=1641911584314"
-        alt="痒痒鼠宝典小程序码"
-      />
-    </p>
-
-    <ul>
-      <li>
-        痒痒鼠宝典 - 阴阳师手游实用工具
-
-        <ul>
-          <li>
-            <a href="https://nga.178.com/read.php?tid=14816720"
-              >推荐一个自己写的小工具</a
-            >
-          </li>
-          <li>
-            <a href="https://nga.178.com/read.php?tid=17389628"
-              >痒痒鼠宝典—新功能阵容中心，网罗平安京阵容</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://ds.163.com/user/d046b9f25ff8426385e73b7a82b96c2b/feed/5d64c93d73b051514cb7552d"
-              >网易大神-民间工具征集活动-第三名</a
-            >
-          </li>
-        </ul>
-      </li>
-    </ul>
-
-    <p><code>工具/组件</code></p>
-
-    <ul>
-      <li>
-        <a href="https://www.npmjs.com/package/util-helpers">util-helpers</a> -
-        基于业务场景的工具方法库
-      </li>
-      <li>
-        <a href="https://www.npmjs.com/package/bankcard">bankcard</a> -
-        通过银行卡号查询银行卡信息，支持浏览器端（es5、es6）和node
-      </li>
-      <li>
-        <a href="https://www.npmjs.com/package/lcn">lcn</a> -
-        中华人民共和国行政区划，省市区数据
-      </li>
-      <li>
-        <a href="https://github.com/caijf/pycn">pycn</a> -
-        中国行政区域（省/市/区/街道）拼音
-      </li>
-      <li>
-        <a href="https://www.npmjs.com/package/rc-hooks">rc-hooks</a> - React
-        Hooks Library
-      </li>
-      <li>
-        <a href="https://www.npmjs.com/package/cross-window-emitter"
-          >cross-window-emitter</a
-        >
-        - 同域跨窗口事件触发器
-      </li>
-      <li>
-        <a href="https://github.com/caijf/countdown">countdown</a> -
-        一个简单的倒计时
-      </li>
-      <li>
-        <a href="https://github.com/caijf/rc-countdown-view"
-          >rc-countdown-view</a
-        >
-        - react 倒计时组件
-      </li>
-      <li>
-        <a href="https://doly-dev.github.io/antd-more/site/latest/index.html"
-          >antd-more</a
-        >
-        - 基于 antd 扩展的业务场景组件。
-      </li>
-      <li>
-        <a href="https://doly-dev.github.io/doly-icons/latest/index.html"
-          >doly-icons</a
-        >
-        - 基于 Bootstrap Icons 的 React 图标组件
-      </li>
-    </ul>
-
-    <p><code>脚手架</code></p>
-
-    <ul>
-      <li>
-        <a
-          href="https://doly-dev.github.io/cra-template-doly-site/latest/index.html"
-          >cra-template-doly</a
-        >
-        - 基于 Create React App + craco 扩展的脚手架，快速构建 React 单页应用。
-      </li>
-    </ul>
-
-    <p><code>工程化</code></p>
-
-    <p>
-      由于没有太多时间精力，以下部分均已停止维护！现已采用第三方构建工具+自研脚手架实现。
-    </p>
-
-    <ul>
-      <li>
-        <a href="https://www.npmjs.com/package/doly-cli">doly-cli</a> -
-        开箱即用的 react 应用开发工具
-      </li>
-      <li>
-        <a href="https://github.com/doly-dev/doly-simple-template"
-          >doly-simple-template</a
-        >
-        - 基于 doly-cli 的web简易脚手架
-      </li>
-      <li>
-        <a href="https://github.com/doly-dev/doly-mobile-template"
-          >doly-mobile-template</a
-        >
-        - 基于 doly-cli 的移动端项目脚手架
-      </li>
-      <li>
-        <a href="https://github.com/doly-dev/doly-admin-template"
-          >doly-admin-template</a
-        >
-        - 基于 doly-cli 的管理平台脚手架
-      </li>
-    </ul>
+    <p>学习使用 <code>div+css</code> 制作企业官网静态页面。</p>
   </body>
 </html>
