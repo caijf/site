@@ -16,26 +16,12 @@
 ## 自我介绍
 
 - 熟练掌握 html / css / javascript / typescript / react 等各种前端技术；
-- 熟练使用 antd / antd-mobile 等前端组件库；
-- 熟练使用 eslint / stylelint / prettier / lint-staged / commitlint 等代码规范工具；
-- 熟练使用 vite / rollup / webpack / umi 等前端构建工具；
-- 熟练使用 git / vscode 等开发工具；
+- 熟练掌握 antd / antd-mobile 等前端组件库；
+- 熟练掌握 eslint / stylelint / prettier / lint-staged / commitlint 等代码规范工具；
+- 熟练掌握 vite / rollup / webpack / umi 等前端构建工具；
+- 熟练掌握 git / vscode 等开发工具；
 - 有中后台管理系统/移动端/小程序等业务项目前端开发经验；
 - 有脚手架/组件库/工具库开发经验。
-
-## 个人项目
-
-- [vite-template-doly](https://github.com/doly-dev/vite-template-doly) - 基于 create-vite/template-react-ts 扩展的脚手架
-- [cra-template-doly](https://doly-dev.github.io/cra-template-doly-site/latest/index.html) - 基于 Create React App + craco 扩展的脚手架
-- [doly-cli](https://www.npmjs.com/package/doly-cli) - 开箱即用的 react 应用开发工具
-- [rc-hooks](https://doly-dev.github.io/rc-hooks/latest/index.html#/hooks) - React Hooks Library
-- [doly-icons](https://doly-dev.github.io/doly-icons/latest/icons) - 基于 Bootstrap Icons 的 React 图标组件
-- [rc-slider-captcha](https://caijf.github.io/rc-slider-captcha) - React 滑块验证码组件
-- [antd-more](https://antd-more.vercel.app/components) - 基于 antd 扩展的业务场景组件。
-- [mobile-more](https://mobile-more.vercel.app/components) - 基于 antd-mobile 扩展的业务场景组件。
-- [util-helpers](https://doly-dev.github.io/util-helpers/index.html) - 基于业务场景的工具方法库
-- [ut2](https://caijf.github.io/ut2/index.html) - 现代 JavaScript 实用工具库
-- [cache2](https://www.npmjs.com/package/cache2) - 数据存储管理
 
 ## 工作经历
 
@@ -46,6 +32,7 @@
 - 开源的 `rc-hooks` `util-helpers`
 - 参与十多个中后台前端项目开发，基于 antd 开发业务组件库 [antd-more](https://github.com/doly-dev/antd-more)，目前已在多个项目中使用。
 - 推动 `typescript` 应用于项目开发。
+- 推动包管理工具统一使用 `pnpm`
 
 **上海，携程，前端开发 2014.06至2017.08**
 
@@ -78,7 +65,7 @@
 - 常用组件开发
 - 参与制定前端规范。
 
-参与[三五商城](http://mall.35.com/)和<del>[CRM](http://crmdemo.35.com/index/index.aspx)</del>项目开发，敏捷开发，快速迭代。
+参与[三五商城](http://mall.35.com/)和[CRM](http://crmdemo.35.com/index/index.aspx)项目开发，敏捷开发，快速迭代。
 
 **厦门市志必达电脑技术有限公司，前端开发，2011.11至2012.07**
 
@@ -87,3 +74,167 @@
 **厦门，阿里国际股份投资有限公司，网页制作实习，2011.05至2011.11**
 
 学习使用 `div+css` 制作企业官网静态页面。
+
+## 项目经验
+
+### 渠道xx运营平台
+
+- 时间：2023-02 至 2026-03
+- 项目角色：前端开发
+- 项目描述：提供给渠道客户使用的运营平台，主要有登录、权限管理、以及各种数据管理功能。
+- 项目职责：需求分析，功能迭代开发，优化性能和用户体验。
+- 技术难点/亮点：
+  - 响应式和主题切换
+  - 数据缓存预加载
+  - 封装可复用业务组件和方法
+- 技术描述：Umi 4 + React + TypeScript + AntDesign + AntV.G2
+
+### 移动端进件
+
+- 时间：2024-10 至 2026-03
+- 项目角色：前端开发
+- 项目描述：内嵌到小程序的h5页面。
+- 项目职责：需求分析，功能迭代开发，优化性能和用户体验。
+- 技术难点/亮点：
+  - 考虑不同产品进件的差异，提供统一的进件流程
+  - 封装可复用业务组件和方法
+- 技术描述：React + TypeScript + Vite + AntDesignMobile
+
+### 跨境相关系统
+
+- 时间：2024-12 至 2026-02
+- 项目角色：前端开发
+- 项目描述：客户平台、内部运营平台、官网。
+- 项目职责：需求分析，功能迭代开发，优化性能和用户体验。
+<!-- - 技术难点/亮点：xxx -->
+- 技术描述：Umi + React + TypeScript + AntDesign
+
+### xx部门运营平台
+
+- 时间：2025-12 至 2026-01
+- 项目角色：前端开发
+- 项目描述：提供给内部运营使用的相关功能，内嵌到统一运营平台，复用登录和权限管理等能力。
+- 项目职责：需求分析，技术方案选型，开发界面和交互功能，优化性能和用户体验。
+- 技术难点/亮点：
+  - 实现 ER 表达式客户端解析/序列化/验证方法和编辑组件
+  - 根据不同环境，判断是否显示头部/侧边栏/底部
+- 技术描述：Umi 4 + React + TypeScript + AntDesign
+
+<!-- ### xxxxx
+
+TODO 历史项目挑选1-2个描述，着重体现有技术难点/亮点
+
+- 时间：2026-02 至 2026-04
+- 项目角色：前端开发
+- 项目描述：xxx
+- 项目职责：xxx
+- 技术难点/亮点：
+  - 使用
+- 技术描述：xxx -->
+
+## 个人项目
+
+<!-- - [vite-template-doly](https://github.com/doly-dev/vite-template-doly) - 基于 create-vite/template-react-ts 扩展的脚手架
+- [cra-template-doly](https://doly-dev.github.io/cra-template-doly-site/latest/index.html) - 基于 Create React App + craco 扩展的脚手架
+- [doly-cli](https://www.npmjs.com/package/doly-cli) - 开箱即用的 react 应用开发工具
+- [rc-hooks](https://doly-dev.github.io/rc-hooks/latest/index.html#/hooks) - React Hooks Library
+- [doly-icons](https://doly-dev.github.io/doly-icons/latest/icons) - 基于 Bootstrap Icons 的 React 图标组件
+- [rc-slider-captcha](https://caijf.github.io/rc-slider-captcha) - React 滑块验证码组件
+- [antd-more](https://antd-more.vercel.app/components) - 基于 antd 扩展的业务场景组件。
+- [mobile-more](https://mobile-more.vercel.app/components) - 基于 antd-mobile 扩展的业务场景组件。
+- [util-helpers](https://doly-dev.github.io/util-helpers/index.html) - 基于业务场景的工具方法库
+- [ut2](https://caijf.github.io/ut2/index.html) - 现代 JavaScript 实用工具库
+- [cache2](https://www.npmjs.com/package/cache2) - 数据存储管理
+- [mockjs-extend](https://www.npmjs.com/package/mockjs-extend) - 基于 mockjs 扩展的 mock 数据生成工具
+- [lcn](https://www.npmjs.com/package/lcn) - 中国省市区行政区域数据
+- [bankcard](https://www.npmjs.com/package/bankcard) - 银行卡号校验工具
+- [create-puzzle](https://www.npmjs.com/package/create-puzzle) - 基于 canvas 实现的拼图验证码组件 -->
+
+### rc-slider-captcha
+
+- 项目描述：React 滑动验证码组件。有 100+ start。
+- 需求背景：业务项目需要，又没有找到合适的开源组件。
+- 项目地址：<https://github.com/caijf/rc-slider-captcha>
+- 文档站点：<https://caijf.github.io/rc-slider-captcha>
+- 技术描述：TypeScript + React + Jest + Dumi
+- 关联项目：
+  - <https://github.com/caijf/create-puzzle> - 浏览器端生成拼图和背景图。
+  - <https://github.com/caijf/node-puzzle> - Nodejs 生成拼图和背景图。
+
+<!-- - 技术亮点：
+  - 适配PC端/移动端/PC触摸屏
+  - 拼图和背景图通过异步获取
+  - 支持自定义校验逻辑
+  - 支持手动刷新
+  - 支持不同显示模式，嵌入式/触发式/纯滑块
+  - 支持自定义尺寸/样式/文本
+  - 支持验证失败错误处理 -->
+
+### antd-more
+
+- 项目描述：基于 antd 扩展的业务组件库。目前有几十个业务组件。
+- 需求背景：PC端跨项目复用业务组件，避免重复开发，提高开发效率和稳定性。
+- 文档站点：<https://antd-more.vercel.app>
+- 技术描述：AntDesign + TypeScript + React + Jest + Dumi
+
+### mobile-more
+
+- 项目描述：基于 antd-mobile 扩展的业务组件库。目前有几十个业务组件。
+- 需求背景：移动端跨项目复用业务组件，避免重复开发，提高开发效率和稳定性。
+- 文档站点：<https://mobile-more.vercel.app>
+- 技术描述：AntDesignMobile + TypeScript + React + Jest + Dumi
+
+### doly-icons
+
+- 项目描述：基于 Bootstrap Icons 的 React 图标组件。目前有 2000 多个图标。
+- 需求背景：业务项目和组件库开发需要用到基础图标。
+- 项目地址：<https://github.com/doly-dev/doly-icons>
+- 文档站点：<https://doly-dev.github.io/doly-icons/latest/icons>
+- 技术描述：TypeScript + React + Jest + Nodejs + Dumi
+
+<!-- - 技术亮点：
+  - 按需引用，无需担心增加项目体积
+  - 支持颜色、大小、动画等配置
+  - 支持自定义图标
+  - 图标库使用虚拟列表滚动，避免一次性渲染所有图标导致性能问题
+  - 支持下载svg、png格式文件
+  - 支持复制组件名称、JSX、SVG、PNG
+  - 支持类别和图标名称过滤，快速找到需要的图标 -->
+
+### rc-hooks
+
+- 项目描述：React 自定义 hooks 库。目前有 20+ 个hook。
+- 需求背景：跨项目复用。
+- 项目地址：<https://github.com/doly-dev/rc-hooks>
+- 文档站点：<https://doly-dev.github.io/rc-hooks/latest/index.html#/hooks>
+- 技术描述：TypeScript + React + Jest + Dumi
+
+### util-helpers
+
+- 项目描述：业务工具方法库。目前有 50+ 个方法，测试覆盖率100%。
+- 需求背景：跨项目复用。
+- 项目地址：<https://github.com/doly-dev/util-helpers>
+- 文档站点：<https://doly-dev.github.io/util-helpers/index.html>
+- 技术描述：TypeScript + Jest + JsDoc
+
+### ut2
+
+- 项目描述：现代 JavaScript 实用工具库。目前有 100+ 个方法，测试覆盖率100%。
+- 需求背景：个人觉得 lodash 包装嵌套过多，没有导出 es 模块，所以自己写了一个。
+- 项目地址：<https://github.com/caijf/ut2>
+- 文档站点：<https://caijf.github.io/ut2/index.html>
+- 技术描述：TypeScript + Jest + JsDoc
+
+### doly-cli
+
+- 项目描述：开箱即用的 React 应用开发命令行工具，包含 `init` `dev` `build` 命令。
+- 需求背景：用于替换历史项目的构建工具（fis），解决开发体验差、配置复杂、不支持热更新等问题。
+- 项目地址：<https://github.com/doly-dev/doly-cli>
+- 技术描述：Webpack 4 + Babel + Commander
+
+### vite-template-doly
+
+- 项目描述：基于 create-vite/template-react-ts 扩展的脚手架。
+- 需求背景：构建速度快，开发体验好。
+- 项目地址：<https://github.com/doly-dev/vite-template-doly>
+- 技术描述：React + TypeScript + Vite + Vitest + Mock + Eslint + Stylelint + Prettier + Husky + Lint-Staged + Commitlint
