@@ -112,8 +112,8 @@
 - node-puzzle: <https://github.com/caijf/node-puzzle>
 - util-helpers: <https://doly-dev.github.io/util-helpers/index.html>
 - rc-hooks: <https://doly-dev.github.io/rc-hooks/latest>
-- antd-more: <https://antd-more.vercel.app/>
-- mobile-more: <https://mobile-more.vercel.app/>
+- antd-more: <https://antd-more.caijf.top/>
+- mobile-more: <https://mobile-more.caijf.top/>
 
 [doly-cli]: https://github.com/doly-dev/doly-cli
 [util-helpers]: https://doly-dev.github.io/util-helpers/index.html
@@ -127,7 +127,7 @@
 [rc-slider-captcha]: https://caijf.github.io/rc-slider-captcha
 [create-puzzle]: https://github.com/caijf/create-puzzle
 [node-puzzle]: https://github.com/caijf/node-puzzle
-[antd-more]: https://antd-more.vercel.app/
-[mobile-more]: https://mobile-more.vercel.app/
+[antd-more]: https://antd-more.caijf.top/
+[mobile-more]: https://mobile-more.caijf.top/
 [doly-icons]: https://doly-dev.github.io/doly-icons/latest
 [rc-hooks]: https://doly-dev.github.io/rc-hooks/latest
