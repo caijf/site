@@ -105,6 +105,16 @@
 3. **搭建全流程脚手架体系**：开发 [doly-cli] 命令行工具，及 [cra-template-doly]、[vite-template-doly] 脚手架，内置路由、Axios 请求、Mock 数据、页面切换动画、代码规范检测、构建产物分析、Jest 测试基础配置等能力，提升开发体验和效率
 4. **开发通用工具库矩阵**：开源 [util-helpers]/[ut2] 实用工具库、[cache2] 数据存储管理库、[mockjs-extend] mock 数据生成工具、[lcn] 省市区数据工具、[bankcard] 银行卡校验工具等，完成核心方法单元测试，覆盖格式处理、存储管理、业务校验等多场景，解决各类业务专属痛点，为团队开发提效
 
+**部分开源项目地址**：
+
+- rc-slider-captcha: <https://caijf.github.io/rc-slider-captcha>
+- create-puzzle: <https://github.com/caijf/create-puzzle>
+- node-puzzle: <https://github.com/caijf/node-puzzle>
+- util-helpers: <https://doly-dev.github.io/util-helpers/index.html>
+- rc-hooks: <https://doly-dev.github.io/rc-hooks/latest>
+- antd-more: <https://antd-more.vercel.app/>
+- mobile-more: <https://mobile-more.vercel.app/>
+
 [doly-cli]: https://github.com/doly-dev/doly-cli
 [util-helpers]: https://doly-dev.github.io/util-helpers/index.html
 [ut2]: https://caijf.github.io/ut2/index.html
