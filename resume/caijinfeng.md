@@ -2,15 +2,17 @@
 
 ## 基本信息
 
+- 姓名：蔡金锋
 - 学历：本科
+- 手机：17521182015
 - 邮箱：[jinfeng.cai@qq.com](mailto:jinfeng.cai@qq.com)
 - GitHub：<https://github.com/caijf>
 
 ## 求职意向
 
-- 求职岗位：前端开发工程师
+- 求职岗位：资深前端开发/前端开发组长
 - 求职类型：社招
-- 意向城市：上海
+- 意向城市：上海/杭州
 
 ## 个人技能
 
@@ -33,7 +35,7 @@
 ### 快钱支付清算信息有限公司
 
 - 地点：上海
-- 时间：2017.08-至今
+- 时间：2017.08-2026.03
 - 职位：资深前端开发工程师
 - 工作内容：负责金融类前端项目研发与维护、前端工程化体系搭建、团队技术提效及跨团队协作
 - 工作成果：
@@ -101,7 +103,7 @@
 1. **自研多端业务组件库**：开发 [antd-more]（PC 端）、[mobile-more]（移动端）业务组件库及 [doly-icons] 图标组件、[rc-hooks] Hook 库，封装数十个场景化组件及 20 + 通用 Hook，完成核心单元测试覆盖，全公司项目复用率 100%，降低重复开发率
 2. **研发验证码解决方案**：打造 [rc-slider-captcha] React 滑块验证码组件（GitHub 190+ Star），配套开发 [create-puzzle] 前端拼图生成、[node-puzzle] 服务端拼图生成工具，实现前后端一体化验证码方案，落地于公司 10 + 业务项目，支持自定义拼图与验证逻辑
 3. **搭建全流程脚手架体系**：开发 [doly-cli] 命令行工具，及 [cra-template-doly]、[vite-template-doly] 脚手架，内置路由、Axios 请求、Mock 数据、页面切换动画、代码规范检测、构建产物分析、Jest 测试基础配置等能力，提升开发体验和效率
-4. **开发通用工具库矩阵**：开源 [util-helpers]/[ut2] 实用工具库、[cache2] 数据存储管理库、[mockjs-extend] mock 数据生成工具、[lcn] 省市区数据工具、[bankcard] 银行卡校验工具等，完成核心方法单元测试，覆盖格式处理、存储管理、业务校验等多场景，解决各类业务专属痛点，为团队开发效率提效
+4. **开发通用工具库矩阵**：开源 [util-helpers]/[ut2] 实用工具库、[cache2] 数据存储管理库、[mockjs-extend] mock 数据生成工具、[lcn] 省市区数据工具、[bankcard] 银行卡校验工具等，完成核心方法单元测试，覆盖格式处理、存储管理、业务校验等多场景，解决各类业务专属痛点，为团队开发提效
 
 [doly-cli]: https://github.com/doly-dev/doly-cli
 [util-helpers]: https://doly-dev.github.io/util-helpers/index.html
